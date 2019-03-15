@@ -1,0 +1,49 @@
+** 상속 (inheritance)
+1. 상위class의 field와 method를 하위class에서 객체생성 없이 사용.
+   단, private field와 method는 상속 X
+       생성자 상속 X
+2. extends keyword 사용.
+형식)
+접근제어자 class ClassName(하위) extends ClassName(상위) {
+
+}
+3. 클래스간의 상속은 단일 상속만 가능.
+   다중상속 불가능.
+   계층적 상속은 가능.
+4. 모든 클래스의 최상위 클래스는 Object 이다.
+5. method overriding(재정의) : 하위클래스의 기능에 맞게끔 재정의
+   method의 선언은 그대로..(단, 접근제어자는 넓은 의미로 변경 가능)
+6. this
+   super : 상위클래스 참조변수
+
+   this()
+   super() : 상위클래스의 생성자 호출.
+7. 다형성 : 하위 클래스를 참조하여 상위 클래스의 객체를 생성.
+   A.class(상위)  B.class(하위)
+   A a = new A();
+   B b = new B();
+   A a = new B();
+8. class의 관계
+   has a : 집합
+   is a  : 상속
+
+
+
+
+상위		자동차 - 차이름, 색상, 제조사, 속도
+		(Car)	 가속(), 감속(), 정지()
+
+
+하위	택시(Taxi) 150		버스(Bus) 110		트럭(Truck) 100
+	요금(price)		승객수(pcount)		중량(weight), 총중량(maxWeight)
+	요금계산()		타다()			상차()
+	calcPrice(int km)	getOn(int pcount)	loadUp(int weight)
+				내리다()		하차()
+				getOut(int pcount)	loadDown(int weight)
+
+
+
+
+
+
+

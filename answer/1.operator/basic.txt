@@ -1,0 +1,195 @@
+* java setting
+1. oracle.com >> jdk download >> 설치
+2. 환경변수 설정. (컴퓨터 오른 마우스 >> 속성 >> 고급시스템설정 >> 환경변수 >> 시스템변수)
+  /////////////////// 새로만들기 ///////////////////
+  	변수 이름	값
+  2-1.	JAVA_HOME	C:\Program Files\Java\jdk1.8.0_202
+  2-2.	CLASSPATH	.
+  /////////////////// 편집 /////////////////////
+  2-3.	Path		%JAVA_HOME%\bin;          C:\app\KITRIGAME\product\11.2.0\dbhome_1\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\GtkSharp\2.12\bin
+3. 설정 확인 (cmd)
+> java -version
+java version "1.8.0_202"
+Java(TM) SE Runtime Environment (build 1.8.0_202-b08)
+Java HotSpot(TM) 64-Bit Server VM (build 25.202-b08, mixed mode)
+
+> javac
+Usage: javac <options> <source files>
+where possible options include:
+  -g                         Generate all debugging info
+  .
+  .
+  .
+  .
+  .
+
+* 실행 방법
+			 (byte code)
+*.java	      >>       compile        >>     *.class       >>     run     >>     result
+HelloJava.java			         HelloJava.class		     Hello Java !!!!
+                 javac HelloJava.java			    java HelloJava
+
+------------------------------------------------------------------------------
+* 순서
+1. 변수(variable) (자료형, data type)
+2. 연산자(operator)
+3. 제어문(조건문[if, switch ~ case], 반복문[for, while, do ~ while])
+4. class (일반, 추상, 내부, interface), 상속
+   - field (속성)
+   - method (기능)
+5. package
+   - 사용자정의 package
+   - system package
+     - java.lang
+     - java.io
+     - java.net
+     - java.util
+     - java.awt
+     - java.sql
+     .
+     .
+     .
+-----------------------------------------------------------------------------
+* 접근제어자 (access modifier)
+  private	자신의 클래스 안에서만 사용가능.
+  default(생략)	private + 같은 package(폴더)안에서는 사용 가능.
+  protected	default + package가 달라도 두 클래스가 상속 관계일 경우 사용가능.
+  public	조건 제한 없이 사용가능.
+
+* 자료형 (data type)
+  data type 
+    - 기본형 DT		DT		size	etc
+      - 논리형		boolean		1byte	true, false
+      - 문자형		char		2	'1', 'a', '김',    'abc' << X
+      						특수문자 : '\t'(tab), '\n'(개행), '\''('), '\"'("), '\\'(\)      
+      - 숫자형		
+        - 정수형	byte		1
+			short		2
+			int		4
+			long		8
+	- 실수형	float		4
+			double		8
+
+    - 참조형 DT : Object, 배열(array)
+
+* 명명규칙
+1. 영문, 숫자, 한글가능. 영문으로 시작.(숫자시작 X)
+2. 클래스는 대문자로, 메소드나 변수는 소문자로 시작.
+   합성어의 경우 단어의 첫글자를 대문자로. (Camel case)
+3. 특수문자 사용 X (단, _ $는 가능.)
+4. 예약어 사용 X
+
+* 주석문.
+// : 한줄 주석
+
+/*
+.
+.
+.
+*/ : 여러줄 주석.
+
+/**
+*
+*
+*/ : document 주석.
+
+1. 변수(Variable) : 하나의 값을 저장하는 공간.
+  1-1. 기본형(primitive) Data Type
+    1-1-1. 선언
+      형식)
+	접근제어자 자료형 변수명;
+      예)
+        private int age;
+	char gender;
+	public String carName;
+	boolean flag;
+
+    1-1-2. 사용(값저장, 값할당)
+      형식)
+	변수명 = 값;
+      예)
+        age = 25;
+	gender = '남';
+	carName = "쏘나타";
+	flag = true;
+
+
+	>>>>>>>>>>>>>>> 1, 2를 동시에..
+	형식)
+	  접근제어자 자료형 변수명 = 값;
+	예)
+	  private int age = 25;
+	  char gender = '여';
+	  public String carName = "쏘나타";
+	  boolean flag = true;
+
+
+  1-2. 참조형(reference) Data Type
+
+
+2. 연산자 (Operator)
+  2-1. 단항연산자
+   a. 1증가(감소)연산자 : ++, --
+      변수++ : 선실행 후증가
+      ++변수 : 선증가 후실행
+      예)
+      int x = 10;
+      S.o.p(x);		10
+      S.o.p(x++);	10	11	
+      S.o.p(--x);	10	10	
+      S.o.p(x++);	10	11
+      S.o.p(++x);	12	12
+      S.o.p(x--);	12	11
+      S.o.p(--x);	10	10
+      S.o.p(x++);	10	11
+      S.o.p(x);		11
+
+  2-2. 이항연산자
+    a. 산술연산자 : *, /, %(나머지), +, -
+    b. 비교연산자
+      >, >=, <, <=, ==, !=
+      instance of : 객체의 type 비교
+    c. 논리연산
+      &&(and)
+      ||(or)
+       &&  T	F	||  T	F
+       -----------	----------
+       T   T	F	T   T	T
+       F   F	F	F   T	F
+
+  2-3. 삼항연산자
+    a. 조건(conditions) ? 값1 : 값2;
+      조건 true	>> 값1
+           false  >> 값2
+  2-4. 대입연산자 : =, +=, -=, *=, /=, %=
+
+
+test)
+int x = 10;
+x의 값을 1증가시키는 방법?
+x++;
+++x;
+x = x + 1;
+x += 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
