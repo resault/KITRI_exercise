@@ -4,14 +4,11 @@
 */
 public class Lotto {
 	public static void main(String[] args) {
-		int num1 = (int) (Math.random() * 45) +1;
-		int num2;
-		int num3;
-		int num4;
-		int num5;
-		int num6;
+		//int num1 = (int) (Math.random() * 45) +1;//num1의 값은 6게임 모두 동일해짐
+		int num1, num2, num3, num4, num5, num6;
 		
 		for(int i=0;i<6;i++) {
+			num1 = (int)(Math.random() * 45) +1;
 			do{
 				num2 = (int) (Math.random() * 45) +1;
 			} while(num1 == num2);
