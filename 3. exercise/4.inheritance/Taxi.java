@@ -66,8 +66,8 @@ public class Taxi extends Car {
 	//overriding
 	@Override
 	public int speedUpDown(int speed) {
-		speed= super.speedUpDown(speed);
-		if(speed > 150)
+		super.speedUpDown(speed);
+		if(this.speed > 150)
 			this.speed = 150;
 		return this.speed;
 	}
