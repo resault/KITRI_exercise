@@ -16,7 +16,7 @@ public class RockScissorsPaperGame {
 	
 	//method
 	private void comRandom() {
-		com = (int)(Math.random() *2)+1;
+		com = (int)(Math.random() *3);//*3
 	}
 
 
@@ -36,12 +36,12 @@ public class RockScissorsPaperGame {
 
 	private void game(int my) throws Exception {
 		
-		if(my-com == 2) 
+		if((my-com)* == 2)//수식 수정 
 			result = "비겼다.";
 		else if(my-com == 1)
-			result = "졌다.";
-		else
 			result = "이겼다.";
+		else
+			result = "졌다.";
 
 		System.out.println("나 : " + (my==0 ? "가위" : (my==1 ? "바위" : "보")) +
 			"       컴퓨터 : " + (com==0 ? "가위" : (com==1 ? "바위" : "보")) + "    결과는 : " + result);
@@ -70,7 +70,7 @@ public class RockScissorsPaperGame {
 		
 		System.out.println("==== 컴퓨터와 가위바위보 한판!!! =====");
 		
-		for(;;) {
+		for(;;) {//while로 변경
 			rspGame.menu();
 			rspGame.comRandom();
 			rspGame.game(rspGame.my);

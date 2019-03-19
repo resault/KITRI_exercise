@@ -1,34 +1,36 @@
 public class SmartPhone {
-	//field
+	
 	private String maker;
 	private String name;
 	private int price;
 	private int discountRate;
 
-	//constructor
 	public SmartPhone(String maker, String name, int price) {
-		this(maker, name, price, 0);
+		super();
+		this.maker = maker;
+		this.name = name;
+		this.price = price;
 	}
 
 	public SmartPhone(String maker, String name, int price, int discountRate) {
+		super();
 		this.maker = maker;
 		this.name = name;
 		this.price = price;
 		this.discountRate = discountRate;
 	}
 
-	//method
 	public int calculateDiscount() {
-		return (int)(price * (100-discountRate) / 100);
+		return (int) (price * (1.0 - (double)discountRate/100));
 	}
 
-	public void info() {
-		System.out.println(name + " ["+ maker + "] ");
-		System.out.println("가격 : " + price);
-		if (discountRate != 0)	{
-			System.out.println("할인가격 : " + calculateDiscount());
-		}
-		System.out.println("-------------------");
+	@Override
+	public String toString() {
+		String str = name + " [" + maker + "]\n가격 : " + price;
+		if(discountRate != 0)
+			str += "\n할인가격 : " + calculateDiscount();
+		str += "\n------------------"; 
+		return str;
 	}
 
 }
