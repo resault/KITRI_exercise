@@ -1,0 +1,65 @@
+** 추상클래스(Abstract Class)
+1. 추상메소드를 하나이상 가진 클래스.
+2. abstract keyword 사용.
+형식)
+접근제어자 abstract class ClassName {
+
+	변수(field)
+	접근제어자 DT varName;
+
+	생성자(Constructor)
+	접근제어자 ClassName([args]) {
+
+	}
+
+	메소드(method)
+	접근제어자 RT methodName([args]) {//구현메소드
+
+	}
+
+	접근제어자 abstract RT methodName([arg]);//추상메소드
+
+}
+
+3. 추상 클래스는 하위 클래스를 제어하기 위해 사용.
+4. 추상 클래스는 자신의 생성자를 이용하여 객체 생성 불가능.
+  >> 추상클래스를 하위클래스에 상속 시킨 후 
+     반드시 추상메소드를 override후 사용.
+     >> 하위 클래스를 참조하여 상위(추상) 클래스의 객체를 생성
+        >> 다형성
+
+5. 객체 생성 방법
+  a. 하위 클래스 참조.
+  b. 자신의 객체를 return하는 static method이용.
+  c. 외부 클래스를 이용.
+  d. 자신의 생성자를 이용.
+
+
+
+
+
+		abstract 예금 - 입금() {+m}, 출금() {-m}, abstract 이자();
+
+
+일반예금	정기예금	펀드예금
+이자() {	리자() {	benefit() {
+   0.5		   0.7		  0.8
+}		}		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
