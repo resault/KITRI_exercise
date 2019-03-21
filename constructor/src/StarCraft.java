@@ -46,8 +46,8 @@ public class StarCraft {
 		count = 3;
 		System.out.println("내가 적을 " + count + "회 공격!!!");
 		my.attack(com, count);
-		String die = 
-		System.out.println("내체력: "+ my.hp + "/ 적체력: " + com.hp + '\n');
+		//String die = 
+		//System.out.println("내체력: "+ my.hp + "/ 적체력: " + com.hp + '\n');
 		//내체력: 35	적체력: die
 		
 

@@ -1,4 +1,4 @@
-package com.kitri.test;
+package car;
 
 import com.kitri.car.Car;
 

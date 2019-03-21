@@ -26,9 +26,8 @@ public class OperTest5 {
 		System.out.println(x);
 
 		int z = 0 / 10;
-		Systeem.out.println("z == " + z);
+		System.out.println("z == " + z);
 
-		z = 
 
 	}
 }

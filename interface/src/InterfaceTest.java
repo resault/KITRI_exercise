@@ -18,14 +18,14 @@ public class InterfaceTest extends Frame {
 		setVisible(true);
 
 		//1.자신의 생성자를 이용하여 객체 생성
-		WindowListener wl = new WindowListener() {
+//		WindowListener wl = new WindowListener() {
 		
 		
 		
 		}
-		addWindowListener(wl);//
+//		addWindowListener(wl);//
 		
-	}
+	
 	
 	public static void main(String[] args)	{
 		InterfaceTest ift = new InterfaceTest();
