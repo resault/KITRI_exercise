@@ -1,3 +1,5 @@
+package car.tire;
+
 public class KumhoTire extends Tire {
 
 	public KumhoTire(String location, int maxRotation) {
@@ -7,7 +9,7 @@ public class KumhoTire extends Tire {
 	@Override
 	public boolean roll() {
 		accumulatedRotation++;
-		if(accumulatedRotation >= maxRotation) {
+		if (accumulatedRotation >= maxRotation) {
 			System.out.println("*** " + location + " KumhoTire ÆãÅ© ***");
 			return false;
 		} else {

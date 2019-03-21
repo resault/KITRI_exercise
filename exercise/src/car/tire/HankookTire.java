@@ -1,3 +1,5 @@
+package car.tire;
+
 public class HankookTire extends Tire {
 
 	public HankookTire(String location, int maxRotation) {
@@ -7,7 +9,7 @@ public class HankookTire extends Tire {
 	@Override
 	public boolean roll() {
 		accumulatedRotation++;
-		if(accumulatedRotation >= maxRotation) {
+		if (accumulatedRotation >= maxRotation) {
 			System.out.println("*** " + location + " HankookTire ÆãÅ© ***");
 			return false;
 		} else {
@@ -16,5 +18,4 @@ public class HankookTire extends Tire {
 		}
 	}
 
-	
 }

@@ -1,3 +1,4 @@
+package car.tire;
 /*
 1. field
 - 최대회전수(maxRotation) : 타이어 수명. 최대회전수에 도달하면 펑크남
@@ -7,6 +8,7 @@
 2. method
 - boolean roll() : 타이어를 1회전 시킴. true/false(펑크)
 */
+
 public class Tire {
 
 	int maxRotation;
@@ -20,7 +22,7 @@ public class Tire {
 
 	public boolean roll() {
 		accumulatedRotation++;
-		if(accumulatedRotation >= maxRotation) {
+		if (accumulatedRotation >= maxRotation) {
 			System.out.println("*** " + location + " Tire 펑크 ***");
 			return false;
 		} else {
