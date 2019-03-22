@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 		xxx는 x번째만에 정답입니다.
 		계속(1), 종료(0) :
 	6-2 strike가 3이 아니라면
-		1. xxx는 x스트라이크 x볼입니다. >> 3번으로
+		1. xxx는 x스트라이크 x볼입니다. >> 3번으로!
 */
 
 public class NumberBaseBall {
