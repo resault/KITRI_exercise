@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 /*
+ * 다시 볼것!
 0. com, my 3자리 배열
 1. com 세자리 난수 발생 >> comRandom()
 2. 1의 숫자는 중복 불가, 0으로 시작 불가
