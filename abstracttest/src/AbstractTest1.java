@@ -2,7 +2,7 @@ import java.util.*;
 
 public class AbstractTest1 {
 	public static void main(String[] args)	{
-		//1. 하위 클래스 참조1
+		//1. 하위 클래스 참조
 		//Calendar cal = new Calendar(); //api확인해보면, Calendar는 추상클래스이므로 생성 불가
 		Calendar cal1 = new GregorianCalendar(); //Calendar의 하위클래스를 참조하여 객체 생성
 
