@@ -15,10 +15,10 @@ public class arraytest1 {
 		x[2] = 30;
 		System.out.println("x1 =" + x[0] + " x2 =" + x[1] +" x3 =" + x[2]);
 		
-		for(int i=0;i<x.length;i++)
+		int len = x.length;
+		for(int i=0;i<len;i++)
 			System.out.print("x" + (i+1) +" = "+ x[i] + "\t\t");
 		
-		int len = x.length;
 		System.out.println("배열의 길이 : " + len);
 	}
 }
