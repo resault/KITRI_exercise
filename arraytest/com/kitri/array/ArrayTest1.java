@@ -16,12 +16,12 @@ public class ArrayTest1 {
 		x[2] = 30;
 		System.out.println("x[0] = " + x[0] + "\tx[1] = " + x[1] 
 				+ "\tx[2] = " + x[2]);
-		for(int i=0;i<3;i++)
-			System.out.print("x[" + i + "] = " + x[i] + "\t");
-		
 		
 		int len = x.length;
-		System.out.println("배열의 길이 : " + len);
+		for(int i=0;i<len;i++)
+			System.out.print("x[" + i + "] = " + x[i] + "\t");
+		
+		System.out.println("\n배열의 길이 : " + len);
 		
 	}
 	
