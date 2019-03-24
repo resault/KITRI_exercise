@@ -40,7 +40,7 @@ public class ArrayTest2 {
 		}
 
 		// QM5 찾기 //answer 참고!!
-		name = "QM5";
+		
 
 		/*
 		 * boolean check = true;
