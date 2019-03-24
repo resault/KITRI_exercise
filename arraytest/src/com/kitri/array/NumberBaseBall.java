@@ -69,7 +69,7 @@ public class NumberBaseBall {
 	private void game() {
 		while (true) {
 			System.out.println("" + com[0] + com[1] + com[2]);
-			System.out.println("숫자입력 : ");
+			System.out.print("숫자입력 : ");
 			int myNum = getNumber();
 			count++;
 
@@ -84,10 +84,13 @@ public class NumberBaseBall {
 			for (int i = 0; i < len; i++) {
 				for (int x = 0; x < len; x++) {
 					if (my[i] == com[x]) {
-						if (i == x)
+						if (i == x) {
 							strike++;
-						else
+							break;
+						} else {
 							ball++;
+							break;
+						}
 
 					}
 				}
@@ -96,7 +99,7 @@ public class NumberBaseBall {
 			if (strike != 3) {
 				System.out.println(count + ". " + myNum + "는 " + strike + "스트라이크 " + ball + "볼입니다.");
 			} else {
-				System.out.println(myNum + "는 " + count + " 번째만에 정답입니다.\n계속(1), 종료(0) : ");
+				System.out.print(myNum + "는 " + count + "번째만에 정답입니다.\n계속(1), 종료(0) : ");
 				if (getNumber() == 0)
 					exit();
 				else {

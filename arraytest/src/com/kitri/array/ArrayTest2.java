@@ -4,14 +4,15 @@ public class ArrayTest2 {
 
 	public static void main(String[] args) {
 		Car car[] = new Car[6];
+		System.out.println(car);
+		System.out.println(car[0]);
+//		System.out.println(car[0].getCarName());//car[0]이 null이라서 null point exception
 		car[0] = new Car("쏘나타", "검정색", "현대");
 		car[1] = new Car("K5", "흰색", "기아");
 		car[2] = new Car("SM5", "은색", "삼성");
 		car[3] = new Car("아반떼", "흰색", "현대");
 		car[4] = new Car("니어로", "비둘기색", "기아");
 		car[5] = new Car("싼타페", "검정색", "현대");
-
-//		System.out.println(car[0].getCarName());//car[0]이 null이라서 null point exception
 
 		int len = car.length;
 		for (int i = 0; i < len; i++)
@@ -38,23 +39,36 @@ public class ArrayTest2 {
 			}
 		}
 
-		// QM5 찾기	//answer 참고!!
+		// QM5 찾기 //answer 참고!!
 		name = "QM5";
-		boolean check=true;
 
+		/*
+		 * boolean check = true;
+		 * 
+		 * for (int i = 0; i < len; i++) { if (name.equals(car[i].getCarName())) {
+		 * System.out.println(car[i].getColor() + " " + car[i].getCarName() + "(" +
+		 * car[i].getMaker() + ")은 " + (i + 1) + "번째에 있습니다."); check = true; break; }
+		 * else { check = false; } } if (check = false) System.out.println(name +
+		 * "은 없습니다.");
+		 */
+
+		name = "QM5";
+		Car findCar = null;
+		int count = 0;
 		for (int i = 0; i < len; i++) {
 			if (name.equals(car[i].getCarName())) {
-				System.out.println(car[i].getColor() + " " + car[i].getCarName() + "(" + car[i].getMaker() + ")은 "
-						+ (i + 1) + "번째에 있습니다.");
-				check = true;
+				findCar = car[i];
+				count = i + 1;
 				break;
-			} else {
-				check = false;
 			}
 		}
-		if (check = false)
-			System.out.println(name + "은 없습니다.");
 
+		if (findCar != null) {
+			System.out.println(findCar.getColor() + " " + findCar.getCarName() + "(" + findCar.getMaker() + ")은 "
+					+ count + "번째구역에 있습니다.");
+		} else {
+			System.out.println(name + "은 없습니다.");
+		}
 		// switch는 안되나?
 	}
 }
