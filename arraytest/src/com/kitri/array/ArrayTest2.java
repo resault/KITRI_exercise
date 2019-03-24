@@ -53,22 +53,7 @@ public class ArrayTest2 {
 		 */
 
 		name = "QM5";
-		Car findCar = null;
-		int count = 0;
-		for (int i = 0; i < len; i++) {
-			if (name.equals(car[i].getCarName())) {
-				findCar = car[i];
-				count = i + 1;
-				break;
-			}
-		}
-
-		if (findCar != null) {
-			System.out.println(findCar.getColor() + " " + findCar.getCarName() + "(" + findCar.getMaker() + ")은 "
-					+ count + "번째구역에 있습니다.");
-		} else {
-			System.out.println(name + "은 없습니다.");
-		}
+		
 		// switch는 안되나?
 	}
 }
