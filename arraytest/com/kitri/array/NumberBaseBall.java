@@ -23,37 +23,74 @@ import java.io.InputStreamReader;
 
 public class NumberBaseBall {
 	
-	private int my[] = new int[3];
-	private int com[] = new int[3];
+	private int my[];
+	private int com[];
 	BufferedReader in;
+	int gameLength;
 	
 	public NumberBaseBall() {
+		gameLength = 3;
+		my = new int[gameLength];
+		com = new int[gameLength];
 		comRandom();
 		in = new BufferedReader(new InputStreamReader(System.in));
 	}
 	
 	private void comRandom() {
-		com[0] = ;		
-		com[1] = ;		
-		com[2] = ;		
+		com[0] = (int) (Math.random() * 9) + 1;	
+		do {
+			com[1] = (int) (Math.random() * 10);
+		}while (com[0] == com[1]);
+		do {
+			com[2] = (int) (Math.random() * 10);
+		}while (com[0] == com[2] || com[1] == com[2]);	
+		System.out.println("컴터 : " + com[0] + com[1] + com[2]);
 	}
 	
 	private void game() {
+		int count = 0;
+		int strike;
+		int ball;
 		while(true) {
+			strike = 0;
+			ball = 0;
 			System.out.print("숫자입력 : ");
 			int myNum = getNumber();//149
-			my[0] = ;//1
-			my[1] = ;//4
-			my[2] = ;//9
+			my[0] = myNum / 100;//1
+			my[1] = myNum / 10 % 10;//4
+			my[2] = myNum % 10;//9
 			
-			//숫자와 자리수 비교
+//			숫자와 자리수 비교
+//			328		149
+			for (int m = 0; m < gameLength; m++) {
+				for (int c = 0; c < gameLength; c++) {
+					if(my[m] == com[c]) { //같은 숫자라면..
+						if(m == c)//자리수 같다면...
+							strike++;
+						else
+							ball++;
+					}
+				}
+			}
+			count++;
 			
 			
-			//결과
-			if(strike != 3) {
-				
+//			결과
+			if(strike == 3) {
+				System.out.println(myNum + "을 " + count + "번만에 정답입니다.");
+				System.out.print("계속(1), 종료(0) : ");
+				int num = getNumber();
+				if(num == 1) {
+					comRandom();
+//					strike = 0;
+//					ball = 0;
+					count = 0;
+				} else {
+					System.out.println("프로그램을 종료합니다.!!!");
+					System.exit(0);
+				}
 			} else {
-				
+				System.out.println(count + ". " + myNum + "은 " + strike + "스트라이크 " + ball + "볼입니다.");
 			}
 		}
 	}
