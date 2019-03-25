@@ -30,11 +30,10 @@ public class StringTest4 {
 		}
 
 		// 8) 	toCharArray()
-//		len2 = str2.length(); //String의 length는 method
-		len2 = str2.length();
+		len2 = str2.length(); //String의 length는 method
 		char[] c = str2.toCharArray();
 		for (int i = 0; i < len2; i++) {
-			System.out.println("c["+ i +"] == " + c[i]); // 에러 잡을것 
+			System.out.println("c["+ i +"] == " + c[i]); 
 		}
 		
 		

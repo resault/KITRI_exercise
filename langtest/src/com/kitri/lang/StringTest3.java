@@ -19,34 +19,47 @@ public class StringTest3 {
 		System.out.println("x == " + x);
 
 			// ex. 문자열이 숫자인지 아닌지 판별
+//		수업때 풀었던 코드 (굳이.. str을 int 배열에 담고, 새로 for문 돌려서 문자/숫자 확인함..)
+//		str = "1a2";
+//		int len = str.length();
+//		int[] checkStr = new int[len];
+//		for (int i = 0; i < len; i++) {
+//		      checkStr[i] = str.charAt(i) - 48;
+//		      System.out.println("for문 " + checkStr[i]);
+//		}
+//		            // 문자면 false 반환
+//		boolean result = false;
+//		for (int i = 0; i < len; i++) {
+//		      if (checkStr[i] >= 0 && checkStr[i] < 10) {
+//		            result = true;
+//		      } else {
+//		            result = false;
+//		            break;
+//		      }
+//		}
+//		if (result)
+//		      System.out.println(str + "은 숫자입니다.");
+//		else
+//		      System.out.println(str + "은 숫자가 아닙니다.");
+		
+		
 		str = "1a2";
 		int len = str.length();
 		System.out.println("length == " + len);
-
-				// 숫자로 변환해서 배열에 입력
-		int[] checkStr = new int[len];
+		
+		String result = "숫자입니다.";
 		for (int i = 0; i < len; i++) {
-			checkStr[i] = str.charAt(i) - 48;
-			System.out.println("for문 " + checkStr[i]);
-		}
-
-				// 문자면 false 반환
-		boolean result = false;
-		for (int i = 0; i < len; i++) {
-			if (checkStr[i] >= 0 && checkStr[i] < 10) {
-				result = true;
-			} else {
-				result = false;
+			int num = str.charAt(i) - 48;
+			if(num < 0 || num > 9) {
+				result = "숫자가 아닙니다.";
 				break;
 			}
 		}
-
-		if (result)
-			System.out.println(str + "은 숫자입니다.");
-		else
-			System.out.println(str + "은 숫자가 아닙니다.");
+		System.out.println(str + "은 " + result);
 		
-		//>>>> ex 다시 풀기!
+
+		
+		
 		
 		
 		// 2)  concat(String str)
@@ -67,14 +80,14 @@ public class StringTest3 {
 		
 		if(str.endsWith("!!"))
 			System.out.println(str + "은 !!로 끝난다.");
-		
+	
 		
 		// 4)  	equals(Object anObject)
 		String s1 = "jAva";
 		String s2 = "JavA";
 		System.out.println("s1.toUpperCase() == " + s1.toUpperCase());
 		System.out.println("s2.toLowerCase() == " + s2.toLowerCase());
-
+		
 		if(s1.equals(s2))
 			System.out.println(s1 + "과 " + s2 + "는 같은 문자열이다.");
 		else
@@ -86,12 +99,10 @@ public class StringTest3 {
 			System.out.println(s1 + "과 " + s2 + "는 대소문자 구분없이 다른 문자열이다.");
 		
 		// 5) 	equalsIgnoreCase(String anotherString)
-		if(s1.equalsIgnoreCase(s2)) // ?? .equals 앞이 int형 변수이면 에러날까?
+		if(s1.equalsIgnoreCase(s2))
 			System.out.println(s1 + "과 " + s2 + "는 대소문자 구분없이 같은 문자열이다.");
 		else
 			System.out.println(s1 + "과 " + s2 + "는 대소문자 구분없이 다른 문자열이다.");
-		
-		
 		
 		
 		

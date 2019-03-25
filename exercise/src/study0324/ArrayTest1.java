@@ -1,6 +1,6 @@
 package study0324;
 
-public class arrayTest1 {
+public class ArrayTest1 {
 	
 	public static void main(String[] args) {
 		//기본DT 배열
