@@ -2,8 +2,6 @@ package com.kitri.awt.design;
 
 import java.awt.*;
 
-import javafx.scene.layout.Border;
-
 public class ColorSelector extends Frame {
 	
 	Panel pL = new Panel();
@@ -19,9 +17,9 @@ public class ColorSelector extends Frame {
 	Label lR = new Label("»¡°­");
 	Label lG = new Label("ÃÊ·Ï");
 	Label lB = new Label("ÆÄ¶û");
-	Scrollbar sbR = new Scrollbar(Scrollbar.HORIZONTAL);
-	Scrollbar sbG = new Scrollbar(Scrollbar.HORIZONTAL);
-	Scrollbar sbB = new Scrollbar(Scrollbar.HORIZONTAL);
+	Scrollbar sbR = new Scrollbar(Scrollbar.HORIZONTAL, 127, 5, 0, 255);
+	Scrollbar sbG = new Scrollbar(Scrollbar.HORIZONTAL, 127, 5, 0, 255);
+	Scrollbar sbB = new Scrollbar(Scrollbar.HORIZONTAL, 127, 5, 0, 255);
 	
 	
 	Label colorL = new Label();
@@ -32,46 +30,40 @@ public class ColorSelector extends Frame {
 	public ColorSelector() {
 		super("ColorSelector");
 
-		pLL.setBackground(Color.BLUE);
-		pLL.setLayout(new BorderLayout());
+		pLL.setLayout(new BorderLayout(10, 10));
 		pLL.add(lR, "North");
 		pLL.add(lG, "Center");
 		pLL.add(lB, "South");
 		
-		pLR.setBackground(Color.GREEN);
 		pLR.setLayout(new BorderLayout());
+		sbR.add(ranger);
 		pLR.add(sbR, "North");
 		pLR.add(sbG, "Center");
 		pLR.add(sbB, "South");
-
-		pLC.setBackground(Color.PINK);
+		
+		
 		pLC.setLayout(new BorderLayout());
-		pLC.add(pLL, "West");
+		pLC.add(new Label(), "South");
 		pLC.add(pLR, "Center");
+		pLC.add(pLL, "West");
+		pLC.add(new Label(), "North");
+		
+		pL.setLayout(new BorderLayout(0, 5));
+		pL.add(pLC, "Center");
+		pL.add(new Label(), "North");
+		pL.add(new Label(), "South");
 		
 		
-		pL.setBackground(Color.GRAY);
-		pL.setLayout(new BorderLayout());//o
-		pL.add(pLC, "North");
-		
-		
-		
-		
-		
-		
-		pRS.setBackground(Color.ORANGE);
-		pRS.setLayout(new BorderLayout());
+//		pRS.setBackground(Color.ORANGE);
+		pRS.setLayout(new BorderLayout(5, 0));
 		pRS.add(colorL, "Center");
 		pRS.add(ok, "East");
 		
-		pR.setBackground(Color.RED);
-		pR.setLayout(new BorderLayout());
+		pR.setLayout(new BorderLayout(0, 5));
 		pR.add(pRS, "South");
-		colorP.setBackground(Color.CYAN);
 		pR.add(colorP, "Center");
 
-		setBackground(Color.YELLOW);
-		setLayout(new GridLayout(0, 2));//end
+		setLayout(new GridLayout(0, 2, 5, 0));//end
 		add(pL);
 		add(pR);
 		
