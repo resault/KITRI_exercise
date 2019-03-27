@@ -12,7 +12,7 @@ public class DateFormatTest {
 		System.out.println(date);
 //		System.out.println(date.toString()); // 위에는 toString 생략된거지?
 		
-		Format f = new SimpleDateFormat("yyyy.MM.dd HH:m:s");
+		Format f = new SimpleDateFormat("yyyy.MM.dd HH:m:ss");
 //		Format f = new SimpleDateFormat("yyyy/MM/dd HH:m:s");
 //		Format f = new SimpleDateFormat("yyyy-MM-dd HH:m:s");
 //		Format f = new SimpleDateFormat("yyyy MM dd HH:m:s");
