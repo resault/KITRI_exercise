@@ -14,10 +14,10 @@ public class ItemTest extends Frame {
 	Panel pN = new Panel();
 	Panel pS = new Panel();
 
-	CheckboxGroup eat = new CheckboxGroup();
-	Checkbox mor = new Checkbox("아침", eat, true);
-	Checkbox aft = new Checkbox("점심", eat, false);
-	Checkbox eve = new Checkbox("저녁", eat, false);
+	CheckboxGroup cg = new CheckboxGroup();
+	Checkbox mor = new Checkbox("아침", cg, true);
+	Checkbox aft = new Checkbox("점심", cg, false);
+	Checkbox eve = new Checkbox("저녁", cg, false);
 
 	Checkbox app = new Checkbox("사과", true);
 	Checkbox banana = new Checkbox("바나나");
@@ -47,13 +47,13 @@ public class ItemTest extends Frame {
 		pS.add(ch, "Center");
 		pS.add(exit, "East");
 		
-		setLayout(new BorderLayout(10, 5));
+		setLayout(new BorderLayout(0, 10));
 		
-		add(pN, "North"); //??
+		add(pN, "North"); 
 		add(ta, "Center");
 		add(pS, "South");
 
-		setBounds(300, 500, 300, 400);
+		setBounds(500, 300, 300, 400);
 		setVisible(true);
 	}
 	

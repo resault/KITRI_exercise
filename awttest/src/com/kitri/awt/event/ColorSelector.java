@@ -1,8 +1,10 @@
-package com.kitri.awt.design;
+package com.kitri.awt.event;
 
 import java.awt.*;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 
-public class ColorSelector extends Frame {
+public class ColorSelector extends Frame implements AdjustmentListener{
 	
 	Panel p1 = new Panel();
 	Panel p11 = new Panel();
@@ -66,12 +68,22 @@ public class ColorSelector extends Frame {
 		add(p1);
 		add(p2);
 		
-		
-		
-		
 		setBounds(300, 400, 500, 300);
 		setVisible(true);
+
+		sbR.addAdjustmentListener(this);
+		sbG.addAdjustmentListener(this);
+		sbB.addAdjustmentListener(this);
 		
+		changeColor();
+	}
+	
+	@Override
+	public void adjustmentValueChanged(AdjustmentEvent e) {
+		changeColor();
+	}
+
+	private void changeColor() {
 		int r = sbR.getValue();
 		int g = sbG.getValue();
 		int b = sbB.getValue();
@@ -80,8 +92,9 @@ public class ColorSelector extends Frame {
 		colorL.setText("r = " + r + "\tg = " + g + "\tb = " + b);
 	}
 	
-	
 	public static void main(String[] args) {
 		new ColorSelector();
 	}
+
+
 }
