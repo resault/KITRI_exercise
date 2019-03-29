@@ -3,7 +3,7 @@ package com.kitri.awt.event;
 import java.awt.*;
 import java.awt.event.*;
 
-public class ItemTest extends Frame implements ItemListener, ActionListener {
+public class ItemTest extends Frame {
 
 	Panel pN = new Panel();
 	Panel pS = new Panel();
@@ -20,6 +20,8 @@ public class ItemTest extends Frame implements ItemListener, ActionListener {
 	
 	Choice ch = new Choice();
 	Button exit = new Button("종료");
+	
+	ItemLogic itemLogic;
 	
 	public ItemTest() {
 		super("아이템 테스트!!!");
@@ -47,51 +49,23 @@ public class ItemTest extends Frame implements ItemListener, ActionListener {
 		setBounds(300, 200, 300, 500);
 		setVisible(true);	
 		
-		exit.addActionListener(this);
 		
-		mor.addItemListener(this);
-		aft.addItemListener(this);
-		eve.addItemListener(this);
-		app.addItemListener(this);
-		banana.addItemListener(this);
-		straw.addItemListener(this);
-		ch.addItemListener(this);
+		itemLogic = new ItemLogic(this);
+		
+		
+		exit.addActionListener(itemLogic);
+		
+		mor.addItemListener(itemLogic);
+		aft.addItemListener(itemLogic);
+		eve.addItemListener(itemLogic);
+		app.addItemListener(itemLogic);
+		banana.addItemListener(itemLogic);
+		straw.addItemListener(itemLogic);
+		ch.addItemListener(itemLogic);
 	}
 	
 	public static void main(String[] args) {
 		new ItemTest();
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		System.exit(0);		
-	}
-
-	@Override
-	public void itemStateChanged(ItemEvent e) {
-		Object ob = e.getSource();
-		if(ob == ch) {
-			String str = ch.getSelectedItem();
-			if(str.equals("아침")) {
-				mor.setState(true);
-			} else if(str.equals("점심")) {
-				aft.setState(true);
-			} else {
-				eve.setState(true);
-			}
-		}
-		Checkbox sel = cg.getSelectedCheckbox();
-		String selStr = sel.getLabel();
-//		System.out.println(selStr);
-		ta.setText("--- " + selStr + " ---\n");
-		ta.append("1. 사과 : " + eat(app.getState()) + "\n");
-		ta.append("2. 바나나 : " + eat(banana.getState()) + "\n");
-		ta.append("3. 딸기 : " + eat(straw.getState()) + "\n");
-		ch.select(selStr);
-	}
-	
-	private String eat(boolean flag) {
-		return flag ? "먹었다." : "안먹었다.";
 	}
 	
 }

@@ -18,6 +18,9 @@ public class BaseBall extends Frame {
 	Button fontC = new Button("폰트색");
 	Button exit = new Button("종료");
 	
+	BaseBallController baseBallController;
+	FontColorChooser fontColorChooser = new FontColorChooser();
+	
 	public BaseBall() {
 		super("숫자 야구 게임!!!");
 		
@@ -27,6 +30,9 @@ public class BaseBall extends Frame {
 		
 		pC.setLayout(new BorderLayout(0, 10));
 		pC.add(pCS, "South");
+		ta.setEditable(false);
+//		ta.setEnabled(false);
+		ta.setFont(new Font("굴림", Font.BOLD, 15));
 		pC.add(ta, "Center");
 		
 		pE.setLayout(new GridLayout(5, 1, 0, 10));
@@ -43,6 +49,22 @@ public class BaseBall extends Frame {
 		setBounds(300, 200, 500, 400);
 		setVisible(true);	
 		
+		baseBallController = new BaseBallController(this);
+		
+//		BaseBall창 이벤트 등록
+		tf.addActionListener(baseBallController);
+		newG.addActionListener(baseBallController);
+		clear.addActionListener(baseBallController);
+		dap.addActionListener(baseBallController);
+		fontC.addActionListener(baseBallController);
+		exit.addActionListener(baseBallController);
+		
+//		FontColorChooser창 이벤트 등록
+		fontColorChooser.sbR.addAdjustmentListener(baseBallController);
+		fontColorChooser.sbG.addAdjustmentListener(baseBallController);
+		fontColorChooser.sbB.addAdjustmentListener(baseBallController);
+		
+		fontColorChooser.ok.addActionListener(baseBallController);
 	}
 	
 	public static void main(String[] args) {
