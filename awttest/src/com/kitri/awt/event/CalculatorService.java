@@ -1,68 +1,103 @@
 package com.kitri.awt.event;
 
-import java.awt.Font;
-import java.awt.Label;
+import java.text.DecimalFormat;
 
 public class CalculatorService {
 
 	CalculatorControler calculatorControler;
 	private Calculator cc;
-	
-	double num1 = 0;
-	double num2 = 0;
-	double operResult;
-	
+
+	StringBuffer btnBF = new StringBuffer();
+	private double num1;
+	private double num2;
+	private String operStr;
+
 	public CalculatorService(CalculatorControler calculatorControler) {
 		this.calculatorControler = calculatorControler;
-		cc = calculatorControler.calculator; 
+		cc = calculatorControler.calculator;
 	}
 
-//	숫자 : 0 1 2 4 5 6 8 9 10 12
-//	clear : 13
-//	enter : 14
-//	oper : 3 7 11 15
 	public void button(String btnStr) {
-		int check = btnStr.charAt(0)-48;
-		if(check >=0 && check < 10) {
-			cc.numL.setText(btnStr);
-			if(cc.operL.getText() != "") {
-				num2 = check;
-			} else {
-				num2 = check;
-			}
+		cc.numL.setFont(cc.f(30));
+		int btnNum = btnStr.charAt(0) - 48;
+		if (btnNum >= 0 && btnNum < 10) {
+			if (btnBF.length() <= 13) {
+				btnBF.append(btnStr);
+				cc.numL.setText(btnBF.toString());
+				block(true);
+				if (btnBF.charAt(0) == '0')
+					btnBF.deleteCharAt(0);
+			} else
+				return;
 		} else if (btnStr == "C") {
 			clear();
+			block(true);
 		} else if (btnStr == "=") {
-			String temp = cc.operL.getText();
-			clear();
-			cc.numL.setText("" + calc(temp));
+			if (!cc.operL.getText().isEmpty()) {
+				num2 = Double.parseDouble(cc.numL.getText());
+				operStr = cc.operL.getText();
+				clear();
+				calc(operStr);
+			} else
+				return;
 		} else {
 			cc.operL.setText(btnStr);
+			num1 = Double.parseDouble(cc.numL.getText());
+			btnBF.setLength(0);
 		}
-		
-		
-		
 	}
 
-	public void clear() {
-		cc.numL.setText("");
-		cc.operL.setText("");
-	}
-	
-	public double calc(String oper) {
-		if(oper == "+") 
-			return num1 + num2;
-		else if (oper == "－") 
-			return num1 - num2;
-		else if (oper == "×") 
-			return num1 * num2;
-		else
-			return num1 / num2;
-		
-	}
-	
 	public void exit() {
 		System.exit(0);
 	}
-	
+
+	private void clear() {
+		cc.numL.setText("0");
+		cc.operL.setText("");
+		btnBF.setLength(0);
+	}
+
+	private void calc(String operStr) {
+		double result = 0;
+		if (operStr == "+")
+			result = num1 + num2;
+		else if (operStr == "－")
+			result = num1 - num2;
+		else if (operStr == "×")
+			result = num1 * num2;
+		else {
+			if (num2 != 0)
+				result = num1 / num2;
+			else {
+				block(false);
+				if (num1 != 0) {
+					cc.numL.setFont(cc.f(15));
+					cc.numL.setText("0으로 나눌 수 없습니다.");
+					return;
+				} else {
+					cc.numL.setFont(cc.f(15));
+					cc.numL.setText("정의되지 않은 결과입니다.");
+					return;
+				}
+			}
+		}
+		DecimalFormat df = new DecimalFormat("#.##");
+		String resultStr = df.format(result);
+		if (resultStr.length() <= 15) {
+			cc.numL.setText(resultStr);
+		} else {
+			block(false);
+			cc.numL.setFont(cc.f(15));
+			cc.numL.setText("범위값을 초과하였습니다.");
+		}
+		num1 = 0; num2 = 0; operStr = "";
+	}
+
+	private void block(boolean flag) {
+		cc.btn[3].setEnabled(flag);
+		cc.btn[7].setEnabled(flag);
+		cc.btn[11].setEnabled(flag);
+		cc.btn[14].setEnabled(flag);
+		cc.btn[15].setEnabled(flag);
+	}
 }
