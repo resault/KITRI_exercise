@@ -81,8 +81,8 @@ public class CalculatorService {
 				}
 			}
 		}
-		DecimalFormat df = new DecimalFormat("#.##");
-		String resultStr = df.format(result);
+		DecimalFormat df = new DecimalFormat("#.##"); //NumberFormat의 하위클래스인 DecimalFormat의 인스턴스 생성해서 숫자 pattern지정
+		String resultStr = df.format(result); //NumberFormat의 format() - NumberFormat은 abstract
 		if (resultStr.length() <= 15) {
 			cc.numL.setText(resultStr);
 		} else {

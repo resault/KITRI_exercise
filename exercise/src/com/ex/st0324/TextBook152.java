@@ -1,4 +1,4 @@
-package study0324;
+package com.ex.st0324;
 
 public class TextBook152 {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package study0328;
+package com.ex.st0328;
 
 import java.awt.*;
 

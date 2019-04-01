@@ -1,9 +1,10 @@
 package com.kitri.awt.event;
 
 import java.awt.Color;
+import java.awt.Frame;
 import java.awt.event.*;
 
-public class BaseBallController implements ActionListener, AdjustmentListener{//신호등 역할! (ListTest의 if문 같은)
+public class BaseBallController extends WindowAdapter implements ActionListener, AdjustmentListener{//신호등 역할! (ListTest의 if문 같은)
 	
 	BaseBall baseBall;
 	BaseBallService baseBallService;
@@ -30,9 +31,20 @@ public class BaseBallController implements ActionListener, AdjustmentListener{//
 			baseBallService.game();
 		} else if(ob == baseBall.fontColorChooser.ok) {
 			baseBallService.selectColor();
-		}
+		} 
 	}
 	
+	@Override
+	public void windowClosing(WindowEvent e) {
+		Object ob = e.getSource();
+		if(ob == baseBall) {
+			baseBallService.exit();
+		} else if(ob == baseBall.fontColorChooser) {
+			baseBall.fontColorChooser.setVisible(false);
+		}
+			
+	}
+
 	@Override
 	public void adjustmentValueChanged(AdjustmentEvent e) {
 		baseBallService.changeColor();

@@ -1,4 +1,4 @@
-package study0325;
+package com.ex.st0325;
 
 public class Review {
 	

@@ -1,4 +1,4 @@
-package sudy0331;
+package com.ex.st0331;
 
 import java.awt.*;
 
