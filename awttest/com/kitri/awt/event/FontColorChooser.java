@@ -1,8 +1,7 @@
 package com.kitri.awt.event;
 
 import java.awt.*;
-import java.awt.event.AdjustmentEvent;
-import java.awt.event.AdjustmentListener;
+import java.awt.event.*;
 
 public class FontColorChooser extends Frame {
 
@@ -61,6 +60,15 @@ public class FontColorChooser extends Frame {
 		add(p2);
 		
 		setBounds(300, 200, 500, 400);
+		
+		addWindowListener(new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				setVisible(false);
+			}
+			
+		});
 	}
 	
 }
