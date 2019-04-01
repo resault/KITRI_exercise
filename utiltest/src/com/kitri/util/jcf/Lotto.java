@@ -2,8 +2,6 @@ package com.kitri.util.jcf;
 
 import java.util.*;
 
-import com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray;
-
 public class Lotto {
 
 	public static void main(String[] args) {
