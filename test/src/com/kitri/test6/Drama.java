@@ -25,16 +25,16 @@ public class Drama extends TVProgram {
 
 	@Override
 	public String toString() {
-//		if(actor.equals("")) {
-//			if(actress.equals("")) {
-//				return super.toString() + 
-//						"\n\t - 감독 : " + director + "\n";
-//			} else {
-//				return super.toString() + 
-//						"\n\t - 감독 : " + director +
-//						"\n\t - 여자배우 : " + actress+ "\n";
-//			}
-//		}
+		if(actor.equals("")) {
+			if(actress.equals("")) {
+				return super.toString() + 
+						"\n\t - 감독 : " + director + "\n";
+			} else {
+				return super.toString() + 
+						"\n\t - 감독 : " + director +
+						"\n\t - 여자배우 : " + actress+ "\n";
+			}
+		}
 		return super.toString() + 
 				"\n\t - 감독 : " + director +
 				"\n\t - 남자배우 : " + actor +
