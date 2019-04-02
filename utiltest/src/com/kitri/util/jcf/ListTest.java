@@ -41,5 +41,7 @@ public class ListTest {
 		for(int i = 0; i <size; i++) {
 			System.out.println(i+1 + "¹ø Å¸ÀÚ :" + list.get(i));
 		}
+		
+		
 	}
 }

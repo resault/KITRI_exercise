@@ -59,7 +59,7 @@ public class PlayerDto {
 	@Override
 	public String toString() {
 		return "PlayerDto [number=" + number + "\tname=" + name + "\tposition=" + position + "\tgrade="
-				+ (grade != 1 ? "타율" : "방어율") + grade +"]";
+				+ (position != 1 ? "타율" : "방어율") + grade +"]";
 	}
 
 }

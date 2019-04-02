@@ -6,9 +6,6 @@ public class Drama extends TVProgram {
 	private String actor;
 	private String actress;
 	
-//	public Drama(String director, String actor, String actress) {
-//		this("", "", director, actor, actress);
-//	}
 
 	public Drama(String title, String broadcast, String director) {
 		super(title, broadcast);
@@ -25,20 +22,28 @@ public class Drama extends TVProgram {
 
 	@Override
 	public String toString() {
-		if(actor.equals("")) {
-			if(actress.equals("")) {
-				return super.toString() + 
-						"\n\t - 감독 : " + director + "\n";
-			} else {
-				return super.toString() + 
-						"\n\t - 감독 : " + director +
-						"\n\t - 여자배우 : " + actress+ "\n";
-			}
-		}
-		return super.toString() + 
-				"\n\t - 감독 : " + director +
-				"\n\t - 남자배우 : " + actor +
-				"\n\t - 여자배우 : " + actress+ "\n";
+//		if(actor.equals("")) {
+//			if(actress.equals("")) {
+//				return super.toString() + 
+//						"\n\t - 감독 : " + director + "\n";
+//			} else {
+//				return super.toString() + 
+//						"\n\t - 감독 : " + director +
+//						"\n\t - 여자배우 : " + actress+ "\n";
+//			}
+//		}
+//		return super.toString() + 
+//				"\n\t - 감독 : " + director +
+//				"\n\t - 남자배우 : " + actor +
+//				"\n\t - 여자배우 : " + actress+ "\n";
+
+		String str = super.toString() + "\n\t - 감독 : " + director;
+		if(actor != null)
+			str += "\n\t - 남자배우 : " + actor;
+		if(actress != null)
+			str += "\n\t - 여자배우 : " + actress;
+		return str;
+	
 	}
 	
 	
