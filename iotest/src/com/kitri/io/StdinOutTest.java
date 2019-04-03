@@ -1,7 +1,6 @@
 package com.kitri.io;
 
 import java.io.IOException;
-import java.util.List;
 
 //stn : standard
 //StdOut : System.out
