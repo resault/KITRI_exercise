@@ -51,8 +51,9 @@ public class HaksaDto {
 	}
 
 	@Override
+	//TODO toString override 삭제
 	public String toString() {
-		return "이름 : " + name + "\t나이 : " + age + "\t" + (key==1 ? "학번 : " : (key==2 ? "과목 : " : "부서 : ") + keyName);
+		return "이름 : " + name + "\t나이 : " + age + "\t" + (key==1 ? "학번 : " : (key==2 ? "과목 : " : "부서 : ")) + value;
 	}
 	
 	

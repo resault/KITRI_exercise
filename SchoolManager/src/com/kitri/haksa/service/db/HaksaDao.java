@@ -22,15 +22,16 @@ public class HaksaDao {
 	}
 	
 	public void register(HaksaDto haksa) {
-		String sql = "insert into school values(?, ?, ?)";
 		PreparedStatement stmt = null;
 		try {
+			String sql = "insert into school values(?, ?, ?, ?)";
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, pw);
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, haksa.getName());
 			stmt.setInt(2, haksa.getAge());
-			stmt.setString(3, haksa.getValue());
+			stmt.setInt(3, haksa.getKey());
+			stmt.setString(4, haksa.getValue());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("연결 실패" + e.getStackTrace());
@@ -51,6 +52,7 @@ public class HaksaDao {
 	}
 	
 	public HaksaDto findName(String name) {
+		//TODO job과 join해서 keyName까지 가져올 것
 		HaksaDto haksa = null;
 		ArrayList<HaksaDto> haksaL = selecArrayList();
 		int size = haksaL.size();
@@ -104,10 +106,14 @@ public class HaksaDao {
 			
 			while(rs.next()) {
 				HaksaDto haksa = new HaksaDto();
-				haksa.setName("name");
-				haksa.setAge(Integer.parseInt("age"));
-				haksa.setValue("value");
+				haksa.setName(rs.getString("name"));
+				haksa.setAge(rs.getInt("age"));
+				haksa.setValue(rs.getString("value"));
 				haksaL.add(haksa);
+			}
+			int size = haksaL.size();
+			for(int i=0;i<size;i++) {
+				System.out.println(haksaL.get(i));
 			}
 		} catch (SQLException e) {
 			System.out.println("연결 실패" + e.getStackTrace());

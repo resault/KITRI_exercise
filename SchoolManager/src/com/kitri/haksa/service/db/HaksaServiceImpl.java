@@ -59,14 +59,14 @@ public class HaksaServiceImpl implements HaksaService {
 			System.out.print("번호를 선택해 주세요..");
 			haksaDto.setKey(Integer.parseInt(in.readLine()));
 			switch (haksaDto.getKey()) {
-				case 4 : System.out.println(); break;
+				case 4 : menu(); break;
 				default :
 					System.out.print("나 이 : ");
 					haksaDto.setAge(Integer.parseInt(in.readLine()));
 					System.out.print("이 름 : ");
 					haksaDto.setName(in.readLine());
-					System.out.print((haksaDto.getKey()==1 ? "학 번 : " : (haksaDto.getKey()==2 ? "과 목 :" : "부 서 : ")));
-					haksaDto.setKeyName(in.readLine());
+					System.out.print((haksaDto.getKey()==1 ? "학 번 : " : (haksaDto.getKey()==2 ? "과 목 : " : "부 서 : ")));
+					haksaDto.setValue(in.readLine());
 					HaksaDao.getInstance().register(haksaDto);
 			}
 		} catch (IOException e) {
@@ -82,6 +82,7 @@ public class HaksaServiceImpl implements HaksaService {
 			String name = in.readLine();
 			haksaDto = HaksaDao.getInstance().findName(name);
 			if(haksaDto != null)
+				//TODO keyName 이용
 				System.out.println(haksaDto);
 			else
 				System.out.println("해당하는 사람이 없습니다.");
@@ -110,9 +111,12 @@ public class HaksaServiceImpl implements HaksaService {
 	public void selectAll() {
 		ArrayList<HaksaDto> all = HaksaDao.getInstance().selecArrayList();
 		int size = all.size();
-		for (int i = 0; i < size; i++) {
-			System.out.println(all.get(i));
-		}
+		if(size != 0) {
+			for (int i = 0; i < size; i++) {
+				System.out.println(all.get(i));
+			}
+		} else
+			System.out.println("등록된 사람이 없습니다.");
 	}
 
 	@Override
