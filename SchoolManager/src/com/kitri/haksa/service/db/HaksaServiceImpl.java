@@ -8,11 +8,9 @@ import com.kitri.haksa.data.db.HaksaDto;
 public class HaksaServiceImpl implements HaksaService {
 
 	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-	HaksaDao haksaDao;
 	HaksaDto haksaDto;
 	
 	public HaksaServiceImpl() {
-		haksaDao = new HaksaDao();
 		haksaDto = new HaksaDto();
 		
 		while (true)
@@ -67,9 +65,9 @@ public class HaksaServiceImpl implements HaksaService {
 					haksaDto.setAge(Integer.parseInt(in.readLine()));
 					System.out.print("이 름 : ");
 					haksaDto.setName(in.readLine());
-					System.out.print((haksaDto.getKey()==1 ? "학 번" : (haksaDto.getKey()==2 ? "과 목 :" : "부 서 : ")));
+					System.out.print((haksaDto.getKey()==1 ? "학 번 : " : (haksaDto.getKey()==2 ? "과 목 :" : "부 서 : ")));
 					haksaDto.setKeyName(in.readLine());
-					haksaDao.register(haksaDto);
+					HaksaDao.getInstance().register(haksaDto);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -82,7 +80,7 @@ public class HaksaServiceImpl implements HaksaService {
 			System.out.println("찾을 이름을 입력해 주세요.");
 			System.out.print("이름 : ");
 			String name = in.readLine();
-			haksaDto = haksaDao.findName(name);
+			haksaDto = HaksaDao.getInstance().findName(name);
 			if(haksaDto != null)
 				System.out.println(haksaDto);
 			else
@@ -98,7 +96,7 @@ public class HaksaServiceImpl implements HaksaService {
 			System.out.println("삭제할 사람의 이름을 입력해 주세요.");
 			System.out.print("이름 : ");
 			String name = in.readLine();
-			int result = haksaDao.delete(name);
+			int result = HaksaDao.getInstance().delete(name);
 			if(result != 0)
 				System.out.println(name + "님을 삭제하였습니다.");
 			else
@@ -110,7 +108,7 @@ public class HaksaServiceImpl implements HaksaService {
 
 	@Override
 	public void selectAll() {
-		ArrayList<HaksaDto> all = haksaDao.selecArrayList();
+		ArrayList<HaksaDto> all = HaksaDao.getInstance().selecArrayList();
 		int size = all.size();
 		for (int i = 0; i < size; i++) {
 			System.out.println(all.get(i));
