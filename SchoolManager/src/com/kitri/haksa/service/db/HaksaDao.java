@@ -31,7 +31,7 @@ public class HaksaDao {
 	
 	public int delete(String name) {
 		
-		return null;
+		return 0;
 	}
 
 	public ArrayList<HaksaDto> selecArrayList() {
