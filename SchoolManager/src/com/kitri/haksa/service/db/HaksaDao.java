@@ -53,7 +53,7 @@ public class HaksaDao {
 	
 	public HaksaDto findName(String name) {
 		//TODO job과 join해서 keyName까지 가져올 것
-		String sql = "select s.name , s.age, j.key_name, s.value from school s, job j where s.key = j.key and s.name = ?";
+		String sql = "select name , age, key_name, value from school, job where value.key = school.key and name = ?";
 		PreparedStatement stmt = null;
 		HaksaDto haksa = null;
 		try {
