@@ -53,13 +53,37 @@ public class HaksaDao {
 	
 	public HaksaDto findName(String name) {
 		//TODO job과 join해서 keyName까지 가져올 것
+		String sql = "select s.name , s.age, j.key_name, s.value from school s, job j where s.key = j.key and s.name = ?";
+		PreparedStatement stmt = null;
 		HaksaDto haksa = null;
-		ArrayList<HaksaDto> haksaL = selecArrayList();
-		int size = haksaL.size();
-		for(int i = 0; i<size ; i++) {
-			if(haksaL.get(i).getName().equals(name))
-				haksa = haksaL.get(i);
+		try {
+			Class.forName(driver);
+			conn = DriverManager.getConnection(url, user, pw);
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, name);
+			rs = stmt.executeQuery();
+			haksa.setName(rs.getString("name"));
+			haksa.setAge((rs.getInt("s.age")));
+			haksa.setKeyName(rs.getString("j.key_name"));
+			haksa.setValue(rs.getString("s.value"));
+			
+		} catch (SQLException e) {
+			System.out.println("연결 실패" + e.getStackTrace());
+		} catch (ClassNotFoundException e) {
+			System.out.println("로딩 실패" + e.getStackTrace());
+		}finally {
+				try {
+					if(conn != null)
+					conn.close();
+					if(stmt != null)
+						stmt.close();
+					if(rs != null)
+						rs.close();
+				} catch (SQLException e) {
+					System.out.println("해제 실패" + e.getStackTrace());
+				}
 		}
+		
 		return haksa;
 		
 	}
@@ -110,10 +134,6 @@ public class HaksaDao {
 				haksa.setAge(rs.getInt("age"));
 				haksa.setValue(rs.getString("value"));
 				haksaL.add(haksa);
-			}
-			int size = haksaL.size();
-			for(int i=0;i<size;i++) {
-				System.out.println(haksaL.get(i));
 			}
 		} catch (SQLException e) {
 			System.out.println("연결 실패" + e.getStackTrace());

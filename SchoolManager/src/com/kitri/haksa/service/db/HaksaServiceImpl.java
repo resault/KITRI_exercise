@@ -82,8 +82,7 @@ public class HaksaServiceImpl implements HaksaService {
 			String name = in.readLine();
 			haksaDto = HaksaDao.getInstance().findName(name);
 			if(haksaDto != null)
-				//TODO keyName 이용
-				System.out.println(haksaDto);
+				System.out.println("이름 : " + haksaDto.getName() + "나이 : " + haksaDto.getAge() + haksaDto.getKeyName() + " : " + haksaDto.getValue());
 			else
 				System.out.println("해당하는 사람이 없습니다.");
 		} catch (IOException e) {
@@ -113,7 +112,7 @@ public class HaksaServiceImpl implements HaksaService {
 		int size = all.size();
 		if(size != 0) {
 			for (int i = 0; i < size; i++) {
-				System.out.println(all.get(i));
+				System.out.println("이름 : " + all.get(i).getName() + "나이 : " + all.get(i).getAge() + all.get(i).getKeyName() + " : " + all.get(i).getValue());
 			}
 		} else
 			System.out.println("등록된 사람이 없습니다.");
