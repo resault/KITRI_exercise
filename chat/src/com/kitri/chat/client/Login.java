@@ -334,7 +334,7 @@ public class Login extends JFrame implements ActionListener, Runnable, ListSelec
 				//server가 보낸 메세지를 토큰단위로 
 				String msg = in.readLine();
 				System.out.println("서버가 보낸 메세지 : " + msg);
-				StringTokenizer st = new StringTokenizer(msg, "||");
+				StringTokenizer st = new StringTokenizer(msg, "|");
 				int protocol = Integer.parseInt(st.nextToken());
 				switch(protocol) {
 					case ChatConstance.SC_CONNECT : {
