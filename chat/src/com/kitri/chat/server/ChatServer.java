@@ -40,9 +40,11 @@ public class ChatServer implements Runnable {
 		String name;
 		BufferedReader in;
 		OutputStream out;
+		Socket socket;
 		
 		public ChatClient(Socket socket) {
 			try {
+				this.socket = socket;
 				in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				out = socket.getOutputStream();
 			} catch (IOException e) {
@@ -67,23 +69,28 @@ public class ChatServer implements Runnable {
 //							for(int i=0;i<size;i++) {
 //								ChatClient cc = list.get(i);
 //							}
-							for(ChatClient cc : list) {
-								cc.out.write((ChatConstance.SC_CONNECT + "|" + name + "\n").getBytes());
-							}
+							multicast(ChatConstance.SC_CONNECT + "|" + name);
+
 							list.add(this);
 							for(ChatClient cc : list) {
-								out.write((ChatConstance.SC_CONNECT + "|" + cc.name + "\n").getBytes());
+								unicast(ChatConstance.SC_CONNECT + "|" + cc.name);
 							}
 						}break;
 						case ChatConstance.CS_ALL : {
 //							200|¾È³çÇÏ¼¼¿ä.
 							String tmp = st.nextToken();//¾È³çÇÏ¼¼¿ä.
-							for(ChatClient cc : list) {
-								cc.out.write((ChatConstance.SC_MESSAGE + "|[" + name + "] " + tmp + "\n").getBytes());
-							}
+							multicast(ChatConstance.SC_MESSAGE + "|[" + name + "] " + tmp);
 						}break;
 						case ChatConstance.CS_TO : {
-							
+//							250|È«±æµ¿|¾È³ç???
+							String to = st.nextToken();//È«±æµ¿
+							String tmp = st.nextToken();//¾È³ç???
+							for(ChatClient cc : list) {
+								if(cc.name.equals(to)) {
+									cc.unicast(ChatConstance.SC_MESSAGE + "|¡Ù" + name + "¡Ù " + tmp);
+									break;
+								}
+							}
 						}break;
 						case ChatConstance.CS_PAPER : {
 							
@@ -92,7 +99,13 @@ public class ChatServer implements Runnable {
 							
 						}break;
 						case ChatConstance.CS_DISCONNECT : {
-							
+//							900|
+							multicast(ChatConstance.SC_DISCONNECT + "|" + name);
+							list.remove(this);
+							flag = false;
+							in.close();
+							out.close();
+							socket.close();
 						}break;
 					}
 				} catch (IOException e) {
@@ -101,7 +114,21 @@ public class ChatServer implements Runnable {
 			}
 		}
 		
-	}
+		private void multicast(String msg) {
+			for(ChatClient cc : list) {
+				cc.unicast(msg);
+			}
+		}
+		
+		private void unicast(String msg) {
+			try {
+				out.write((msg + "\n").getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}	
 	
 	public static void main(String[] args) {
 //		ChatServer cs = new ChatServer();

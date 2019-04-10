@@ -1,7 +1,6 @@
 package com.kitri.chat.client;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -10,11 +9,14 @@ import java.util.StringTokenizer;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import com.kitri.chat.util.ChatConstance;
 
-public class Login extends JFrame implements ActionListener, Runnable {
+public class Login extends JFrame implements ActionListener, ListSelectionListener, Runnable {
 	
+	Socket socket;
 	String myid;
 	BufferedReader in;
 	OutputStream out;
@@ -49,6 +51,16 @@ public class Login extends JFrame implements ActionListener, Runnable {
 		chat.paper.addActionListener(this);
 		chat.rename.addActionListener(this);
 		chat.exit.addActionListener(this);
+		chat.list.addListSelectionListener(this);
+		
+		chat.addWindowListener(new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				closeProcess();
+			}
+			
+		});
 		
 //		Paper창 event 등록
 		
@@ -135,15 +147,49 @@ public class Login extends JFrame implements ActionListener, Runnable {
 		} else if(ob == chat.globalsend) {
 			globalsendProcess();
 		} else if(ob == chat.whomsend) {
-			
+			whomsendProcess();
 		} else if(ob == chat.paper) {
 			
 		} else if(ob == chat.rename) {
 			
 		} else if(ob == chat.exit) {
-			
+			closeProcess();
 		}
 	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		String selName = chat.list.getSelectedValue();
+		chat.whom.setText(selName);
+	}
+	
+	private void closeProcess() {
+		sendMessage(ChatConstance.CS_DISCONNECT + "|");	
+	}
+	
+//	1. 대상자, 메세지 get (유효성검사 대상자, 자신, 메세지)
+//	2. server로 메세지 전송.
+	private void whomsendProcess() {
+		String msg = chat.whomsend.getText().trim();
+		chat.whomsend.setText("");
+		if(msg.isEmpty()) {
+			return;
+		}
+		
+		String to = chat.whom.getText();
+		if(to.isEmpty()) {
+			JOptionPane.showMessageDialog(chat, "대상자를 선택하세요.", "대상자오류", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		
+		if(to.equals(myid)) {
+			JOptionPane.showMessageDialog(chat, "자신에게 귓속말을???", "대상자오류", JOptionPane.INFORMATION_MESSAGE);
+			return;
+		}	
+		
+		sendMessage(ChatConstance.CS_TO + "|" + to + "|" + msg);
+		viewMessage("★" + to + "★ " + msg);
+	}	
 
 //	1. 메세지 get (유효성검사)
 //	2. server로 메세지 전송.
@@ -170,7 +216,7 @@ public class Login extends JFrame implements ActionListener, Runnable {
 			return;
 		}
 		try {
-			Socket socket = new Socket(ip, ChatConstance.PORT);
+			socket = new Socket(ip, ChatConstance.PORT);
 			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			out = socket.getOutputStream();
 			this.setVisible(false);
@@ -205,16 +251,15 @@ public class Login extends JFrame implements ActionListener, Runnable {
 					case ChatConstance.SC_CONNECT : {
 //						100|접속자대화명.
 						String tmp = st.nextToken();
-						chat.area.append("[알림] " + tmp + "님이 접속하였습니다.\n");
-						chat.area.setCaretPosition(chat.area.getDocument().getLength());
+						viewMessage("[알림] " + tmp + "님이 접속하였습니다.");
 						chat.listData.add(tmp);
 						chat.list.setListData(chat.listData);
 					}break;
 					case ChatConstance.SC_MESSAGE : {
 //						200|[안효인] 안녕하세요..
+//						200|☆안효인☆ 안녕???
 						String tmp = st.nextToken();//[안효인] 안녕하세요..
-						chat.area.append(tmp + "\n");
-						chat.area.setCaretPosition(chat.area.getDocument().getLength());
+						viewMessage(tmp);
 					}break;
 					case ChatConstance.SC_PAPER : {
 						
@@ -223,13 +268,31 @@ public class Login extends JFrame implements ActionListener, Runnable {
 						
 					}break;
 					case ChatConstance.SC_DISCONNECT : {
-						
+//						900|나가는사람
+						String tmp = st.nextToken();//나가는사람.
+						if(!tmp.equals(myid)) {
+							viewMessage("[알림] " + tmp + "님이 접속을 종료하였습니다.");
+							chat.listData.remove(tmp);
+							chat.list.setListData(chat.listData);
+						} else {
+							flag = false;
+							in.close();
+							out.close();
+							socket.close();
+							System.out.println("나 가아요!!!!");
+							System.exit(0);
+						}
 					}break;
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	private void viewMessage(String msg) {
+		chat.area.append(msg + "\n");
+		chat.area.setCaretPosition(chat.area.getDocument().getLength());
 	}
 
 }
