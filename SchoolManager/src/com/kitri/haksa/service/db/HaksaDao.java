@@ -9,7 +9,6 @@ public class HaksaDao {
 	private Connection conn;
 	private ResultSet rs;
 	
-	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 	String user = "kitri";
 	String pw = "kitri";
@@ -18,14 +17,21 @@ public class HaksaDao {
 	private static HaksaDao instance = new HaksaDao();//자신의 객체를  생성
 	private HaksaDao() {}
 	public static HaksaDao getInstance() {//외부에서 클래스명.getInstance()를 호출하면 이 클래스의 객체가 반환됨
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		try {
+			Class.forName(driver);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 		return instance;
 	}
 	
 	public void register(HaksaDto haksa) {
 		PreparedStatement stmt = null;
+		conn = null;
+		rs = null;
 		try {
 			String sql = "insert into school values(?, ?, ?, ?)";
-			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, pw);
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, haksa.getName());
@@ -35,16 +41,14 @@ public class HaksaDao {
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("연결 실패" + e.getStackTrace());
-		} catch (ClassNotFoundException e) {
-			System.out.println("로딩 실패" + e.getStackTrace());
 		}finally {
 				try {
-					if(conn != null)
-					conn.close();
-					if(stmt != null)
-						stmt.close();
 					if(rs != null)
 						rs.close();
+					if(stmt != null)
+						stmt.close();
+					if(conn != null)
+						conn.close();
 				} catch (SQLException e) {
 					System.out.println("해제 실패" + e.getStackTrace());
 				}
@@ -52,38 +56,38 @@ public class HaksaDao {
 	}
 	
 	public HaksaDto findName(String name) {
-		//TODO job과 join해서 keyName까지 가져올 것
-		String sql = "select name , age, key_name, value from school, job where value.key = school.key and name = ?";
+		String sql = "select name , age, key_name, value from school, job where school.key = job.key and name = ?";
 		PreparedStatement stmt = null;
 		HaksaDto haksa = null;
+		conn = null;
+		rs = null;
 		try {
-			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, pw);
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, name);
 			rs = stmt.executeQuery();
-			haksa.setName(rs.getString("name"));
-			haksa.setAge((rs.getInt("s.age")));
-			haksa.setKeyName(rs.getString("j.key_name"));
-			haksa.setValue(rs.getString("s.value"));
+			rs.next();
 			
+			haksa = new HaksaDto();
+			haksa.setName(rs.getString("name"));
+			haksa.setAge(rs.getInt("age"));
+			haksa.setKeyName(rs.getString("key_name"));
+			haksa.setValue(rs.getString("value"));
 		} catch (SQLException e) {
 			System.out.println("연결 실패" + e.getStackTrace());
-		} catch (ClassNotFoundException e) {
-			System.out.println("로딩 실패" + e.getStackTrace());
 		}finally {
 				try {
-					if(conn != null)
-					conn.close();
-					if(stmt != null)
-						stmt.close();
 					if(rs != null)
 						rs.close();
+					if(stmt != null)
+						stmt.close();
+					if(conn != null)
+						conn.close();
 				} catch (SQLException e) {
 					System.out.println("해제 실패" + e.getStackTrace());
 				}
 		}
-		
+		 
 		return haksa;
 		
 	}
@@ -92,24 +96,23 @@ public class HaksaDao {
 		int result = 0;
 		String sql = "delete from school where name = ?";
 		PreparedStatement stmt = null;
+		conn = null;
+		rs = null;
 		try {
-			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, pw);
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, name);
 			result = stmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("연결 실패" + e.getStackTrace());
-		} catch (ClassNotFoundException e) {
-			System.out.println("로딩 실패" + e.getStackTrace());
 		}finally {
 				try {
-					if(conn != null)
-					conn.close();
-					if(stmt != null)
-						stmt.close();
 					if(rs != null)
 						rs.close();
+					if(stmt != null)
+						stmt.close();
+					if(conn != null)
+						conn.close();
 				} catch (SQLException e) {
 					System.out.println("해제 실패" + e.getStackTrace());
 				}
@@ -119,10 +122,11 @@ public class HaksaDao {
 
 	public ArrayList<HaksaDto> selecArrayList() {
 		ArrayList<HaksaDto> haksaL = null;
-		String sql = "select name, age, value from school";
+		String sql = "select name , age, key_name, value from school, job where school.key = job.key";
 		Statement stmt = null;
+		conn = null;
+		rs = null;
 		try {
-			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, pw);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
@@ -132,21 +136,20 @@ public class HaksaDao {
 				HaksaDto haksa = new HaksaDto();
 				haksa.setName(rs.getString("name"));
 				haksa.setAge(rs.getInt("age"));
+				haksa.setKeyName(rs.getString("key_name"));
 				haksa.setValue(rs.getString("value"));
 				haksaL.add(haksa);
 			}
 		} catch (SQLException e) {
 			System.out.println("연결 실패" + e.getStackTrace());
-		} catch (ClassNotFoundException e) {
-			System.out.println("로딩 실패" + e.getStackTrace());
 		}finally {
 				try {
-					if(conn != null)
-					conn.close();
-					if(stmt != null)
-						stmt.close();
 					if(rs != null)
 						rs.close();
+					if(stmt != null)
+						stmt.close();
+					if(conn != null)
+						conn.close();
 				} catch (SQLException e) {
 					System.out.println("해제 실패" + e.getStackTrace());
 				}

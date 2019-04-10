@@ -82,7 +82,7 @@ public class HaksaServiceImpl implements HaksaService {
 			String name = in.readLine();
 			haksaDto = HaksaDao.getInstance().findName(name);
 			if(haksaDto != null)
-				System.out.println("이름 : " + haksaDto.getName() + "나이 : " + haksaDto.getAge() + haksaDto.getKeyName() + " : " + haksaDto.getValue());
+				System.out.println("이름 : " + haksaDto.getName() + "\t나이 : " + haksaDto.getAge() + "\t" + haksaDto.getKeyName() + " : " + haksaDto.getValue());
 			else
 				System.out.println("해당하는 사람이 없습니다.");
 		} catch (IOException e) {
@@ -96,6 +96,7 @@ public class HaksaServiceImpl implements HaksaService {
 			System.out.println("삭제할 사람의 이름을 입력해 주세요.");
 			System.out.print("이름 : ");
 			String name = in.readLine();
+			System.out.println(name);
 			int result = HaksaDao.getInstance().delete(name);
 			if(result != 0)
 				System.out.println(name + "님을 삭제하였습니다.");
@@ -112,7 +113,7 @@ public class HaksaServiceImpl implements HaksaService {
 		int size = all.size();
 		if(size != 0) {
 			for (int i = 0; i < size; i++) {
-				System.out.println("이름 : " + all.get(i).getName() + "나이 : " + all.get(i).getAge() + all.get(i).getKeyName() + " : " + all.get(i).getValue());
+				System.out.println("이름 : " + all.get(i).getName() + "\t나이 : " + all.get(i).getAge() + "\t" + all.get(i).getKeyName() + " : " + all.get(i).getValue());
 			}
 		} else
 			System.out.println("등록된 사람이 없습니다.");
