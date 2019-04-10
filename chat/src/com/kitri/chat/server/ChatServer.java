@@ -48,9 +48,11 @@ public class ChatServer implements Runnable {
 		String name; //대화명
 		BufferedReader in; //In
 		OutputStream out; //Out
+		Socket socket;
 		
 		public ChatClient(Socket socket) {
 			try {
+				this.socket = socket;
 				in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				out = socket.getOutputStream();
 				
@@ -77,31 +79,50 @@ public class ChatServer implements Runnable {
 //								ChatClient cc = list.get(i);
 //							}
 							//향상된 for문 - 아래 한줄이 위 4줄과 같은 기능
-							for(ChatClient cc : list) { //아직 "나"는 vector에 들어가지 않았으므로 "나"를 제외한 나머지 사람들임
-								cc.out.write((ChatConstance.SC_CONNECT + "|" + name + "\n").getBytes()); //list의 size만큼 for문 돌아가면서 out됨 
-							}
+							//아직 "나"는 vector에 들어가지 않았으므로 "나"를 제외한 나머지 사람들임
+							multicast(ChatConstance.SC_CONNECT + "|" + name); //list의 size만큼 for문 돌아가면서 out됨 
+							
 							list.add(this); //Vector에 "나"들어감
 							for(ChatClient cc : list) {
-								out.write((ChatConstance.SC_CONNECT + "|" + cc.name + "\n").getBytes()); //기존 접속자들의 이름을 "나"에게 보냄 
+								unicast(ChatConstance.SC_CONNECT + "|" + cc.name); //기존 접속자들의 이름을 "나"에게 보냄 
 							}
 						} break;
 						case ChatConstance.CS_ALL : {
 							String tmp = st.nextToken();
-							for(ChatClient cc : list) {
-								cc.out.write((ChatConstance.SC_MESSAGE + "|" + "[" + name + "]" + tmp + "\n").getBytes()); 
-							}
+							multicast(ChatConstance.SC_MESSAGE + "|" + "[" + name + "]" + tmp); 
 						}break;
 						case ChatConstance.CS_TO : {
-							
+							String to = st.nextToken();
+							String tmp = st.nextToken();
+							for(ChatClient cc : list) {
+								if(cc.name.equals(to) ) {
+									cc.unicast(ChatConstance.SC_MESSAGE + "|☆" + name + tmp);//그냥 unicast로 하면 귓말 보낸사람한테 감
+									break;
+								}
+							}
 						}break;
 						case ChatConstance.CS_PAPER : {
-							
+							String to = st.nextToken();
+							String tmp = st.nextToken();
+							for(ChatClient cc : list) {
+								if(cc.name.equals(to))
+									cc.unicast(ChatConstance.SC_PAPER + "|" + name + "|" + tmp);
+							}
+								
 						}break;
 						case ChatConstance.CS_RENAME : {
-							
+							String newID = st.nextToken();
+							multicast(ChatConstance.SC_RENAME + "|" + name + "|" + newID);
+							name = newID;
 						}break;
 						case ChatConstance.CS_DISCONNECT : {
-							
+							multicast(ChatConstance.SC_DISCONNECT + "|" + name); //vector에 아직 "나" 있으므로, 나한테도 감
+							list.remove(this);//"나"를 제거함 //이거 왜 multicast먼저 해야함??
+							flag = false;//thread 종료 //여기서 break하면 case를 빠져나감
+							//아래 셋 중에 하나라도 null이면 여기까지 오지도 못하니까, if문 다시 돌리지 않아도 됨
+							in.close();
+							out.close();
+							socket.close();
 						}break;
 					}
 				} catch (IOException e) {
@@ -111,8 +132,21 @@ public class ChatServer implements Runnable {
 			}
 		} 
 		
+		private void multicast(String msg) {
+			for(ChatClient cc : list) { 
+				cc.unicast(msg);; 
+			}
+		}
 		
+		private void unicast(String msg) {
+			try {
+				out.write((msg + "\n").getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
+	
 	
 	
 	//-------------------------------------------------------------------Main
