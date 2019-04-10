@@ -1,87 +1,99 @@
 package com.kitri.chat.client;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JButton;
-import java.awt.ComponentOrientation;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.MatteBorder;
-import java.awt.SystemColor;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
+import javax.swing.*;
+import javax.swing.border.*;
 
 public class Login extends JFrame {
-	private JTextField ipTF;
-	private JTextField nameTF;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
+	
+	Chat chat;
+	Paper paper;
+	ReName rename;
+	
+	ChatClientController ccc;
+	
+//--------------------------------------------------------------------------------선언부	
+	JPanel contentPane = new JPanel();
+	JPanel panelC = new JPanel();
+	
+	JPanel panelCS = new JPanel();
+
+	JLabel ipL = new JLabel("I      P :");
+	JTextField ipTF = new JTextField();
+	JLabel nameL = new JLabel("대화명 :");
+	JTextField nameTF = new JTextField();
+
+	JButton ok = new JButton("확인");
+	JButton cancle = new JButton("취소");
 
 
 	/**
 	 * Create the frame.
 	 */
 	public Login() {
+		
+		chat = new Chat();
+		paper = new Paper();
+		rename = new ReName();
+		ccc = new ChatClientController(this);
+		
+//-----------------------------------------------------------------------------------------배치부		
+		
+		panelC.setBorder(new MatteBorder(1, 1, 1, 1, (Color) SystemColor.controlShadow));
+		panelC.setBackground(Color.WHITE);
+		panelC.setLayout(null);
+		ipL.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		ipL.setBounds(12, 14, 57, 15);
+		ipTF.setBounds(69, 12, 151, 21);
+		ipTF.setColumns(10);
+		nameL.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		nameL.setBounds(12, 50, 57, 15);
+		nameTF.setBounds(69, 48, 151, 21);
+		nameTF.setColumns(10);
+		panelC.add(ipL);
+		panelC.add(ipTF);
+		panelC.add(nameL);
+		panelC.add(nameTF);
+		
+		panelCS.setBorder(new MatteBorder(1, 1, 1, 1, (Color) SystemColor.controlShadow));
+		panelCS.setBackground(Color.WHITE);
+		panelCS.setBounds(2, 84, 239, 34);
+		panelC.add(panelCS);
+		panelCS.setLayout(null);
+		ok.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		ok.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		ok.setBounds(40, 2, 70, 28);
+		cancle.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		cancle.setBounds(122, 2, 70, 28);
+		panelCS.add(ok);
+		panelCS.add(cancle);
+
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.add(panelC, BorderLayout.CENTER);
+		
 		setTitle("Login!!");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 269, 169);
-		JPanel contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) SystemColor.controlShadow));
-		panel.setBackground(Color.WHITE);
-		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
 		
-		ipTF = new JTextField();
-		ipTF.setBounds(69, 12, 151, 21);
-		panel.add(ipTF);
-		ipTF.setColumns(10);
+//------------------------------------------------------------------------------------------등록부
+
+		//---------------------------------------- 로그인 창 이벤트 등록
+		ok.addActionListener(ccc);
+		cancle.addActionListener(ccc);
 		
-		nameTF = new JTextField();
-		nameTF.setBounds(69, 48, 151, 21);
-		panel.add(nameTF);
-		nameTF.setColumns(10);
+		//---------------------------------------- 채팅창 이벤트 등록
 		
-		lblNewLabel = new JLabel("I      P :");
-		lblNewLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		lblNewLabel.setBounds(12, 14, 57, 15);
-		panel.add(lblNewLabel);
 		
-		lblNewLabel_1 = new JLabel("\uB300\uD654\uBA85 :");
-		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		lblNewLabel_1.setBounds(12, 50, 57, 15);
-		panel.add(lblNewLabel_1);
+		//---------------------------------------- 쪽지보내기창 이벤트 등록
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new MatteBorder(1, 1, 1, 1, (Color) SystemColor.controlShadow));
-		panel_1.setBackground(Color.WHITE);
-		panel_1.setBounds(2, 84, 239, 34);
-		panel.add(panel_1);
-		panel_1.setLayout(null);
 		
-		btnNewButton = new JButton("\uD655 \uC778");
-		btnNewButton.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		btnNewButton.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		btnNewButton.setBounds(40, 2, 70, 28);
-		panel_1.add(btnNewButton);
-		
-		btnNewButton_1 = new JButton("\uCDE8 \uC18C");
-		btnNewButton_1.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		btnNewButton_1.setBounds(122, 2, 70, 28);
-		panel_1.add(btnNewButton_1);
+		//---------------------------------------- 대화명변경창 이벤트 등록
 	}
 
 	/**

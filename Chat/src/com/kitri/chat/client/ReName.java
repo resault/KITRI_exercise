@@ -1,101 +1,91 @@
 package com.kitri.chat.client;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.Dimension;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import java.awt.GridLayout;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import java.awt.Font;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.*;
+import javax.swing.border.*;
 
 public class ReName extends JFrame {
+//---------------------------------------------------------------------------------------¼±¾ðºÎ
+	JPanel contentPane = new JPanel();
+	
+	JPanel panelC = new JPanel();
+	JPanel panelS = new JPanel();
 
-	private JPanel contentPane;
-	private JTextField newname;
-	private JPanel panel;
-	private JButton ok;
-	private JButton cancel;
-	private JPanel panel_1;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_1;
+	JLabel oldL = new JLabel("Old Name :");
+	JLabel oldT = new JLabel("oldname");
+	JLabel newL = new JLabel("New Name : ");
+	JTextField newName = new JTextField();
 
+	JButton ok = new JButton("º¯°æ");
+	JButton cancel = new JButton("Ãë¼Ò");
+	
 
 	/**
 	 * Create the frame.
 	 */
 	public ReName() {
-		setTitle("\uB300\uD654\uBA85 \uBCC0\uACBD");
+
+//------------------------------------------------------------------------------------------¹èÄ¡ºÎ		
+
+		panelC.setLayout(null);
+		oldL.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 13));
+		oldL.setPreferredSize(new Dimension(50, 25));
+		oldL.setBounds(12, 10, 79, 34);
+		oldT.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 13));
+		oldT.setBounds(140, 10, 72, 34);
+		oldT.setPreferredSize(new Dimension(150, 15));
+		newL.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 13));
+		newL.setPreferredSize(new Dimension(50, 25));
+		newL.setBounds(12, 54, 88, 19);
+		newName.setBounds(103, 49, 136, 29);
+		newName.setPreferredSize(new Dimension(150, 15));
+		newName.setColumns(10);
+		panelC.add(oldL);
+		panelC.add(oldT);
+		panelC.add(newL);
+		panelC.add(newName);
+
+		ok.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		ok.setPreferredSize(new Dimension(60, 23));
+		cancel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		cancel.setPreferredSize(new Dimension(60, 23));
+		panelS.add(ok);
+		panelS.add(cancel);
+
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.add(panelC, BorderLayout.CENTER);
+		contentPane.add(panelS, BorderLayout.SOUTH);
+
+		setTitle("´ëÈ­¸í º¯°æ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 273, 171);
 		setResizable(false);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		panel = new JPanel();
-		contentPane.add(panel, BorderLayout.SOUTH);
-		
-		ok = new JButton("\uBCC0\uACBD");
-		ok.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		ok.setPreferredSize(new Dimension(60, 23));
-		panel.add(ok);
-		
-		cancel = new JButton("\uCDE8\uC18C");
-		cancel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		cancel.setPreferredSize(new Dimension(60, 23));
-		panel.add(cancel);
-		
-		panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.CENTER);
-		panel_1.setLayout(null);
-		
-		lblNewLabel = new JLabel("Old Name :");
-		lblNewLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 13));
-		lblNewLabel.setPreferredSize(new Dimension(50, 25));
-		lblNewLabel.setBounds(12, 10, 79, 34);
-		panel_1.add(lblNewLabel);
-		
-		lblNewLabel_2 = new JLabel("New Name : ");
-		lblNewLabel_2.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 13));
-		lblNewLabel_2.setPreferredSize(new Dimension(50, 25));
-		lblNewLabel_2.setBounds(12, 54, 88, 19);
-		panel_1.add(lblNewLabel_2);
-		
-		lblNewLabel_1 = new JLabel("oldname");
-		lblNewLabel_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 13));
-		lblNewLabel_1.setBounds(140, 10, 72, 34);
-		panel_1.add(lblNewLabel_1);
-		lblNewLabel_1.setPreferredSize(new Dimension(150, 15));
-		
-		newname = new JTextField();
-		newname.setBounds(103, 49, 136, 29);
-		panel_1.add(newname);
-		newname.setPreferredSize(new Dimension(150, 15));
-		newname.setColumns(10);
-	}
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ReName frame = new ReName();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				setVisible(false);
 			}
 		});
 	}
+
+//	/**
+//	 * Launch the application.
+//	 */
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					ReName frame = new ReName();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 }

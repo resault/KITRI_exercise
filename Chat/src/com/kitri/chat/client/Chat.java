@@ -1,59 +1,45 @@
 package com.kitri.chat.client;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.Vector;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextArea;
-import java.awt.GridLayout;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.MatteBorder;
-import java.awt.Color;
-import java.awt.SystemColor;
-import java.awt.Dimension;
-import java.awt.Font;
-import javax.swing.JScrollPane;
-import javax.swing.border.LineBorder;
+import javax.swing.*;
+import javax.swing.border.*;
 
 public class Chat extends JFrame {
+//------------------------------------------------------------------------선언부
+	JPanel contentPane = new JPanel();
+	JPanel panelC = new JPanel();
+	JPanel panelR = new JPanel();
 
-	private JPanel contentPane = new JPanel();
+	JPanel panelCS = new JPanel();
+	JPanel panelCS2 = new JPanel();
+	JPanel panelRS = new JPanel();
+
+	JScrollPane scrollPaneA = new JScrollPane();
+	JTextArea area = new JTextArea();
 	
-	private JPanel panelC = new JPanel();
-	private JPanel panelR = new JPanel();
+	JTextField globalsend = new JTextField();
 
-	private JScrollPane scrollPaneA = new JScrollPane();
-	private JTextArea area = new JTextArea();
+	JLabel whom = new JLabel("귓속말");
+	JTextField whomsend = new JTextField();
+
+	JScrollPane scrollPaneL = new JScrollPane();
+	Vector<String> listData = new Vector<String>();
+	JList<String> list = new JList<String>(listData);
 	
-	private JPanel panelCS = new JPanel();
-	private JTextField globalsend = new JTextField();
-
-	private JPanel panelCS2 = new JPanel();
-	private JLabel whom = new JLabel("귓속말");
-	private JTextField whomsend = new JTextField();
-
-	private JScrollPane scrollPaneL = new JScrollPane();
-	private JTextArea list = new JTextArea();
-	
-	private JPanel panelRS = new JPanel();
-	private JButton rename = new JButton("대화명 변경");
-	private JButton paper = new JButton("쪽지보내기");
-	private JButton close = new JButton("나 가 기");
+	JButton rename = new JButton("대화명 변경");
+	JButton paper = new JButton("쪽지보내기");
+	JButton close = new JButton("나 가 기");
 
 	
 	/**
 	 * Create the frame.
 	 */
 	public Chat() {
-
+//--------------------------------------------------------------------- 배치부
 		panelCS2.setLayout(new BorderLayout(30, 0));
 		whom.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		whomsend.setPreferredSize(new Dimension(100, 25));
@@ -68,42 +54,28 @@ public class Chat extends JFrame {
 		
 		panelC.setLayout(new BorderLayout(0, 8));
 		scrollPaneA.setViewportView(area);
-
 		panelC.add(scrollPaneA, BorderLayout.CENTER);
 		panelC.add(panelCS, BorderLayout.SOUTH);
 		
-		
 
-		
-		panelR.setLayout(new BorderLayout(0, 5));
-
-		
-		panelR.add(panelRS, BorderLayout.SOUTH);
 		panelRS.setLayout(new GridLayout(3, 0, 0, 5));
-
-		panelRS.add(rename);
-		
 		rename.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		rename.setPreferredSize(new Dimension(120, 23));
 		rename.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-
-		
 		paper.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		paper.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		panelRS.add(paper);
-
-		
 		close.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		close.setPreferredSize(new Dimension(85, 25));
 		close.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panelRS.add(rename);
+		panelRS.add(paper);
 		panelRS.add(close);
-		
-		
-		panelR.add(scrollPaneL, BorderLayout.CENTER);
-		
-		
+
+		panelR.setLayout(new BorderLayout(0, 5));
 		list.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		scrollPaneL.setViewportView(list);
+		panelR.add(scrollPaneL, BorderLayout.CENTER);
+		panelR.add(panelRS, BorderLayout.SOUTH);
 
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(4, 0));
@@ -115,23 +87,30 @@ public class Chat extends JFrame {
 		setBounds(100, 100, 507, 364);
 		setContentPane(contentPane);
 		setResizable(false);
-	}
-	
-	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Chat frame = new Chat();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				setVisible(false);
 			}
 		});
 	}
+	
+	
+//	/**
+//	 * Launch the application.
+//	 */
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					Chat frame = new Chat();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 }
