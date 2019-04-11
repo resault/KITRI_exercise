@@ -86,14 +86,20 @@ public class Login extends JFrame {
 		//---------------------------------------- 로그인 창 이벤트 등록
 		ok.addActionListener(ccc);
 		cancle.addActionListener(ccc);
+		nameTF.addActionListener(ccc);
+		this.addWindowListener(ccc);
 		
 		//---------------------------------------- 채팅창 이벤트 등록
-		
-		
+		chat.globalsend.addActionListener(ccc);
+		chat.close.addActionListener(ccc);
+		chat.addWindowListener(ccc);
+		chat.list.addListSelectionListener(ccc);
+		chat.whomsend.addActionListener(ccc);
 		//---------------------------------------- 쪽지보내기창 이벤트 등록
-		
+		paper.addWindowListener(ccc);
 		
 		//---------------------------------------- 대화명변경창 이벤트 등록
+		rename.addWindowListener(ccc);
 	}
 
 	/**

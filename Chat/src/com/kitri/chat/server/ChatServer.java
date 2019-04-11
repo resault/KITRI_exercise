@@ -81,10 +81,17 @@ public class ChatServer implements Runnable {
 							}
 						} break;
 						case ChatConstance.CS_ALL : {
-							
+							String tmp = st.nextToken();
+							multicast(ChatConstance.SC_MESSAGE + "|" + "[" + name + "]" + tmp );
 						} break;
 						case ChatConstance.CS_TO : {
-							
+							String to = st.nextToken();
+							String tmp = st.nextToken();
+							for(ChatClient cc : list) {
+								if(cc.equals(to)) {
+									cc.unicast(ChatConstance.SC_MESSAGE +"|" + "[" + name + "] " + tmp);
+								}
+							}
 						} break;
 						case ChatConstance.CS_PAPER : {
 							
@@ -96,13 +103,14 @@ public class ChatServer implements Runnable {
 							multicast(ChatConstance.SC_DISCONNECT + "|" + name);
 							list.remove(this);
 							flag = false;
-							out.close();
 							in.close();
+							out.close();
 							socket.close();
 						} break;
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
+					break;
 				}
 			}
 		}

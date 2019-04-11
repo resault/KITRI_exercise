@@ -25,13 +25,13 @@ public class ChatClientService extends Thread{
 	}
 
 	/*
-	 ------------------------------------------------------------------------------ 서버에 접속
+	 -----------------------------------------------------------------------------------------------------기본기능별 method
 	 1. ip, 대화명 get (대화명 유효성 검사)
 	 2. socket 생성
 	 3. IO생성
 	 4. 대화명 send
 	  
-	 */	public void connectProcess() {
+	 */	public void connectProcess() { //서버 접속
 		String ip = ccc.l.ipTF.getText().trim();
 		myid = ccc.l.nameTF.getText().trim();
 		
@@ -66,11 +66,28 @@ public class ChatClientService extends Thread{
 		
 	}
 
-	public void closeProcess() {
+	public void closeProcess() { // 채팅방 나가기
 		sendMsg(ChatConstance.CS_DISCONNECT + "|");
 	}
+	
+	public void globalsendProcess() { //전체 대화
+		String msg = ccc.l.chat.globalsend.getText().trim();
+		if(msg.isEmpty())
+			return;
+		sendMsg(ChatConstance.CS_ALL + "|" + msg);
+		ccc.l.chat.globalsend.setText("");
+	}
 
-//------------------------------------------------------------------------서버가 보낸 메세지 처리(run override)
+	public void whomsendProcess() {
+		String msg = ccc.l.chat.whomsend.getText().trim();
+		String to = ccc.l.chat.list.getSelectedValue();
+		if(msg.isEmpty())
+			return;
+		sendMsg(ChatConstance.CS_TO + "|" + to + "|" + msg);
+		ccc.l.chat.whomsend.setText("");
+	}
+	
+//-----------------------------------------------------서버가 보낸 메세지 처리(run override)
 	@Override
 	public void run() {
 		boolean flag = true;
@@ -87,7 +104,8 @@ public class ChatClientService extends Thread{
 						ccc.l.chat.list.setListData(ccc.l.chat.listData);
 					} break;
 					case ChatConstance.SC_MESSAGE : {
-						
+						String tmp = st.nextToken();
+						viewMsg(tmp);
 					} break;
 					case ChatConstance.SC_PAPER : {
 						
@@ -98,17 +116,20 @@ public class ChatClientService extends Thread{
 					case ChatConstance.SC_DISCONNECT : {
 						String tmp = st.nextToken();
 						if(!tmp.equals(myid)) {
-							
+							viewMsg(tmp + "님이 접속을 종료하였습니다.");
+							ccc.l.chat.listData.remove(tmp);
+							ccc.l.chat.list.setListData(ccc.l.chat.listData);
 						} else {
 							out.close();
 							in.close();
 							socket.close();
-							flag = false;
+							System.exit(0);
 						}
 					} break;
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
+				break;
 			}
 		}
 	}
@@ -126,4 +147,7 @@ public class ChatClientService extends Thread{
 		ccc.l.chat.area.append(msg + "\n");
 		ccc.l.chat.area.setCaretPosition(ccc.l.chat.area.getDocument().getLength());
 	}
+
+
+	
 }

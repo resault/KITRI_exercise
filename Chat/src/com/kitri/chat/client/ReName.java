@@ -65,12 +65,7 @@ public class ReName extends JFrame {
 		setResizable(false);
 		setContentPane(contentPane);
 		
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				setVisible(false);
-			}
-		});
+		
 	}
 
 //	/**

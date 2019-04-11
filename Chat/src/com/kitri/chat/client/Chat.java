@@ -88,12 +88,7 @@ public class Chat extends JFrame {
 		setContentPane(contentPane);
 		setResizable(false);
 		
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				setVisible(false);
-			}
-		});
+		
 	}
 	
 	
