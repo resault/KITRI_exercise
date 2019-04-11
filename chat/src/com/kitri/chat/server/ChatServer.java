@@ -96,7 +96,7 @@ public class ChatServer implements Runnable {
 							String tmp = st.nextToken();
 							for(ChatClient cc : list) {
 								if(cc.name.equals(to) ) {
-									cc.unicast(ChatConstance.SC_MESSAGE + "|☆" + name + tmp);//그냥 unicast로 하면 귓말 보낸사람한테 감
+									cc.unicast(ChatConstance.SC_MESSAGE + "|☆" + name + "☆ "+ tmp);//그냥 unicast로 하면 귓말 보낸사람한테 감
 									break;
 								}
 							}
@@ -126,8 +126,8 @@ public class ChatServer implements Runnable {
 						}break;
 					}
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
+					break;
 				}
 			}
 		} 

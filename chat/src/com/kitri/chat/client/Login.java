@@ -257,7 +257,7 @@ public class Login extends JFrame implements ActionListener, Runnable, ListSelec
 		if(newID.isEmpty()) {
 			JOptionPane.showMessageDialog(chat, "대화명을 입력하세요", "대화명오류", JOptionPane.ERROR_MESSAGE);
 		}
-		myid = newID;
+		myid = newID; 
 		sendMessage(ChatConstance.CS_RENAME + "|" + newID);
 		rename.newname.setText("");
 		rename.setVisible(false);
@@ -383,6 +383,7 @@ public class Login extends JFrame implements ActionListener, Runnable, ListSelec
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
+				break;
 			}
 		}
 	}
