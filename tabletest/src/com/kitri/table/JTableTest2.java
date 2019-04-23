@@ -4,14 +4,16 @@ package com.kitri.table;
 // >>DefaultTableModel을 상속받아서 isCellEditable()를 override하여 false를 반환하게 하면 됨
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-public class JTableTest2 extends JFrame {
+public class JTableTest2 extends JFrame implements ActionListener{
 
 	private JPanel contentPane = new JPanel();
-	TableModel model = new TableModel();
+	public TableModel model = new TableModel();
 	/**
 	 * Create the frame.
 	 */
@@ -23,9 +25,16 @@ public class JTableTest2 extends JFrame {
 		JScrollPane scrollPane = new JScrollPane(model.table);
 		contentPane.add(scrollPane, "Center");
 		
+		JButton btnNewButton = new JButton("New button");
+		scrollPane.setRowHeaderView(btnNewButton);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 411);
 		setContentPane(contentPane);
+		
+		btnNewButton.addActionListener(this);
+		
+		
 	}
 
 	/**
@@ -42,5 +51,17 @@ public class JTableTest2 extends JFrame {
 				}
 			}
 		});
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		int i = model.table.getSelectedRow();
+		if(i > -1) {
+			String name = model.table.getValueAt(i, 0).toString();
+			System.out.println(name);
+		} else {
+			System.out.println("선택없음");
+		}
 	}
 }
