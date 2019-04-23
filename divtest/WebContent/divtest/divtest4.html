@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+div p { /* 2단계 하위 요소에도 모두 적용되므로 div의 ul의 하위에 있는 p에도 적용됨 그리고 2단계라고 해서 아래아래까지만 적용되는게 아니라, 하위요소 전체에 다 적용된다고 보면됨*/
+	background-color: blue; color: red;
+}
+div>p { /* > 사용하면 바로 아래 요소에만 적용되므로 div 바로 아래의 p태그를 없애면 적용할게 없어짐 */
+	background-color: yellow; color: blue;
+}
+</style>
+</head>
+<body>
+<div>div입니당
+	<p>div의 하위 p입니당.</p>
+	<p>div의 하위 p입니당.</p>
+	<ul>
+		<li>div의 p의 하위 li입니당.</li>
+		<p>div의 ul의 하위 p입니당.</p>
+		<ul>
+			<li>아래아래</li>
+			<p>이것도 2단계 하위요소에 포함?</p>
+		</ul>
+		<li>div의 p의 하위 li입니당.</li>
+	</ul>
+
+</div>
+</body>
+</html>
