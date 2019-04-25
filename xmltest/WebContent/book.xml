@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE booklist SYSTEM "book.dtd">
+
+<booklist>
+	<book kind="IT" isbn="aa1234">
+		<title>aaa</title>
+		<author>
+			<name sex="남">A</name>
+			<tel>1345</tel>
+			<address>abcd</address>
+		</author>
+		<publisher>aaaa</publisher>
+		<price>1234</price>
+	</book>
+</booklist>
