@@ -34,6 +34,7 @@ public class SelectTest {
 			sql += "from jdbctest \n";
 			if(searchName != null)
 				sql += "where name = '" + searchName + "'\n";
+			
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 //			MemberDto memberDto = new MemberDto();
