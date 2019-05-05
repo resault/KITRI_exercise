@@ -24,8 +24,8 @@ public class InsertTest {
 	
 	public static void main(String[] args) {
 		InsertTest it = new InsertTest();
-		String name = "정현정";
-		String id = "resault";
+		String name = "홍길동";
+		String id = "hong";
 		Connection conn = null;
 		Statement stmt = null;
 		int cnt = 0;

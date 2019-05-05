@@ -56,7 +56,7 @@ public class MemberLogin extends HttpServlet {
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next())
+			if(rs.next())	
 				name = rs.getString("name");
 			
 		} catch (SQLException e) {

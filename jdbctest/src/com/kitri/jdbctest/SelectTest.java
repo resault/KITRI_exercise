@@ -37,10 +37,10 @@ public class SelectTest {
 			
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-//			MemberDto memberDto = new MemberDto();
+	//			MemberDto memberDto = new MemberDto();
 			while(rs.next()) { //최초로 호출된 ResultSet의 next()는 first()의 성격을 가짐
 				MemberDto memberDto = new MemberDto(); 
-//				memberDto.setNo(rs.getInt(1)); 
+	//				memberDto.setNo(rs.getInt(1)); 
 				memberDto.setNo(rs.getInt("no"));
 				memberDto.setId(rs.getString("id"));
 				memberDto.setName(rs.getString("name"));
