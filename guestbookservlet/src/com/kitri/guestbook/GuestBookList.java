@@ -49,6 +49,7 @@ public class GuestBookList extends HttpServlet {
 			StringBuffer sql = new StringBuffer();
 			sql.append("select seq, name, subject, content, to_char(logtime, 'yyyy.mm.dd') logtime \n");
 			sql.append("from guestbook \n");
+			sql.append("order by seq \n");
 			
 			pstmt = conn.prepareStatement(sql.toString());
 			
@@ -99,7 +100,7 @@ public class GuestBookList extends HttpServlet {
 		out.print("  <h2>글목록</h2>");
 		out.print("  <table class=\"table table-borderless\">");
 		out.print("  	<tr>");
-		out.print("  		<td align=\"right\"><button type=\"button\" class=\"btn btn-link\">글쓰기</button></td>");
+		out.print("  		<td align=\"right\"><button type=\"button\" class=\"btn btn-link\" onclick=\"location.href='/guestbookservlet/guestbook/write.html'\">글쓰기</button></td>");
 		out.print("  	</tr>");
 		out.print("  </table>");
 		
