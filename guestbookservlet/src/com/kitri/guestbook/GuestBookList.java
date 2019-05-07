@@ -30,7 +30,7 @@ public class GuestBookList extends HttpServlet {
 		}
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { // 링크 타고 들어오기때문에 get방식!!
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
