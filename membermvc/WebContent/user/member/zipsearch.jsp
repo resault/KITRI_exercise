@@ -41,7 +41,7 @@ function zipsearchResult() {
 			//에러페이지
 		}
 	} else {
-		ziplistview.innerHTML = '<img src="<%=root%>/img/loading.gif" width="80"px;>';
+		ziplistview.innerHTML = '<img src="<%=root%>/img/loading.gif" width="80px">';
 	}
 }
 function selectZip(z, a) {

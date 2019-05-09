@@ -63,7 +63,6 @@ function register() {
 }
 
 </script>
-<body>
 
 <div class="container" align="center">
 	<div class="col-lg-6" align="center">
