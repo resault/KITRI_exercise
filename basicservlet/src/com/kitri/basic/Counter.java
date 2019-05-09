@@ -37,7 +37,7 @@ public class Counter extends HttpServlet {
 		out.print("	당신은");
 		
 		for(int i=0;i<zeroLen;i++)
-			out.print("<img src=\"/basicservlet/img/0.PNG\" height=\"30\">");
+			out.print("<img src=\"img/0.PNG\" height=\"30\">");
 		for(int i=0;i<len;i++)
 			out.print("<img src=\"/basicservlet/img/"+ cntStr.charAt(i) +".PNG\" height=\"30\">");
 		

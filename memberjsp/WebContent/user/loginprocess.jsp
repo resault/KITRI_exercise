@@ -27,7 +27,7 @@ try {
 	sql.append("from member\n");
 	sql.append("where id=? and pass=?\n");
 	
-	pstmt = conn.prepareCall(sql.toString());
+	pstmt = conn.prepareStatement(sql.toString());
 	
 	pstmt.setString(1, id);
 	pstmt.setString(2, pass);
