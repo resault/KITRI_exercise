@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/template/header.jsp" %>
+<script type="text/javascript" src="<%=root%>/js/httpRequest.js"></script>	<!-- ajax 사용하기 위해 만들어놓은 js 불러옴 -->
 <script type="text/javascript">
 $(document).ready(function() {
 	 
@@ -9,13 +10,45 @@ $(document).ready(function() {
 	});
 	
 });
+var resultView;
+var idcount = 1;
 
+function idcheck() {
+	resultView = document.getElementById("idresult");	//div 받아옴
+	var searchid = document.getElementById("id").value;	//입력된 id를 받아옴
+	if(searchid.length < 5 || searchid.length > 16) {
+		resultView.innerHTML = '<font color=gray>아이디는 5자이상 16자이하입니다.</font>';	//아이디가 형식에 맞지 않음을 알려줌
+	} else {
+		var params = "act=idcheck&sid=" + searchid;	//서버로 전송할 param
+		sendRequest("<%=root%>/user", params, idcheckResult, "GET");
+		resultView.innerHTML = '';
+	}
+}
+function idcheckResult() {
+	if(httpRequest.readyState == 4) {
+		if(httpRequest.status == 200) {
+			var result = httpRequest.responseXML;
+			idcount = parseInt(result.getElementsByTagName("cnt")[0].firstChild.data); //getElementsByTagName()는 list를 반환함	//xml태그 안에는 하위 요소 or 문자열이 올 수 있음. 때문에 data까지 해줘야 문자열 데이터가 얻어짐
+			
+			if(idcount == 0) {
+				resultView.innerHTML = '<font color=steelblue>사용 가능합니다.</font>';
+			} else {
+				resultView.innerHTML = '<font color=magenta>사용중입니다. 다른 아이디를 검색하세요.</font>';
+			}
+		} else {
+			//에러페이지
+		}
+	} else {
+		//로딩중..(indicater같은것)	
+	}
+	
+} 
 function register() {
 	if(document.getElementById("name").value == "") {
 		alert("이름 입력!!!!");
 		return;
-	} else if(document.getElementById("id").value == "") {
-		alert("아이디 입력!!!!");
+	} else if(idcount != 0) {
+		alert("아이디 중복검사를 하세요!!!!");
 		return;
 	} else if(document.getElementById("pass").value == "") {
 		alert("비밀번호 입력!!!!");
@@ -24,7 +57,7 @@ function register() {
 		alert("비밀번호 확인!!!!");
 		return;
 	} else { 
-		document.getElementById("memberform").action = "<%=root%>/user/register.jsp";
+		document.getElementById("memberform").action = "<%=root%>/user";	//form의 action으로 넘길때는 querystring 직접 쓰면 안됨
 		document.getElementById("memberform").submit();
 	}
 }
@@ -36,13 +69,15 @@ function register() {
 	<div class="col-lg-6" align="center">
 		<h2>회원가입</h2>
 		<form id="memberform" method="post" action="">
+			<input type="hidden" name="act" value="register">
 			<div class="form-group" align="left">
 				<label for="name">이름</label>
 				<input type="text" class="form-control" id="name" name="name" placeholder="이름입력">
 			</div>
 			<div class="form-group" align="left">
 				<label for="">아이디</label>
-				<input type="text" class="form-control" id="id" name="id" placeholder="4자이상 16자 이하">
+				<input type="text" class="form-control" id="id" name="id" onkeyup="javascript:idcheck();" placeholder="4자이상 16자 이하">
+				<div id="idresult"></div>
 			</div>
 			<div class="form-group" align="left">
 				<label for="">비밀번호</label>
@@ -87,7 +122,7 @@ function register() {
 					<input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="우편번호" size="7" maxlength="5" readonly="readonly">
 					<!--<button type="button" class="btn btn-primary" onclick="javascript:">우편번호</button>-->
 				</div>
-				<input type="text" class="form-control" id="address" name="address" placeholder="">
+				<input type="text" class="form-control" id="address" name="address" placeholder="" readonly="readonly">
 				<input type="text" class="form-control" id="address_detail" name="address_detail" placeholder="">
 			</div>
 			<div class="form-group" align="center">
