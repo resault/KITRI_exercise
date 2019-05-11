@@ -59,8 +59,8 @@ ALTER TABLE member
 CREATE TABLE member_detail (
 	id VARCHAR2(16), /* 아이디 */
 	zipcode VARCHAR2(5), /* 우편번호 */
-	address VARCHAR2(100), /* 일반주소 */
-	address_detail VARCHAR(100), /* 상세주소 */
+	address VARCHAR2(200), /* 일반주소 */
+	address_detail VARCHAR(200), /* 상세주소 */
 	tel1 VARCHAR2(3), /* 전화번호1 */
 	tel2 VARCHAR2(4), /* 전화번호2 */
 	tel3 VARCHAR2(4) /* 전화번호3 */

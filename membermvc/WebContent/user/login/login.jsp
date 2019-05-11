@@ -10,12 +10,12 @@ function login() {
 		alert("비밀번호를 입력하세요!!!");
 		return;
 	} else {
-		document.getElementById("loginform").action = "<%=root%>/user/loginprocess.jsp";
+		document.getElementById("loginform").action = "<%=root%>/user?act=";
 		document.getElementById("loginform").submit();
 	}
 }
 function mvjoin() {
-	document.location.href = "<%=root%>/user/member.jsp";
+	document.location.href = "<%=root%>/user?act=mvjoin";
 }
 </script>
 	<div class="container" align="center">

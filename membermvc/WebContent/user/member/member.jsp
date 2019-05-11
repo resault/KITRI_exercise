@@ -46,6 +46,9 @@ function register() {
 	if(document.getElementById("name").value == "") {
 		alert("이름을 입력하세요!!!");
 		return;
+	} else if(idcount != 0){
+		alert("아이디 중복검사를 하세요!!!");
+		return;
 	} else if(document.getElementById("id").value == "") {
 		alert("아이디를 입력하세요!!!");
 		return;
