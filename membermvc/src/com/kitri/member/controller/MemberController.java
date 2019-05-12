@@ -58,8 +58,8 @@ public class MemberController {
 		MemberDto memberDto = MemberServiceImpl.getMemberService().loginMember(id, pass);
 		if(memberDto != null) {
 			/////////////// cookie ////////////////////////
-			String idsv = request.getParameter("idsave");
-			if("idsave".equals(idsv)) {
+			String idsv = request.getParameter("idsv");
+			if("idsv".equals(idsv)) {
 				Cookie cookie = new Cookie("kid_info", id);
 				cookie.setDomain("localhost");
 				cookie.setPath(request.getContextPath());
@@ -81,6 +81,7 @@ public class MemberController {
 					}
 				}
 			}
+			
 			/////////////// session ///////////////////////
 			HttpSession session = request.getSession();
 			session.setAttribute("userInfo", memberDto);
