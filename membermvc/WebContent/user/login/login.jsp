@@ -32,7 +32,9 @@ function login() {
 function mvjoin() {
 	document.location.href = "<%=root%>/user?act=mvjoin";
 }
+
 </script>
+
 	<div class="container" align="center">
 		<div class="col-lg-6" align="center">
 			<h2>로그인</h2>
