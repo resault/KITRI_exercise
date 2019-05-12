@@ -1,9 +1,9 @@
 package com.kitri.member.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
 import com.kitri.member.model.MemberDetailDto;
+import com.kitri.member.model.MemberDto;
 import com.kitri.member.model.service.MemberServiceImpl;
 
 public class MemberController {
@@ -45,6 +45,60 @@ public class MemberController {
 			path = "/user/member/registerfail.jsp";
 		}
 		return path;
+	}
+
+	public String login(HttpServletRequest request, HttpServletResponse response) {
+		String path = "/index.jsp";
+		
+		String id = request.getParameter("id");
+		String pass = request.getParameter("pass");
+		
+		MemberDto memberDto = MemberServiceImpl.getMemberService().loginMember(id, pass);
+		
+		if(memberDto != null) {
+			
+			/////// cookie //////////
+			String idsv = request.getParameter("idsv");
+			
+			if("idsv".equals(idsv)) {
+				Cookie cookie = new Cookie("kid_info", id);
+				cookie.setDomain("localhost");
+				cookie.setPath(request.getContextPath());
+				cookie.setMaxAge(60*60*24*365*50);
+				
+				response.addCookie(cookie);
+			} else {
+				Cookie[] cookie = request.getCookies();
+				if(cookie != null) {
+					for(Cookie c : cookie) {
+						if("kid_info".equals(c.getName())) {
+							c.setDomain("localhost");
+							c.setPath(request.getContextPath());
+							c.setMaxAge(0);
+							response.addCookie(c);
+							break;
+						}
+					}
+				}
+			}
+			
+			
+			
+			
+			/////// session //////////
+			HttpSession session = request.getSession();
+			session.setAttribute("userInfo", memberDto);
+			path = "/user/login/loginok.jsp";
+		} else {
+			path = "/user/login/loginfail.jsp";
+		}
+		return path;
+	}
+
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		return "/user/login/login.jsp";
 	}
 
 

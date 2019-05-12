@@ -7,7 +7,7 @@ MemberDetailDto memberDetailDto = (MemberDetailDto) request.getAttribute("userIn
 %>
 	<%=memberDetailDto.getName()%>님 회원가입을 환영합니다.
 	가입하신 정보는 아래와 같습니다.<br>
-	아이디 : <%=memberDetailDto.getId()%><br><%System.out.print("여기");%>
+	아이디 : <%=memberDetailDto.getId()%><br>
 	이메일 : <%=memberDetailDto.getEmailid()%>@<%=memberDetailDto.getEmaildomain()%><br>
 	전화번호 : <%=memberDetailDto.getTel1()%>-<%=memberDetailDto.getTel2()%>-<%=memberDetailDto.getTel3()%><br>
 	주소 : <%=memberDetailDto.getAddress()%> <%=memberDetailDto.getAddressDetail()%><br>

@@ -1,6 +1,6 @@
 package com.kitri.member.model.service;
 
-import java.util.List;
+import java.util.*;
 
 import com.kitri.member.model.*;
 import com.kitri.member.model.dao.MemberDaoImpl;
@@ -61,8 +61,12 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public MemberDto loginMember(String id, String pass) {
-		// TODO Auto-generated method stub
-		return null;
+		Map<String, String> map = new HashMap<String, String>();
+		
+		map.put("id", id);
+		map.put("pass", pass);
+		
+		return MemberDaoImpl.getMemberDao().loginMember(map);
 	}
 
 	@Override
