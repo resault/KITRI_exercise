@@ -41,7 +41,7 @@ function mvjoin() {
 		<form id="loginform" method="post" action="">
 			<input type="hidden" name="act" value="login">
 			<div class="form-group" align="right">
-				<label for=""><input type="checkbox" class="form-control" name="idsave" value="idsave"<%=ckid%>>아이디저장</label>
+				<label for=""><input type="checkbox" class="form-control" name="idsv" value="idsv"<%=ckid%>>아이디저장</label>
 			</div>
 			<div class="form-group" align="left">
 				<label for="">아이디</label>
