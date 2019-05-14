@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax.html</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("button").click(function(){
+			var id = $("input[name=id]").val();	//이거 10라인으로 올리면 왜 안되는지 확인!!!
+			var name = $("input[name=name]").val();
+			$.ajax({
+				url : "a.jsp",
+				method : "get",
+				
+				//data : 'id=' + id + '&name=' + name,	
+				/* data :	//data 내용을 객체 방식으로 전달하는 방법
+					{ id : id,
+					  name : name
+					}, */
+				$("form").serialize(),	//form 태그에 있는 모든 값들이 설정됨
+				success : function(result){
+					//console.log(result);
+					$("div").html(result.trim());
+				},
+				error : function(jqXHR, textStatus){
+					console.log(textStatus);
+				}
+			});
+		});
+	});
+</script>
+
+</head>
+<body>
+	<textarea rows="5" cols="50"></textarea><br>
+	<form>
+		ID<input type="text" name="id" placeholder="ID입력하세요"><br>
+		NAME<input type="text" name="name" placeholder="이름을 입력하세요"><br>
+	</form>
+	<button>클릭</button>
+	<div></div>
+</body>
+</html>
