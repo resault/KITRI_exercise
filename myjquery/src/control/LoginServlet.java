@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet {
 		String result = service.login(id, pass);
 		request.setAttribute("result", result);
 		
-		String path = "/loginresult.jsp";
+		String path = "/myjquery/loginresult.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 
 		rd.forward(request, response);
