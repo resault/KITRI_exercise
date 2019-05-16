@@ -7,6 +7,7 @@ if(id == null) {
 %>
 	<li><a href="user/login.html">로그인</a></li>
     <li><a href="user/signup.html">가입</a></li>
+    <li><a href="/myjquery/productlist">상품</a></li>
 <%
 } else {
 %>
