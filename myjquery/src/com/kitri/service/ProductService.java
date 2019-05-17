@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.kitri.dao.ProductDAO;
 import com.kitri.dto.Product;
+import com.kitri.exception.NotFoundException;
 
 public class ProductService {
 
@@ -30,7 +31,7 @@ public class ProductService {
 	
 	
 	// 선택 상품 상세정보
-	public Product findByNo(String no) {
+	public Product findByNo(String no) throws NotFoundException {
 		return ProductDAO.getProductDAO().SelectByNo(no);
 	}
 	

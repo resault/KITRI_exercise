@@ -26,7 +26,7 @@ public class ProductServlet extends HttpServlet {
 			// 상품 목록이 없을 때
 		}
 				
-		String path = "/productlistresult.jsp";
+		String path = "productlistresult.jsp";
 		
 		
 		RequestDispatcher rd = request.getRequestDispatcher(path);

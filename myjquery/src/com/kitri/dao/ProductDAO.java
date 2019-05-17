@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.kitri.dto.Product;
 import com.kitri.dto.ProductCategory;
+import com.kitri.exception.NotFoundException;
 
 public class ProductDAO {
 
@@ -99,7 +100,7 @@ public class ProductDAO {
 		return list;
 	}
 
-	public Product SelectByNo(String no) {
+	public Product SelectByNo(String no) throws com.kitri.exception.NotFoundException{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -133,8 +134,10 @@ public class ProductDAO {
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+			throw new NotFoundException(e.getMessage());
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new NotFoundException(e.getMessage());
 		} finally {
 			try {
 				if(rs != null)

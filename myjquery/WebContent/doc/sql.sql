@@ -120,7 +120,7 @@ VALUES ('004', '치즈케이크', 4000, '', 'F');
 
 
 -- select *
-select cate_no, cate_name, pro_co, prod_name, prod_price, prod_detail
+select cate_no, cate_name, prod_no, prod_name, prod_price, prod_detail
 from product p join product_category pc
 on p.prod_cate = pc.cate_no
 order by cate_no, prod_name;
@@ -133,11 +133,11 @@ where cate_no = 'D'
 order by cate_no, prod_name;
 
 
--- d카테고리에 해당 총상품가격을 출력하시오
+-- D카테고리에 해당 총상품가격을 출력하시오
 select sum(prod_price)
 from product p join product_category pc
 on p.prod_cate = pc.cate_no
-where cate_no = 'd';
+where cate_no = 'D';
 
 
 -- 카테고리별 총상품가격을 출력하시오

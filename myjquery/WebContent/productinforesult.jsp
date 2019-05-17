@@ -3,24 +3,40 @@
     pageEncoding="UTF-8"%>
 <%
 Product product = (Product) request.getAttribute("result");
+String no = product.getProdNo();
 %>
+<script>
+$(function(){
+	var $bt = $(".submit button");
+	$bt.click(function(){
+		$.ajax({
+			url : 'addcart',
+			method : 'get',
+			data : 'no=<%=no%>&quantity=' + $("input[name=quantity]").val(),
+			success : function(result){
+				//$("section").html(result.trim());	//section내용이 clear되고 result가 추가됨
+				$("div.addcartresult").remove();
+				$("section").append(result.trim());	//기존 section 마지막에 result가 추가됨
+			}
+		});
+		return false;
+	});
+});
+</script>
 <style>
 </style>
-<div style="float: left">
+<div style="float: left; margin-left: 10px;">
 	<img src="img/<%=product.getProdNo() %>.jpg">
 </div>
-<div style="float: left; margin-left: 10px; height: 300px">
+<div style="float: left; c height: 300px;  margin-left: 10px;">
 	<div id="prodName"><%=product.getProdName() %></div>	
 	<div><%=product.getProdDetail() %></div>
-	<div>상품번호 : <%=product.getProdNo() %></div>	
 	<div>가격 : <%=product.getProdPrice() %></div>
+	<div>상품번호 :<%=no %></div>	
 	<div>수량 : 
-		<select name="cnt">
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-		</select>
+		<input type="number" name="quantity" value="1" min="1" max="99">
+	</div>
+	<div class="submit">
+		<button>장바구니 넣기</button>
 	</div>
 </div>
