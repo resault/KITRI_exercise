@@ -8,9 +8,9 @@
 </head>
 <body>
 - 포함지시자
-<%@include file="/select.html" %><br>
+<%@include file="select.html" %><br>
 <hr>
 - 포함태그
-<jsp:include page="/select.html"/>
+<jsp:include page="select.html"/>
 </body>
 </html>

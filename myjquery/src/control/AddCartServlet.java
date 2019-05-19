@@ -20,7 +20,7 @@ public class AddCartServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		Map<Product, Integer> cart = (Map) session.getAttribute("cart");	//이건 왜 노란줄 뜨지?
+		Map<Product, Integer> cart = (Map) session.getAttribute("cart");	
 		if(cart == null) {
 			cart = new HashMap<Product, Integer>();
 			session.setAttribute("cart", cart);
