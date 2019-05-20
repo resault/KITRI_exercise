@@ -7,8 +7,6 @@ if(id == null) {
 %>
 	<li><a href="user/login.html">로그인</a></li>
     <li><a href="user/signup.html">가입</a></li>
-    <li><a href="productlist">상품목록</a></li>
-    <li><a href="viewcart">장바구니보기</a></li>
 <%
 } else {
 %>
@@ -16,4 +14,6 @@ if(id == null) {
 <%
 }
 %>
+    <li><a href="productlist">상품목록</a></li>
+    <li><a href="viewcart">장바구니보기</a></li>
   </ul>

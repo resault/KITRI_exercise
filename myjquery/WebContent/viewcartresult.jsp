@@ -40,14 +40,17 @@ $(function(){
 	});
 	var $btAddOrder = $("div.viewcartresult>table tr>td>button.addorder");
 	$btAddOrder.click(function(){
-
-		alert("주문하기 클릭!");
-		/* $.ajax({
+		$.ajax({
 			url:"addorder",
 			method:"get",
 			success:function(result){
+				if(result.trim() == "1") {	// 이거 String인데 == 비교해도 되나?
+					alert("주문성공");
+				} else {
+					alert("주문실패");
+				}
 			}
-		}); */
+		});
 		return false;
 	});
 });
