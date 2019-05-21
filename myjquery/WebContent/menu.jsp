@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <ul>
+  <ul type="none">
 <%
 String id = (String) session.getAttribute("loginInfo");
 if(id == null) {
@@ -16,4 +16,11 @@ if(id == null) {
 %>
     <li><a href="productlist">상품목록</a></li>
     <li><a href="viewcart">장바구니보기</a></li>
+<%
+if(id != null) {
+%>
+    <li><a href="vieworder">주문내역보기</a></li>
+<%
+}
+%>
   </ul>
