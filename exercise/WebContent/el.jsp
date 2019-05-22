@@ -16,18 +16,24 @@ ${param.opt}작업을 선택했습니다.
 
 
 <hr>
-<%=Integer.parseInt(request.getParameter("a"))+10 %><br>
+<%-- <%=Integer.parseInt(request.getParameter("a"))+10 %><br> --%>
 ${param.a + 10 }
 
 
 
 <hr>
-<%-- <%
+<%
 Customer c = new Customer("id1", "p1", "n1");
 request.setAttribute("c", c);
-%> --%>
+%>
 <%-- 고객이름: <%=((Customer)request.getAttribute("c")).getName() %><br> --%>
 고객이름: ${requestScope.c.name }	<!-- requesstScrope에서 c라는 이름을 가진 attribute를 가져와서 name이라는 property를 가져와서 출력 -->
 
+
+<hr>
+웹컨텍스트명 : ${pageContext.request.contextPath}
+
+<hr>
+${"문자" += 3}
 </body>
 </html>

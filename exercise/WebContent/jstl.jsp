@@ -1,3 +1,5 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -46,6 +48,9 @@ ${i}
 
  --%>
 
+
+<!-- forEach 태그로 List 타입 Attribute 처리하기 -->
+
 <hr>
 <%
 List<String> list = new ArrayList<String>();
@@ -63,6 +68,21 @@ ${obj.index}번째 : ${e} : ${obj.count}회<br>
 </c:forEach>
 
 
+<hr>
+
+<!-- forEach 태그로 Map 타입 Attribute 처리하기 -->
+
+<%
+Map<String, Integer> map = new HashMap<>();
+map.put("one", 1);
+map.put("two", 2);
+map.put("three", 3);
+request.setAttribute("map", map);
+%>
+
+<c:forEach var="e1" items="${requestScope.map }">
+	${e1.key} : ${e1.value}<br>
+</c:forEach>
 
 
 </body>

@@ -38,7 +38,6 @@ public class ViewCartServlet extends HttpServlet {
 		request.setAttribute("rcart", rc);
 		String path = "/viewcartresult.jsp";
 		
-		
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);
 	}

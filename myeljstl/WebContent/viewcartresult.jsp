@@ -2,6 +2,7 @@
 <%@page import="com.kitri.dto.Product"%>
 <%@page import="java.util.Map"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
 div.viewcartresult{
     text-align: center;
@@ -55,6 +56,38 @@ $(function(){
 	});
 });
 </script>
+<%-- <div class="viewcartresult">
+ <h3>장바구니 내용</h3>
+<c:set var="rc" value="${requestScope.rcart}"/>
+<table>
+   <tr>
+     <th>상품번호</th><th>상품명</th><th>상품가격</th><th>수량</th>     
+   </tr>
+   
+<c:forEach var="e" items="${rc}">
+	<c:set var="p" value="${e.key}"/>
+	<c:set var="quantity" value="${e.value}"/>
+   <tr>
+     <td>${p.prodNo}</td>
+     <td>${p.prodName}</td>
+     <td>${p.prodPrice}</td>
+     <td>${quantity}</td>
+   </tr>
+</c:forEach>
+   <tr>
+     <td colspan="4" style="text-align:center;">
+       <button style="margin:10px;" class="removecart">장바구니 비우기</button>
+<c:if test="${! empty sessionScope.loginInfo}">
+       <button style="margin:10px;"class="addorder">주문하기</button>
+</c:if>
+     </td>
+   </tr>
+   
+   
+ </table>
+</div> --%>
+
+
 <div class="viewcartresult">
  <h3>장바구니 내용</h3>
 <%
