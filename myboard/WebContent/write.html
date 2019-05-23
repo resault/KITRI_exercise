@@ -1,0 +1,32 @@
+<script>
+$(function(){
+	$("div.boardwrite>form").submit(function(){
+		$.ajax({
+			url:'writeboard',
+			method:'post',
+			data:$(this).serialize(),
+			success:function(result){
+				if(result != -1) {
+					alert("글쓰기 성공");
+					location.href='write.html';
+					/* $("nav>ul>li>a[href=boardlist]").trigger("click"); */
+				} else {
+					alert("글쓰기 실패");
+				}
+			}
+		});
+		return false;
+	});
+});
+</script>
+<div class="boardwrite">
+  <h4>글쓰기</h4>
+  <form autocomplete="off"> <!-- autocomplete의 값을 off로 주면 자동완성 해제됨! -->
+    <label>제목</label><input name="subject"><br>
+    <label>작성자</label><input name="writer"><br>
+    <label>비밀번호</label><input type="password" name="password"><br>
+    <label>내용</label>
+    <textarea name="contents"></textarea>
+    <button>글쓰기</button>
+  </form>
+</div>
