@@ -114,4 +114,12 @@ public class RepBoardDto {
 		this.board_viewcount = board_viewcount;
 	}
 
+	@Override
+	public String toString() {
+		return "RepBoardDto [board_seq=" + board_seq + ", parent_seq=" + parent_seq + ", board_subject=" + board_subject
+				+ ", board_writer=" + board_writer + ", board_contents=" + board_contents + ", board_date=" + board_date
+				+ ", board_password=" + board_password + ", board_viewcount=" + board_viewcount + "]";
+	}
+
+	
 }

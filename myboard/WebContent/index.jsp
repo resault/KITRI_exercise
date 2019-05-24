@@ -6,6 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <style>
 nav>ul{ list-style: none;}
 nav>ul>li{ display: inline-block; margin: 10px; }
@@ -34,6 +40,7 @@ $(function(){
 <ul>
   <li><a href="write.html">글쓰기</a>
   <li><a href="boardlist">글목록</a>
+  <li><a href="upload.html">파일업로드</a>
 </ul>
 </nav>
 <section>

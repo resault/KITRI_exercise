@@ -1,5 +1,7 @@
 package com.kitri.service;
 
+import java.util.List;
+
 import com.kitri.dao.RepBoardDAO;
 import com.kitri.dto.RepBoardDto;
 import com.kitri.exception.AddException;
@@ -30,6 +32,14 @@ public class RepBoardService {
 		} else {
 			throw new AddException("부모글번호가 없는 답글입니다.");
 		}
+	}
+	
+	public List<RepBoardDto> findByRows(int startRow, int endRow) {
+		return RepBoardDAO.getRepBoardDAO().selectByRows(startRow, endRow);
+	}
+
+	public int getTotalCnt() {
+		return RepBoardDAO.getRepBoardDAO().selectTotalCnt();
 	}
 	
 }
