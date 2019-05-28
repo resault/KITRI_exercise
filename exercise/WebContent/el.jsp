@@ -35,5 +35,9 @@ request.setAttribute("c", c);
 
 <hr>
 ${"문자" += 3}
+
+
+<hr>
+${requestScope.opt}
 </body>
 </html>
