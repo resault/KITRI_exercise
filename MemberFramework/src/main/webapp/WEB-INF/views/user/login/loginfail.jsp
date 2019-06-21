@@ -4,5 +4,5 @@
 <font size="11" color="red">
 등록되지 않은 아이디이거나, 아이디 또는 비밀번호를 잘못 입력하셨습니다.<br/>
 </font>
-<a href="${root}/user?act=mvlogin">로그인</a>
+<a href="${root}/user/login.kitri">로그인</a>
 <%@ include file="/WEB-INF/views/template/footer.jsp" %>

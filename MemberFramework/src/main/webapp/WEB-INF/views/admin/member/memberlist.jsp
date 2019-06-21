@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/template/header.jsp" %>
 <script type="text/javascript">
-$(document).ready(function() {	//문서가 준비되면 함수 실행하라는 의미 (window.onload와 동일)
+$(function() {	//문서가 준비되면 함수 실행하라는 의미 (window.onload와 동일)
 	memberlist('', '');
 	
 	$("#searchBtn").click(function() {	//검색버튼을 클릭하면 호출
@@ -16,21 +16,23 @@ $(document).ready(function() {	//문서가 준비되면 함수 실행하라는 �
 function memberlist(key, word) {
 	$("#mlist").empty();
 	$.ajax({
-		url : "${root}/admin", 
+		url : "${root}/admin/memberlist.kitri", 
 		type : "get",
-		dataType : "xml",
-		data : "act=getmemberlist&key=" + key + "&word=" + word,
+		dataType : "json",
+		data : {'key' : key, 'word' : word },
 		timeout : 30000,
 		cache : false,
-		success : function(xml){	//ajax의 callback함수  >> 성공
-			var member = $(xml).find("member");
-			for(var i=0;i<member.length;i++) {
-				var id = $(member[i]).find("id").text();
-				var name = $(member[i]).find("name").text();
-				var email = $(member[i]).find("email").text();
-				var tel = $(member[i]).find("tel").text();
-				var address = $(member[i]).find("address").text();
-				var joindate = $(member[i]).find("joindate").text();
+		success : function(data){	//ajax의 callback함수  >> 성공
+			var member = data.memberlist;
+			var len = member.length;
+						
+			for(var i=0;i<len;i++) {
+				var id = member[i].id;
+				var name = member[i].name;
+				var email = member[i].emailid + "@" + member[i].emaildomain;
+				var tel = member[i].tel1 + "-" + member[i].tel2 + "-" + member[i].tel3;
+				var address = member[i].zipcode + " " + member[i].address;
+				var joindate = member[i].joindate;
 				
 				var tr = $("<tr>").attr("class", "table-active");	//체이닝
 				var td1 = $("<td>").html(id);

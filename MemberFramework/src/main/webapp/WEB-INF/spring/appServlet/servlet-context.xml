@@ -21,6 +21,16 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- web.xml의 에러페이지 설정과 비슷한 기능. 예외처리 매핑 -->
+	<beans:bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<beans:property name="exceptionMappings">
+			<beans:props>
+			<!-- 세션 예외가 발생했을때, 로그인페이지로 이동시킴 -->
+				<beans:prop key="org.springframework.web.HttpSessionRequiredException">user/login/login</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+	
 	<!-- 어노테이션으로 설정한 컴포넌트를 자동으로 스캔함 -->
 	<context:component-scan base-package="com.kitri.**.controller" />
 	

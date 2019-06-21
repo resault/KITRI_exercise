@@ -57,4 +57,10 @@ public class MemberDto {
 		this.joindate = joindate;
 	}
 
+	@Override
+	public String toString() {
+		return "MemberDto [id=" + id + ", name=" + name + ", pass=" + pass + ", emailid=" + emailid + ", emaildomain="
+				+ emaildomain + ", joindate=" + joindate + "]";
+	}
+
 }
