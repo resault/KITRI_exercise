@@ -24,9 +24,4 @@ public class MyBatisConfiguration {
 	public static SqlSessionFactory getSqlSessionFactory() {
 		return sqlSessionFactory;
 	}
-	
-	
-	
-	
-	
 }
