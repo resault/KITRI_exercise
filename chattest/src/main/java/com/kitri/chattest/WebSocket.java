@@ -1,4 +1,4 @@
-package com.kitri.chat;
+package com.kitri.chattest;
 
 
 import javax.websocket.OnClose;

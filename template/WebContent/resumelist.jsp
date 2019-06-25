@@ -13,10 +13,21 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<%-- font-awesome --%>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 		<style type="text/css">
-			.far, .fas {font-size: 1.5em;}
-			i {vertical-align: center;}
+			.far, .fas {
+				vertical-align: center;
+				font-size: 1.3em;
+			}
 		</style>
+		<script>
+			$(function(){
+				$('#checkAll').click(function(){
+					$('.resume').attr('checked', 'checked');
+					return false;
+				});
+			});
+		</script>
 	</head>
 	<body class="is-preload">
 
@@ -42,94 +53,81 @@
 							<%-- Content --%>
 								<section>
 									<header class="main">
-										<h1>Find Mentor</h1>
+										<h1>Message</h1>
 									</header>
-									<%-- 멘토 검색 --%>
-									<div class="row gtr-uniform" style="margin-top: 2em;">
-										<div class="col-3 col-12-small">
-										</div>
-										<div class="col-9 col-12-small">
-											<div class="col-2 col-4-small" style="padding-left	: 0; float: right;">
-												<ul class="actions">
-													<li><a href="#" class="button primary icon"><i class="fas fa-search"></i></a></li>
-													<li><a href="#" class="button"><i class="fas fa-redo"></i></a></li>
-												</ul>
-											<div class="col-0 col-8-small" style="padding-left	: 0; float: right;">
-											</div>
-											</div>
-											
-											<div class="col-4 col-6-small" style="padding-left: 0.5em; padding-right: 1em; float: right;">
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="검색어를 입력하세요" />
-											</div>
-											<div class="col-6 col-6-small" style="padding-left	: 0; float: right;">
-												 <select name="school-cate2" id="school-cate2">
-													<option value="0">ID</option>
-													<option value="1">모교</option>
-												</select>
-											</div>
-											<div style="clear: both;">
-											</div>
-										</div>
-									</div>
+									
 									<%-- 학교 분류 --%>
-									<div class="row gtr-uniform" style="margin: 0 0 1.5em 0;">
-										<div class="col-2" style="float: right; padding-left: 0; width: 10em;">
-											 <select name="school-cate1" id="school-cate1" >
-												<option value="0">- 대분류 -</option>
+									<div class="row gtr-uniform" style="margin: 0 0 3em 0;">
+										<div class="col-2" style="width:8em; padding-left: 0;">
+											 <select name="school-cate2" id="school-cate2">
+												<option value="0">첨삭중</option>
+												<option value="1">첨삭완료</option>
+											</select>
+										</div>
+										<div class="col-2" style="width:10em; padding-left: 0; margin-left: 1em;"> 
+											<select name="school-cate1" id="school-cate1" >
+												<option value="0">- 학교분류 -</option>
 												<option value="1">고등학교</option>
 												<option value="2">대학교</option>
 											</select>
 										</div>
-										<div class="col-2" style="float: left; width: 10em; padding-left: 0; margin-left: 1em;"> 
-											 <select name="school-cate2" id="school-cate2">
-												<option value="0">- 소분류 -</option>
-												<option value="1">- 소분류 -</option>
-												<option value="2">- 소분류 -</option>
-											</select>
-										</div>
-										<div class>
-											<div style="float: right;">
-												<ul class="actions" style="float: right;">
-													<li><a href="#" class="button"><i class="far fa-comment-dots"></i></a></li>
-												</ul>
-											</div>
-										</div>
 									</div>
-									<%-- 멘토 목록 --%>
+									<%-- 쪽지 목록 --%>
 									<div>
-										<table class="alt" style="text-align: center;">
+										<table class="table-wrapper" style="text-align: center;">
+											<thead>
+												<tr>
+													<th colspan="2"></th>
+													<th style="text-align: center;">학교명</th>
+													<th style="text-align: center;">제목</th>
+													<th style="text-align: center;">첨삭글수</th>
+													<th style="text-align: center;">작성일</th>
+												</tr>
+											</thead>
 											<tbody>
 												<tr>
-													<td>1</td>
-													<td>userID</td>
+													<td>
+														<input type="checkbox" class="resume" id="resume1" name="resume2">
+														<label for="resume1" style="padding-left: 0.1em;"></label>
+													</td>
+													<td>첨삭중</td>
 													<td>ㅇㅇ고등학교</td>
-													<td>ㅇㅇ대학교</td>
-													<td>userID@gmail.com</td>
-													<td><i class="far fa-envelope"></i></td>
+													<td style="text-align: left;">ㅇㅇ고등학교 지원 자소서</td>
+													<td>2건</td>
+													<td>2019.05.24 11:23:12</td>
 												</tr>
 												<tr>
-													<td>2</td>
-													<td>userID</td>
+													<td>
+														<input type="checkbox" class="resume" id="resume1" name="resume2">
+														<label for="resume1" style="padding-left: 0.1em;"></label>
+													</td>
+													<td>첨삭완료</td>
 													<td>ㅇㅇ고등학교</td>
-													<td>ㅇㅇ대학교</td>
-													<td>userID@gmail.com</td>
-													<td><i class="far fa-envelope"></i></td>
+													<td style="text-align: left;">ㅇㅇ고등학교 지원 자소서</td>
+													<td>3건</td>
+													<td>2019.05.24 11:23:12</td>
 												</tr>
 												<tr>
-													<td>3</td>
-													<td>userID</td>
-													<td>ㅇㅇ고등학교</td>
+													<td>
+														<input type="checkbox" class="resume" id="resume1" name="resume2">
+														<label for="resume1" style="padding-left: 0.1em;"></label>
+													</td>
+													<td>첨삭중</td>
 													<td>ㅇㅇ대학교</td>
-													<td>userID@gmail.com</td>
-													<td><i class="far fa-envelope"></i></td>
+													<td style="text-align: left;">ㅇㅇ대학교 지원 자소서</td>
+													<td>2건</td>
+													<td>2019.05.24 11:23:12</td>
 												</tr>
 												<tr>
-													<td>4</td>
-													<td>userID</td>
-													<td>ㅇㅇ고등학교</td>
+													<td>
+														<input type="checkbox" class="resume" id="resume1" name="resume2">
+														<label for="resume1" style="padding-left: 0.1em;"></label>
+													</td>
+													<td>첨삭완료</td>
 													<td>ㅇㅇ대학교</td>
-													<td>userID@gmail.com</td>
-													<td><i class="far fa-envelope"></i></td>
+													<td style="text-align: left;">ㅇㅇ대학교 지원 자소서</td>
+													<td>3건</td>
+													<td>2019.05.24 11:23:12</td>
 												</tr>
 											</tbody>
 											<tfoot>
