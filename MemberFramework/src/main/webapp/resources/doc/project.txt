@@ -1,0 +1,93 @@
+membermvc
+	src
+		- com.kitri.admin.controller
+		  AdminController.java (Servlet : /admin)
+		
+		- com.kitri.admin.model
+		
+		- com.kitri.admin.model.dao
+		  AdminDao.java (I)
+		  AdminDaoImpl.java
+		
+		- com.kitri.admin.model.service
+		  AdminService (I)
+		  AdminServiceImpl.java
+		
+		- com.kitri.member.controller
+		  MemberController.java (Servlet : /user)
+		
+		- com.kitri.member.model
+		  MemberDto.java
+		  MemberDetailDto.java
+		  ZipcodeDto.java
+		
+		- com.kitri.member.model.dao
+		  MemberDao.java (I)
+		  MemberDaoImpl.java
+		
+		- com.kitri.member.model.service
+		  MemberService.java (I)
+		  MemberServiceImpl.java
+		  
+		- com.kitri.member.util
+		  DBConnection.java
+		  DBClose.java
+		  Encoder.java
+		  
+	
+	webcontent
+		- js	: member.js
+		- CSS	: *.css
+		- img	: *.jpg, png, gif
+		- admin
+			- member
+			  memberlist.jsp
+		  
+		- user
+			-	member
+				member.jsp
+				registerok.jsp
+				registerfail.jsp
+				idcheck.jsp
+				zipsearch.jsp
+				membermodify.jsp
+				
+			-	login
+				login.jsp
+				loginok.jsp
+				loginfail.jsp
+				
+		index.jsp
+		
+		
+		
+* HttpSession & Cookie	>> 둘다 뭔가 저장할 수 있는 저장공간
+
+Cookie			:	String을 저장 (클라이언트 컴퓨터에 텍스트 파일로 저장이 되기에 >>> 보안에 취약)
+
+HttpSession		:	Object를 저장 (서버의 메모리에 저장이 되기에)
+
+
+*
+
+오늘 본 상품 : Cookie (페이지 식별자 정도만 쿠키에 저장했다가 링크로 연결해주는 방식 사용. 결국 String만 저장하면 됨) 
+
+찜목록(위시리스트) - 상세정보는 없이 그냥 품목만 : 일반적으로 DB
+
+장바구니 - 상세정보도 끌고다님 : 일반적으로 HttpSession (결국 Dto를 끌고다녀야 하므로)
+
+>>>>>> 로그아웃하면 장바구니를 날려버릴지 여부 등은 사이트 정책에 따라 달라질 수 있음
+
+
+
+
+
+
+
+
+
+
+
+
+
+
