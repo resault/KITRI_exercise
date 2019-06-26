@@ -72,32 +72,44 @@
 										</div>
 									</div>
 									<%-- 학교 분류 --%>
-									<div class="row gtr-uniform" style="margin: 0 0 1.5em 0;">
-										<div class="col-2" style="float: right; padding-left: 0; width: 10em;">
+									<div class="row gtr-uniform" style="margin: 0 0 2em 0;">
+										<div class="col-2" style="padding-left: 0; width: 10em;">
 											 <select name="school-cate1" id="school-cate1" >
 												<option value="0">- 대분류 -</option>
 												<option value="1">고등학교</option>
 												<option value="2">대학교</option>
 											</select>
 										</div>
-										<div class="col-2" style="float: left; width: 10em; padding-left: 0; margin-left: 1em;"> 
+										<div class="col-2" style="width: 10em; padding-left: 0; margin-left: 1em;"> 
 											 <select name="school-cate2" id="school-cate2">
 												<option value="0">- 소분류 -</option>
 												<option value="1">- 소분류 -</option>
 												<option value="2">- 소분류 -</option>
 											</select>
 										</div>
-										<div class>
-											<div style="float: right;">
-												<ul class="actions" style="float: right;">
-													<li><a href="#" class="button"><i class="far fa-comment-dots"></i></a></li>
-												</ul>
-											</div>
+										<div class="col-6 col-5-large" style="padding-right: 0;">
+										</div>
+										<div class="col-2" style="padding-right: 0;">
+											<ul class="actions" style="float: right;">
+												<li><a href="#" class="button"><i class="far fa-comment-dots"></i></a></li>
+											</ul>
 										</div>
 									</div>
 									<%-- 멘토 목록 --%>
 									<div>
 										<table class="alt" style="text-align: center;">
+											<thead>
+												<tr>
+													<th></th>
+													<th style="text-align: center;">ID</th>
+													<th style="text-align: center;">고등학교</th>
+													<th style="text-align: center;">대학교</th>
+													<th style="text-align: center;">email</th>
+													<th style="text-align: center;">첨삭글수</th>
+													<th style="text-align: center;">쪽지보내기</th>
+													<th style="text-align: center;">첨삭의뢰</th>
+												</tr>
+											</thead>
 											<tbody>
 												<tr>
 													<td>1</td>
@@ -105,7 +117,9 @@
 													<td>ㅇㅇ고등학교</td>
 													<td>ㅇㅇ대학교</td>
 													<td>userID@gmail.com</td>
+													<td>5건</td>
 													<td><i class="far fa-envelope"></i></td>
+													<td><i class="fas fa-edit"></i></td>
 												</tr>
 												<tr>
 													<td>2</td>
@@ -113,7 +127,9 @@
 													<td>ㅇㅇ고등학교</td>
 													<td>ㅇㅇ대학교</td>
 													<td>userID@gmail.com</td>
+													<td>5건</td>
 													<td><i class="far fa-envelope"></i></td>
+													<td><i class="fas fa-edit"></i></td>
 												</tr>
 												<tr>
 													<td>3</td>
@@ -121,7 +137,9 @@
 													<td>ㅇㅇ고등학교</td>
 													<td>ㅇㅇ대학교</td>
 													<td>userID@gmail.com</td>
+													<td>5건</td>
 													<td><i class="far fa-envelope"></i></td>
+													<td><i class="fas fa-edit"></i></td>
 												</tr>
 												<tr>
 													<td>4</td>
@@ -129,7 +147,9 @@
 													<td>ㅇㅇ고등학교</td>
 													<td>ㅇㅇ대학교</td>
 													<td>userID@gmail.com</td>
+													<td>5건</td>
 													<td><i class="far fa-envelope"></i></td>
+													<td><i class="fas fa-edit"></i></td>
 												</tr>
 											</tbody>
 											<tfoot>
