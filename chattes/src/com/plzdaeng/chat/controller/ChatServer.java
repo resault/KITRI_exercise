@@ -9,8 +9,6 @@ import java.util.Map;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 
-import org.json.JSONObject;
-
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
