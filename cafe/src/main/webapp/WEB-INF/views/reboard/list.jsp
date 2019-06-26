@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/commons/template/top.jsp" %>
+<%@ include file="/WEB-INF/views/commons/board_common.jsp" %>
+<script>
+$(function(){
+	$('.moveWriteBtn').click(function(){
+		$('#bcode').val('${bcode}');
+		$('#pg').val('1');
+		$('#key').val('');
+		$('#word').val('');
+		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/write").submit();
+	});
+});
+</script>
 <!-- title start -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr>
@@ -20,9 +32,9 @@
 <!-- bbs start -->
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr valign="bottom">
-		<td nowrap><a href=""><img
-			src="${root}/img/board/btn_write_01.gif" width="64" height="22"
-			border="0" align="absmiddle" alt="글쓰기"></a></td>
+		<td nowrap>
+			<img src="${root}/img/board/btn_write_01.gif" class="moveWriteBtn" width="64" height="22" border="0" align="absmiddle" alt="글쓰기">
+		</td>
 
 		<td width="100%" style="padding-left: 6px" valign="bottom">새글 <b><font
 			class="text_acc_02">새글 수를 출력 하는 부분</font></b> / 전체 <font
@@ -63,29 +75,30 @@
 
 
 	<!-- 공지기능 적용끝  -->
+	<c:forEach var="article" items="${articleList}">
 	<tr>
-		<td align="center" class="text_gray">글번호 출력하는 부분</td>
+		<td align="center" class="text_gray">${article.seq}</td>
 		<td></td>
 		<td nowrap class="onetext" style="padding-right: 5px"></td>
 		<!--td>
      
      </td-->
 		<td style="word-break: break-all;"><a href=""
-			class="link_board_03">글 제목을 출력 하는 부분&nbsp;&nbsp;&nbsp;</a></td>
+			class="link_board_03">${article.subject}&nbsp;&nbsp;&nbsp;</a></td>
 		<td></td>
 		<td style="word-break: break-all;"><a href="javascript:;"
-			onClick="showSideView();" class="link_board_04">작성자를 출력 하는 부분</a></td>
+			onClick="showSideView();" class="link_board_04">${article.name}</a></td>
 		<td></td>
-		<td align="center" class="text_gray">조회수를 출력 하는 부분</td>
+		<td align="center" class="text_gray">${article.hit}</td>
 		<td></td>
-		<td align="center" class="text_gray">작성 일자를 출력 하는 부분</td>
+		<td align="center" class="text_gray">${article.logtime}</td>
 	</tr>
 
 	<tr>
 		<td bgcolor="#ededed" height="1" colspan="11"
 			style="overflow: hidden; padding: 0px"></td>
 	</tr>
-
+	</c:forEach>
 
 	<tr>
 		<td class="bg_board_title_02" height="1" colspan="11"
@@ -101,9 +114,9 @@
 		<td colspan="3" height="5"></td>
 	</tr>
 	<tr valign="top">
-		<td nowrap><a href=""><img
-			src="${root}/img/board/btn_write_01.gif" width="64" height="22"
-			border="0" align="absmiddle" alt="글쓰기"></a></td>
+		<td nowrap>
+			<img src="${root}/img/board/btn_write_01.gif" class="moveWriteBtn" width="64" height="22" border="0" align="absmiddle" alt="글쓰기">
+		</td>
 		<td width="100%" align="center"><!--PAGE--> 페이지 분류를 하는 부분</td>
 		<td nowrap class="stext"><b>현재 페이지 출력 부분</b> / 총 페이지수를 출력 하는 부분
 		pages</td>
