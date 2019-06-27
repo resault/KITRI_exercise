@@ -13,22 +13,20 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<%-- font-awesome --%>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<style type="text/css">
-			.far, .fas {font-size: 1.5em;}
-			i {vertical-align: center;}
-		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-		<script type="text/javascript">
-		$(function(){
-			$('.fa-envelope').click(function(){
-				window.open("/template/writemsg.jsp", "_blank", "width=600, height=700, left=500, top=20")
-				return false;
+		<style type="text/css">
+			.far, .fas {
+				vertical-align: center;
+				font-size: 1.3em;
+			}
+		</style>
+		<script>
+			$(function(){
+				$('#checkAll').click(function(){
+					$('.resume').attr('checked', 'checked');
+					return false;
+				});
 			});
-			$('.fa-comment-dots').click(function(){
-				window.open("/template/onlinementor.jsp", "_blank", "width=600, height=700, left=500, top=20")
-				return false;
-			});
-		});
 		</script>
 	</head>
 	<body class="is-preload">
@@ -55,131 +53,67 @@
 							<%-- Content --%>
 								<section>
 									<header class="main">
-										<h1>Find Mentor</h1>
+										<label style="font-size: 3em;">자소서 목록</label>
 									</header>
-									<%-- 멘토 검색 --%>
-									<div class="row gtr-uniform" style="margin-top: 2em;">
-										<div class="col-2 col-12-small">
+									<%-- 자소서&첨삭 분류 --%>
+									<div class="row gtr-uniform" style="margin: 0 0 3em 0; padding-right:0;">
+										<div class="col-2" style="width:8em; padding-left: 0;">
+											 <select name="school-cate2" id="school-cate2">
+												<option value="0">첨삭대기</option>
+												<option value="1">첨삭완료</option>
+											</select>
 										</div>
-										<div class="col-10 col-12-small">
-											<div class="col-2 col-12-small" style="padding-left	: 0; float: right;">
-												<ul class="actions">
-													<li><a href="#" class="button primary icon"><i class="fas fa-search"></i></a></li>
-													<li><a href="#" class="button"><i class="fas fa-redo"></i></a></li>
-												</ul>
-											</div>
-											<div class="col-2" style="padding-left: 0.5em; width: 15em; padding-right: 1em; float: right;">
-												<input type="text" name="searchMentor" id="searchMentor" value="" placeholder="검색어를 입력하세요"/>
-											</div>
-											<div class="col-6" style="padding-left: 0.5em; float: right;">
-												 <select name="school-cate2" id="school-cate2">
-													<option value="0">ID</option>
-													<option value="1">모교</option>
-												</select>
-											</div>
-											<div class="col-2" style="float: right;">
-												<ul class="actions">
-													<li><a href="#" class="button"><i class="far fa-comment-dots"></i></a></li>
-												</ul>
-											</div>
-											<div style="clear: both;">
-											</div>
-										</div>
-									</div>
-									<%-- 학교 분류 --%>
-									<div class="row gtr-uniform" style="margin: 0 0 2em 0;">
-										<div class="col-2" style="padding-left: 0; width: 10em;">
-											 <select name="school-cate1" id="school-cate1" >
-												<option value="0">- 대분류 -</option>
+										<div class="col-2" style="width:10em; padding-left: 0; margin-left: 1em;"> 
+											<select name="school-cate1" id="school-cate1" >
+												<option value="0">- 학교분류 -</option>
 												<option value="1">고등학교</option>
 												<option value="2">대학교</option>
 											</select>
 										</div>
-										<div class="col-2" style="width: 10em; padding-left: 0; margin-left: 1em;"> 
-											 <select name="school-cate2" id="school-cate2">
-												<option value="0">- 소분류 -</option>
-												<option value="1">- 소분류 -</option>
-												<option value="2">- 소분류 -</option>
-											</select>
-										</div>
 									</div>
-									<%-- 멘토 목록 --%>
+									<%-- 자소서&첨삭 목록 --%>
 									<div>
-										<table class="alt" style="text-align: center;">
+										<table class="table-wrapper" style="text-align: center;">
 											<thead>
 												<tr>
 													<th></th>
-													<th style="text-align: center;">ID</th>
-													<th colspan="2" style="text-align: center;">고등학교</th>
-													<th colspan="2" style="text-align: center;">대학교</th>
-													<th style="text-align: center;">첨삭글수</th>
-													<th style="text-align: center;">쪽지보내기</th>
-													<th style="text-align: center;">첨삭의뢰</th>
+													<th style="text-align: center;">학교명</th>
+													<th style="text-align: center;">제목</th>
+													<th style="text-align: center;">멘토</th>
+													<th style="text-align: center;">작성일</th>
 												</tr>
 											</thead>
 											<tbody>
+												
 												<tr>
-													<td>1</td>
-													<td>userID</td>
+													<td>✔</td>
 													<td>ㅇㅇ고등학교</td>
-													<td>특목고</td>
-													<td>ㅇㅇ대학교</td>
-													<td>이공계</td>
-													<td>5건</td>
-													<td><i class="far fa-envelope"></i></td>
-													<td><i class="fas fa-edit"></i></td>
+													<td style="text-align: left;">ㅇㅇ고등학교 지원 자소서</td>
+													<td>userID</td>
+													<td>2019.06.12</td>
 												</tr>
 												<tr>
-													<td>2</td>
-													<td>userID</td>
+													<td>↳</td>
 													<td>ㅇㅇ고등학교</td>
-													<td>특목고</td>
-													<td>ㅇㅇ대학교</td>
-													<td>이공계</td>
-													<td>5건</td>
-													<td><i class="far fa-envelope"></i></td>
-													<td><i class="fas fa-edit"></i></td>
+													<td style="text-align: left;">Re: ㅇㅇ고등학교 지원 자소서</td>
+													<td>mentorID</td>
+													<td>2019.06.27 11:23:12</td>
 												</tr>
 												<tr>
-													<td>3</td>
-													<td>userID</td>
-													<td>ㅇㅇ고등학교</td>
-													<td>특목고</td>
+													<td>첨삭대기</td>
 													<td>ㅇㅇ대학교</td>
-													<td>이공계</td>
-													<td>5건</td>
-													<td><i class="far fa-envelope"></i></td>
-													<td><i class="fas fa-edit"></i></td>
+													<td style="text-align: left;">ㅇㅇ대학교 지원 자소서</td>
+													<td>userID</td>
+													<td>2019.06.01</td>
 												</tr>
 												<tr>
-													<td>4</td>
-													<td>userID</td>
-													<td>ㅇㅇ고등학교</td>
-													<td>특목고</td>
+													<td>첨삭대기</td>
 													<td>ㅇㅇ대학교</td>
-													<td>이공계</td>
-													<td>5건</td>
-													<td><i class="far fa-envelope"></i></td>
-													<td><i class="fas fa-edit"></i></td>
+													<td style="text-align: left;">ㅇㅇ대학교 지원 자소서</td>
+													<td>userID</td>
+													<td>2019.05.24</td>
 												</tr>
 											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="7" align="center" style="padding-top: 4em;">
-														<ul class="pagination">
-															<li><span class="button disabled">Prev</span></li>
-															<li><a href="#" class="page active">1</a></li>
-															<li><a href="#" class="page">2</a></li>
-															<li><a href="#" class="page">3</a></li>
-															<li><span>&hellip;</span></li>
-															<li><a href="#" class="page">8</a></li>
-															<li><a href="#" class="page">9</a></li>
-															<li><a href="#" class="page">10</a></li>
-															<li><a href="#" class="button">Next</a></li>
-														</ul>
-													</td>
-												</tr>
-											</tfoot>
 										</table>
 									</div>
 

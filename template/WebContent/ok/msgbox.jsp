@@ -13,22 +13,20 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<%-- font-awesome --%>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<style type="text/css">
-			.far, .fas {font-size: 1.5em;}
-			i {vertical-align: center;}
-		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-		<script type="text/javascript">
-		$(function(){
-			$('.fa-envelope').click(function(){
-				window.open("/template/writemsg.jsp", "_blank", "width=600, height=700, left=500, top=20")
-				return false;
+		<style type="text/css">
+			.far, .fas {
+				vertical-align: center;
+				font-size: 1.3em;
+			}
+		</style>
+		<script>
+			$(function(){
+				$('#checkAll').click(function(){
+					$('.msg').attr('checked', 'checked');
+					return false;
+				});
 			});
-			$('.fa-comment-dots').click(function(){
-				window.open("/template/onlinementor.jsp", "_blank", "width=600, height=700, left=500, top=20")
-				return false;
-			});
-		});
 		</script>
 	</head>
 	<body class="is-preload">
@@ -55,112 +53,99 @@
 							<%-- Content --%>
 								<section>
 									<header class="main">
-										<h1>Find Mentor</h1>
+										<label style="font-size: 3em;">쪽지함</label>
 									</header>
-									<%-- 멘토 검색 --%>
-									<div class="row gtr-uniform" style="margin-top: 2em;">
-										<div class="col-2 col-12-small">
-										</div>
-										<div class="col-10 col-12-small">
-											<div class="col-2 col-12-small" style="padding-left	: 0; float: right;">
-												<ul class="actions">
-													<li><a href="#" class="button primary icon"><i class="fas fa-search"></i></a></li>
-													<li><a href="#" class="button"><i class="fas fa-redo"></i></a></li>
-												</ul>
-											</div>
-											<div class="col-2" style="padding-left: 0.5em; width: 15em; padding-right: 1em; float: right;">
-												<input type="text" name="searchMentor" id="searchMentor" value="" placeholder="검색어를 입력하세요"/>
-											</div>
-											<div class="col-6" style="padding-left: 0.5em; float: right;">
-												 <select name="school-cate2" id="school-cate2">
-													<option value="0">ID</option>
-													<option value="1">모교</option>
+									
+									<%-- 쪽지함 분류 --%>
+									<div class="row gtr-uniform" style="margin: 0 0 1em 0;">
+										<div class="col-12" style="padding-left: 0;">
+											<div style="float: left; padding-left: 0;">
+												 <select name="msg-cate" id="msg-cate">
+													<option value="0">받은쪽지</option>
+													<option value="1">보낸쪽지</option>
+													<option value="2">휴지통</option>
 												</select>
-											</div>
-											<div class="col-2" style="float: right;">
-												<ul class="actions">
-													<li><a href="#" class="button"><i class="far fa-comment-dots"></i></a></li>
-												</ul>
 											</div>
 											<div style="clear: both;">
 											</div>
 										</div>
 									</div>
-									<%-- 학교 분류 --%>
-									<div class="row gtr-uniform" style="margin: 0 0 2em 0;">
-										<div class="col-2" style="padding-left: 0; width: 10em;">
-											 <select name="school-cate1" id="school-cate1" >
-												<option value="0">- 대분류 -</option>
-												<option value="1">고등학교</option>
-												<option value="2">대학교</option>
-											</select>
+									<%-- 쪽지 검색 --%>
+									<div class="row gtr-uniform" style="margin-top: 2em; margin-bottom: 1em;">
+										<div class="col-3 col-12-small">
+											<div style="float: left; margin-left: 0.5em;">
+												<ul class="actions">
+													<li><a href="#" id="checkAll" class="button"><i class="far fa-check-square"></i></a></li>
+													<li><a href="#" class="button primary icon"><i class="far fa-trash-alt"></i></a></li>
+												</ul>
+											</div>
 										</div>
-										<div class="col-2" style="width: 10em; padding-left: 0; margin-left: 1em;"> 
-											 <select name="school-cate2" id="school-cate2">
-												<option value="0">- 소분류 -</option>
-												<option value="1">- 소분류 -</option>
-												<option value="2">- 소분류 -</option>
-											</select>
+										<div class="col-9 col-12-small">
+											<div class="col-2 col-4-small" style="float: right;">
+												<ul class="actions">
+													<li><a href="#" class="button primary icon"><i class="fas fa-search"></i></a></li>
+													<li><a href="#" class="button"><i class="fas fa-redo"></i></a></li>
+												</ul>
+											<div class="col-0 col-8-small" style="float: right;">
+											</div>
+											</div>
+											
+											<div class="col-3 col-5-small" style="margin: 0 1em 0 0.5em; float: right;">
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="검색어를 입력하세요" />
+											</div>
+											<div class="col-7 col-7-small" style="float: right;">
+												 <select name="school-cate2" id="school-cate2">
+													<option value="0">ID</option>
+													<option value="1">내용</option>
+												</select>
+											</div>
+											<div style="clear: both;">
+											</div>
 										</div>
 									</div>
-									<%-- 멘토 목록 --%>
+									<%-- 쪽지 목록 --%>
 									<div>
-										<table class="alt" style="text-align: center;">
-											<thead>
-												<tr>
-													<th></th>
-													<th style="text-align: center;">ID</th>
-													<th colspan="2" style="text-align: center;">고등학교</th>
-													<th colspan="2" style="text-align: center;">대학교</th>
-													<th style="text-align: center;">첨삭글수</th>
-													<th style="text-align: center;">쪽지보내기</th>
-													<th style="text-align: center;">첨삭의뢰</th>
-												</tr>
-											</thead>
+										<table class="table-wrapper" style="text-align: center;">
 											<tbody>
 												<tr>
-													<td>1</td>
+													<td>
+														<input type="checkbox" class="msg" id="msg1" name="msg1">
+														<label for="msg1" style="padding-left: 0.1em;"></label>
+													</td>
+													<td><i class="fas fa-envelope"></i></td>
 													<td>userID</td>
-													<td>ㅇㅇ고등학교</td>
-													<td>특목고</td>
-													<td>ㅇㅇ대학교</td>
-													<td>이공계</td>
-													<td>5건</td>
-													<td><i class="far fa-envelope"></i></td>
-													<td><i class="fas fa-edit"></i></td>
+													<td style="text-align: left;">쪽지를 보냈습니다. 답장주세요.</td>
+													<td>2019.05.24 11:23:12</td>
 												</tr>
 												<tr>
-													<td>2</td>
+													<td>
+														<input type="checkbox" class="msg"  id="msg2" name="msg2">
+														<label for="msg2" style="padding-left: 0.1em;"></label>
+													</td>
+													<td><i class="fas fa-envelope"></i></td>
 													<td>userID</td>
-													<td>ㅇㅇ고등학교</td>
-													<td>특목고</td>
-													<td>ㅇㅇ대학교</td>
-													<td>이공계</td>
-													<td>5건</td>
-													<td><i class="far fa-envelope"></i></td>
-													<td><i class="fas fa-edit"></i></td>
+													<td style="text-align: left;">쪽지를 보냈습니다. 답장주세요.</td>
+													<td>2019.05.24 11:23:12</td>
 												</tr>
 												<tr>
-													<td>3</td>
+													<td>
+														<input type="checkbox" class="msg" id="msg3" name="msg3">
+														<label for="msg3" style="padding-left: 0.1em;"></label>
+													</td>
+													<td><i class="far fa-envelope-open"></i></td>
 													<td>userID</td>
-													<td>ㅇㅇ고등학교</td>
-													<td>특목고</td>
-													<td>ㅇㅇ대학교</td>
-													<td>이공계</td>
-													<td>5건</td>
-													<td><i class="far fa-envelope"></i></td>
-													<td><i class="fas fa-edit"></i></td>
+													<td style="text-align: left;">쪽지를 보냈습니다. 답장주세요.</td>
+													<td>2019.05.24 11:23:12</td>
 												</tr>
 												<tr>
-													<td>4</td>
+													<td>
+														<input type="checkbox" class="msg" id="msg4" name="msg4">
+														<label for="msg4" style="padding-left: 0.1em;"></label>
+													</td>
+													<td><i class="far fa-envelope-open"></i></td>
 													<td>userID</td>
-													<td>ㅇㅇ고등학교</td>
-													<td>특목고</td>
-													<td>ㅇㅇ대학교</td>
-													<td>이공계</td>
-													<td>5건</td>
-													<td><i class="far fa-envelope"></i></td>
-													<td><i class="fas fa-edit"></i></td>
+													<td style="text-align: left;">쪽지를 보냈습니다. 답장주세요.</td>
+													<td>2019.05.24 11:23:12</td>
 												</tr>
 											</tbody>
 											<tfoot>

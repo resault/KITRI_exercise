@@ -52,105 +52,29 @@
 
 							<%-- Content --%>
 								<section>
-									<header class="main">
-										<h1>Message</h1>
-									</header>
-									
-									<%-- 학교 분류 --%>
-									<div class="row gtr-uniform" style="margin: 0 0 3em 0;">
-										<div class="col-2" style="width:8em; padding-left: 0;">
-											 <select name="school-cate2" id="school-cate2">
-												<option value="0">첨삭중</option>
-												<option value="1">첨삭완료</option>
-											</select>
-										</div>
-										<div class="col-2" style="width:10em; padding-left: 0; margin-left: 1em;"> 
-											<select name="school-cate1" id="school-cate1" >
-												<option value="0">- 학교분류 -</option>
-												<option value="1">고등학교</option>
-												<option value="2">대학교</option>
-											</select>
-										</div>
-									</div>
-									<%-- 쪽지 목록 --%>
+									<%-- 버튼 --%>
 									<div>
-										<table class="table-wrapper" style="text-align: center;">
-											<thead>
-												<tr>
-													<th colspan="2"></th>
-													<th style="text-align: center;">학교명</th>
-													<th style="text-align: center;">제목</th>
-													<th style="text-align: center;">첨삭글수</th>
-													<th style="text-align: center;">작성일</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>
-														<input type="checkbox" class="resume" id="resume1" name="resume2">
-														<label for="resume1" style="padding-left: 0.1em;"></label>
-													</td>
-													<td>첨삭중</td>
-													<td>ㅇㅇ고등학교</td>
-													<td style="text-align: left;">ㅇㅇ고등학교 지원 자소서</td>
-													<td>2건</td>
-													<td>2019.05.24 11:23:12</td>
-												</tr>
-												<tr>
-													<td>
-														<input type="checkbox" class="resume" id="resume1" name="resume2">
-														<label for="resume1" style="padding-left: 0.1em;"></label>
-													</td>
-													<td>첨삭완료</td>
-													<td>ㅇㅇ고등학교</td>
-													<td style="text-align: left;">ㅇㅇ고등학교 지원 자소서</td>
-													<td>3건</td>
-													<td>2019.05.24 11:23:12</td>
-												</tr>
-												<tr>
-													<td>
-														<input type="checkbox" class="resume" id="resume1" name="resume2">
-														<label for="resume1" style="padding-left: 0.1em;"></label>
-													</td>
-													<td>첨삭중</td>
-													<td>ㅇㅇ대학교</td>
-													<td style="text-align: left;">ㅇㅇ대학교 지원 자소서</td>
-													<td>2건</td>
-													<td>2019.05.24 11:23:12</td>
-												</tr>
-												<tr>
-													<td>
-														<input type="checkbox" class="resume" id="resume1" name="resume2">
-														<label for="resume1" style="padding-left: 0.1em;"></label>
-													</td>
-													<td>첨삭완료</td>
-													<td>ㅇㅇ대학교</td>
-													<td style="text-align: left;">ㅇㅇ대학교 지원 자소서</td>
-													<td>3건</td>
-													<td>2019.05.24 11:23:12</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="7" align="center" style="padding-top: 4em;">
-														<ul class="pagination">
-															<li><span class="button disabled">Prev</span></li>
-															<li><a href="#" class="page active">1</a></li>
-															<li><a href="#" class="page">2</a></li>
-															<li><a href="#" class="page">3</a></li>
-															<li><span>&hellip;</span></li>
-															<li><a href="#" class="page">8</a></li>
-															<li><a href="#" class="page">9</a></li>
-															<li><a href="#" class="page">10</a></li>
-															<li><a href="#" class="button">Next</a></li>
-														</ul>
-													</td>
-												</tr>
-											</tfoot>
-										</table>
+										<label style="font-size: 1.7em;"><i class="far fa-envelope-open"></i>&nbsp;FROM: mentorID</label>
+										<div style="float: right; margin-top: 1em;">
+											<ul class="actions">
+												<li><input type="submit" value="목    록" class="primary small" /></li>
+												<li><input type="reset" value="이    전" class="small"/></li>
+											</ul>
+										</div>
 									</div>
-
-
+									<div class="col-12" style="margin-top: 8em; margin-bottom: 1em; text-align: left;">
+										<label style="margin-bottom: 5px; font-size: 1.2em; color: gray;">쪽지 제목</label>
+										<hr class="major" style="margin-top: 0;"/>
+									</div>
+									<div class="box">
+										<p>쪽지 내용<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+									</div>
+									<div style="float: right; margin-top: 1em;">
+										<ul class="actions">
+											<li><input type="submit" value="목    록" class="primary small" /></li>
+											<li><input type="reset" value="이    전" class="small"/></li>
+										</ul>
+									</div>
 								</section>
 
 						</div>
