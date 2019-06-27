@@ -53,70 +53,53 @@
 							<%-- Content --%>
 								<section>
 									<header class="main">
-										<label style="font-size: 3em;">자소서 목록</label>
+										<label style="font-size: 3em;">자소서 작성</label>
 									</header>
-									<%-- 자소서&첨삭 분류 --%>
-									<div class="row gtr-uniform" style="margin: 0 0 3em 0; padding-right:0;">
-										<div class="col-2" style="width:8em; padding-left: 0;">
-											 <select name="school-cate2" id="school-cate2">
-												<option value="0">첨삭대기</option>
-												<option value="1">첨삭완료</option>
-											</select>
-										</div>
-										<div class="col-2" style="width:10em; padding-left: 0; margin-left: 1em;"> 
-											<select name="school-cate1" id="school-cate1" >
-												<option value="0">- 학교분류 -</option>
-												<option value="1">고등학교</option>
-												<option value="2">대학교</option>
-											</select>
-										</div>
-									</div>
-									<%-- 자소서&첨삭 목록 --%>
-									<div>
-										<table class="table-wrapper" style="text-align: center;">
-											<thead>
-												<tr>
-													<th></th>
-													<th style="text-align: center;">학교명</th>
-													<th style="text-align: center;">제목</th>
-													<th style="text-align: center;">멘토</th>
-													<th style="text-align: center;">작성일</th>
-												</tr>
-											</thead>
-											<tbody>
-												
-												<tr>
-													<td>✔</td>
-													<td>ㅇㅇ고등학교</td>
-													<td style="text-align: left;">ㅇㅇ고등학교 지원 자소서</td>
-													<td>userID</td>
-													<td>2019.06.12</td>
-												</tr>
-												<tr>
-													<td>↳</td>
-													<td>ㅇㅇ고등학교</td>
-													<td style="text-align: left;">Re: ㅇㅇ고등학교 지원 자소서</td>
-													<td>mentorID</td>
-													<td>2019.06.27 11:23:12</td>
-												</tr>
-												<tr>
-													<td>첨삭대기</td>
-													<td>ㅇㅇ대학교</td>
-													<td style="text-align: left;">ㅇㅇ대학교 지원 자소서</td>
-													<td>userID</td>
-													<td>2019.06.01</td>
-												</tr>
-												<tr>
-													<td>첨삭대기</td>
-													<td>ㅇㅇ대학교</td>
-													<td style="text-align: left;">ㅇㅇ대학교 지원 자소서</td>
-													<td>userID</td>
-													<td>2019.05.24</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
+									
+									<!-- Form -->
 
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<%-- 학교정보 --%>
+											<div class="row gtr-uniform" style="margin: 0">
+												<div class="col-2" style="padding-left: 0; width: 10em;">
+													 <select name="school-cate" id="school-cate" >
+														<option value="0">- 대분류 -</option>
+														<option value="1">고등학교</option>
+														<option value="2">대학교</option>
+													</select>
+												</div>
+												<div class="col-2" style="padding-left: 1em; width: 10em;">
+													 <select name="school-cate" id="school-cate" >
+														<option value="0">- 소분류 -</option>
+													</select>
+												</div>
+												<div class="col-2" style="width: 14em; padding-left: 1em; "> 
+													 <input type="text" readonly="readonly" placeholder="학교명"/>
+												</div>
+											</div>
+											<div class="col-12" style="margin-top: 3em; margin-bottom: 1em; text-align: right;">
+												<label style="margin-bottom: 5px; font-size: 1.2em; color: gray;">mentorID</label>
+												<hr class="major" style="margin-top: 0;"/>
+											</div>
+											<%-- 자소서 --%>
+											<div class="col-12">
+												<textarea name="subject" id="subject" placeholder="제목을 입력하세요" rows="1"></textarea>
+											</div>
+											<div class="col-12">
+												<textarea name="content" id="content" placeholder="내용을 입력하세요" rows="20"></textarea>
+											</div>
+											<%-- 버튼 --%>
+											<div class="col-12">
+												<div style="float: right;">
+													<ul class="actions">
+														<li><input type="submit" value="저    장" class="primary" /></li>
+														<li><input type="reset" value="취    소" /></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</form>
 
 								</section>
 

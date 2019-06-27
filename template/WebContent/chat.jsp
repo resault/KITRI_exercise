@@ -27,27 +27,28 @@
 		<div id="main" style="padding: 0; margin: 0;">
 			<div class="inner">
 				<%-- Content --%>
-				<div class="col-12" style="margin-top: 8em; margin-bottom: 1em; text-align: left;">
-					<label style="margin-bottom: 5px; font-size: 1.2em; color: gray;">TO: mentorID</label>
+				<div style="margin-top: 3em;">
+					<label style="font-size: 1.7em;">멘토와의 채팅</label>
+				</div>
+				<div class="col-12" style="margin-top: 5em; margin-bottom: 1em; text-align: left;">
+					<label style="margin-bottom: 5px; font-size: 1.2em; color: gray;">WITH. mentorID</label>
 					<hr class="major" style="margin-top: 0;"/>
 				</div>
 				<form method="post" action="#">
+					<%-- 쪽지 --%>
+					<div class="col-12" >
+						<div class="box" style="height: 300px; overflow-y: auto;">
+							<p>채팅내용<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p>
+						</div>
+					</div>
 					<div class="row gtr-uniform">
-						<%-- 쪽지 --%>
-						<div class="col-12">
-							<textarea name="subject" id="subject" placeholder="제목을 입력하세요" rows="1"></textarea>
+						<div class="col-10">
+							<input type="text" placeholder="내용을 입력하세요">
 						</div>
-						<div class="col-12">
-							<textarea name="content" id="content" placeholder="내용을 입력하세요" rows="10"></textarea>
-						</div>
-						<%-- 버튼 --%>
-						<div class="col-12">
-							<div style="float: right;">
-								<ul class="actions">
-									<li><input type="submit" value="저    장" class="primary" /></li>
-									<li><input type="reset" value="취    소" /></li>
-								</ul>
-							</div>
+						<div class="col-2">
+							<ul class="actions">
+								<li><input type="submit" value="전    송" class="primary" /></li>
+							</ul>
 						</div>
 					</div>
 				</form>

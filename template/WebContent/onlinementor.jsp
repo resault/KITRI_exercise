@@ -20,6 +20,14 @@
 				font-size: 1.3em;
 			}
 		</style>
+		<script type="text/javascript">
+		$(function(){
+			$('.mentor').click(function(){
+				location.href="/template/chat.jsp";
+				return false;
+			});
+		});
+		</script>
 	</head>
 <body style="padding: 0; margin: 0;">
 	<div id="wrapper" style="padding: 0;">
@@ -27,6 +35,9 @@
 		<div id="main" style="padding: 0; margin: 0;">
 			<div class="inner">
 				<%-- Content --%>
+				<div style="margin-top: 3em;">
+					<label style="font-size: 1.7em;">접속중인 멘토</label>
+				</div>
 				<div class="row gtr-uniform" style="margin-top: 2em;">
 					<div class="col-2 col-12-small">
 					</div>
@@ -69,7 +80,7 @@
 				<div style="height: 300px; overflow-y: auto; border: thin solid;">
 					<table class="alt" style="text-align: center;">
 						<tbody>
-							<tr>
+							<tr class="mentor">
 								<td>1</td>
 								<td>userID</td>
 								<td>ㅇㅇ고등학교</td>
@@ -77,7 +88,7 @@
 								<td>ㅇㅇ대학교</td>
 								<td>이공계</td>
 							</tr>
-							<tr>
+							<tr class="mentor">
 								<td>2</td>
 								<td>userID</td>
 								<td>ㅇㅇ고등학교</td>
@@ -85,7 +96,7 @@
 								<td>ㅇㅇ대학교</td>
 								<td>이공계</td>
 							</tr>
-							<tr>
+							<tr class="mentor">
 								<td>3</td>
 								<td>userID</td>
 								<td>ㅇㅇ고등학교</td>
@@ -93,7 +104,71 @@
 								<td>ㅇㅇ대학교</td>
 								<td>이공계</td>
 							</tr>
-							<tr>
+							<tr class="mentor">
+								<td>4</td>
+								<td>userID</td>
+								<td>ㅇㅇ고등학교</td>
+								<td>특목고</td>
+								<td>ㅇㅇ대학교</td>
+								<td>이공계</td>
+							</tr>
+							<tr class="mentor">
+								<td>1</td>
+								<td>userID</td>
+								<td>ㅇㅇ고등학교</td>
+								<td>특목고</td>
+								<td>ㅇㅇ대학교</td>
+								<td>이공계</td>
+							</tr>
+							<tr class="mentor">
+								<td>2</td>
+								<td>userID</td>
+								<td>ㅇㅇ고등학교</td>
+								<td>특목고</td>
+								<td>ㅇㅇ대학교</td>
+								<td>이공계</td>
+							</tr>
+							<tr class="mentor">
+								<td>3</td>
+								<td>userID</td>
+								<td>ㅇㅇ고등학교</td>
+								<td>특목고</td>
+								<td>ㅇㅇ대학교</td>
+								<td>이공계</td>
+							</tr>
+							<tr class="mentor">
+								<td>4</td>
+								<td>userID</td>
+								<td>ㅇㅇ고등학교</td>
+								<td>특목고</td>
+								<td>ㅇㅇ대학교</td>
+								<td>이공계</td>
+							</tr>
+							<tr class="mentor">
+								<td>1</td>
+								<td>userID</td>
+								<td>ㅇㅇ고등학교</td>
+								<td>특목고</td>
+								<td>ㅇㅇ대학교</td>
+								<td>이공계</td>
+							</tr>
+							<tr class="mentor">
+								<td>2</td>
+								<td>userID</td>
+								<td>ㅇㅇ고등학교</td>
+								<td>특목고</td>
+								<td>ㅇㅇ대학교</td>
+								<td>이공계</td>
+							</tr>
+							<tr class="mentor">
+								<td>3</td>
+								<td>userID</td>
+								<td>ㅇㅇ고등학교</td>
+								<td>특목고</td>
+								<td>ㅇㅇ대학교</td>
+								<td>이공계</td>
+							</tr>
+							<tr class="mentor">
 								<td>4</td>
 								<td>userID</td>
 								<td>ㅇㅇ고등학교</td>
@@ -109,7 +184,7 @@
 								<td>ㅇㅇ대학교</td>
 								<td>이공계</td>
 							</tr>
-							<tr>
+							<tr class="mentor">
 								<td>2</td>
 								<td>userID</td>
 								<td>ㅇㅇ고등학교</td>
@@ -117,7 +192,7 @@
 								<td>ㅇㅇ대학교</td>
 								<td>이공계</td>
 							</tr>
-							<tr>
+							<tr class="mentor">
 								<td>3</td>
 								<td>userID</td>
 								<td>ㅇㅇ고등학교</td>
@@ -125,7 +200,7 @@
 								<td>ㅇㅇ대학교</td>
 								<td>이공계</td>
 							</tr>
-							<tr>
+							<tr class="mentor">
 								<td>4</td>
 								<td>userID</td>
 								<td>ㅇㅇ고등학교</td>
@@ -133,7 +208,7 @@
 								<td>ㅇㅇ대학교</td>
 								<td>이공계</td>
 							</tr>
-							<tr>
+							<tr class="mentor">
 								<td>1</td>
 								<td>userID</td>
 								<td>ㅇㅇ고등학교</td>
@@ -141,7 +216,7 @@
 								<td>ㅇㅇ대학교</td>
 								<td>이공계</td>
 							</tr>
-							<tr>
+							<tr class="mentor">
 								<td>2</td>
 								<td>userID</td>
 								<td>ㅇㅇ고등학교</td>
@@ -149,7 +224,7 @@
 								<td>ㅇㅇ대학교</td>
 								<td>이공계</td>
 							</tr>
-							<tr>
+							<tr class="mentor">
 								<td>3</td>
 								<td>userID</td>
 								<td>ㅇㅇ고등학교</td>
@@ -157,71 +232,7 @@
 								<td>ㅇㅇ대학교</td>
 								<td>이공계</td>
 							</tr>
-							<tr>
-								<td>4</td>
-								<td>userID</td>
-								<td>ㅇㅇ고등학교</td>
-								<td>특목고</td>
-								<td>ㅇㅇ대학교</td>
-								<td>이공계</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>userID</td>
-								<td>ㅇㅇ고등학교</td>
-								<td>특목고</td>
-								<td>ㅇㅇ대학교</td>
-								<td>이공계</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>userID</td>
-								<td>ㅇㅇ고등학교</td>
-								<td>특목고</td>
-								<td>ㅇㅇ대학교</td>
-								<td>이공계</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>userID</td>
-								<td>ㅇㅇ고등학교</td>
-								<td>특목고</td>
-								<td>ㅇㅇ대학교</td>
-								<td>이공계</td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>userID</td>
-								<td>ㅇㅇ고등학교</td>
-								<td>특목고</td>
-								<td>ㅇㅇ대학교</td>
-								<td>이공계</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>userID</td>
-								<td>ㅇㅇ고등학교</td>
-								<td>특목고</td>
-								<td>ㅇㅇ대학교</td>
-								<td>이공계</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>userID</td>
-								<td>ㅇㅇ고등학교</td>
-								<td>특목고</td>
-								<td>ㅇㅇ대학교</td>
-								<td>이공계</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>userID</td>
-								<td>ㅇㅇ고등학교</td>
-								<td>특목고</td>
-								<td>ㅇㅇ대학교</td>
-								<td>이공계</td>
-							</tr>
-							<tr>
+							<tr class="mentor">
 								<td>4</td>
 								<td>userID</td>
 								<td>ㅇㅇ고등학교</td>

@@ -27,7 +27,10 @@
 		<div id="main" style="padding: 0; margin: 0;">
 			<div class="inner">
 				<%-- Content --%>
-				<div class="col-12" style="margin-top: 8em; margin-bottom: 1em; text-align: left;">
+				<div style="margin-top: 3em;">
+					<label style="font-size: 1.7em;">쪽지 보내기</label>
+				</div>
+				<div class="col-12" style="margin-top: 4em; margin-bottom: 1em; text-align: left;">
 					<label style="margin-bottom: 5px; font-size: 1.2em; color: gray;">TO: mentorID</label>
 					<hr class="major" style="margin-top: 0;"/>
 				</div>

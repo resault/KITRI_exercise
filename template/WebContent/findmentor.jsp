@@ -20,12 +20,23 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 		<script type="text/javascript">
 		$(function(){
-			$('.fa-envelope').click(function(){
-				window.open("/template/writemsg.jsp", "_blank", "width=600, height=700, left=500, top=20")
+			// 마우스 커서 변경
+			$('.msgBtn').css('cursor', 'pointer');
+			$('.editBtn').css('cursor', 'pointer');
+			
+			// 웹소켓 접속
+			$('.chatBtn').click(function(){
+				window.open("/template/onlinementor.jsp", "_blank", "width=600, height=700, left=500, top=20");
 				return false;
 			});
-			$('.fa-comment-dots').click(function(){
-				window.open("/template/onlinementor.jsp", "_blank", "width=600, height=700, left=500, top=20")
+			// 쪽지 작성
+			$('.msgBtn').click(function(){
+				window.open("/template/writemsg.jsp", "_blank", "width=600, height=700, left=500, top=20");
+				return false;
+			});
+			// 자소서 첨삭 신청
+			$('.editBtn').click(function(){
+				location.href="/template/writeresume.jsp";
 				return false;
 			});
 		});
@@ -55,7 +66,7 @@
 							<%-- Content --%>
 								<section>
 									<header class="main">
-										<h1>Find Mentor</h1>
+										<label style="font-size: 3em;">멘토 찾기</label>
 									</header>
 									<%-- 멘토 검색 --%>
 									<div class="row gtr-uniform" style="margin-top: 2em;">
@@ -78,7 +89,7 @@
 												</select>
 											</div>
 											<div class="col-2" style="float: right;">
-												<ul class="actions">
+												<ul class="actions chatBtn">
 													<li><a href="#" class="button"><i class="far fa-comment-dots"></i></a></li>
 												</ul>
 											</div>
@@ -126,8 +137,8 @@
 													<td>ㅇㅇ대학교</td>
 													<td>이공계</td>
 													<td>5건</td>
-													<td><i class="far fa-envelope"></i></td>
-													<td><i class="fas fa-edit"></i></td>
+													<td class="msgBtn"><i class="far fa-envelope"></i></td>
+													<td class="editBtn"><i class="fas fa-edit"></i></td>
 												</tr>
 												<tr>
 													<td>2</td>
@@ -137,8 +148,8 @@
 													<td>ㅇㅇ대학교</td>
 													<td>이공계</td>
 													<td>5건</td>
-													<td><i class="far fa-envelope"></i></td>
-													<td><i class="fas fa-edit"></i></td>
+													<td class="msgBtn"><i class="far fa-envelope"></i></td>
+													<td class="editBtn"><i class="fas fa-edit"></i></td>
 												</tr>
 												<tr>
 													<td>3</td>
@@ -148,8 +159,8 @@
 													<td>ㅇㅇ대학교</td>
 													<td>이공계</td>
 													<td>5건</td>
-													<td><i class="far fa-envelope"></i></td>
-													<td><i class="fas fa-edit"></i></td>
+													<td class="msgBtn"><i class="far fa-envelope"></i></td>
+													<td class="editBtn"><i class="fas fa-edit"></i></td>
 												</tr>
 												<tr>
 													<td>4</td>
@@ -159,13 +170,13 @@
 													<td>ㅇㅇ대학교</td>
 													<td>이공계</td>
 													<td>5건</td>
-													<td><i class="far fa-envelope"></i></td>
-													<td><i class="fas fa-edit"></i></td>
+													<td class="msgBtn"><i class="far fa-envelope"></i></td>
+													<td class="editBtn"><i class="fas fa-edit"></i></td>
 												</tr>
 											</tbody>
 											<tfoot>
 												<tr>
-													<td colspan="7" align="center" style="padding-top: 4em;">
+													<td colspan="9" align="center" style="padding-top: 4em;">
 														<ul class="pagination">
 															<li><span class="button disabled">Prev</span></li>
 															<li><a href="#" class="page active">1</a></li>
