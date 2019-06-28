@@ -96,7 +96,7 @@ public class ReboardController {
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void list(@RequestParam Map<String, String> parameter, Model model, HttpServletRequest request) {
-	
+		
 		List<ReboardDto> list = reboardService.listArticle(parameter);
 		
 		// 페이지 처리
@@ -111,7 +111,61 @@ public class ReboardController {
 	}
 	
 	
+	// #### 답글쓰기 ####
+	@RequestMapping(value = "/reply", method = RequestMethod.GET)
+	public String reply(@RequestParam("seq") int seq, @RequestParam Map<String, String> parameter, Model model, HttpSession session) {
+		String path = "";
+		
+		// 로그인 여부 확인
+		MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+		if(memberDto != null) {
+			ReboardDto reboardDto = reboardService.getArticle(seq);
+			
+			model.addAttribute("article", reboardDto);
+			model.addAttribute("parameter", parameter);
+			
+			path = "reboard/reply";
+		} else {
+			path = "redirect:/index.jsp";
+		}
+		return path;
+	}
 	
+	
+	// #### 답글 insert ####
+		@RequestMapping(value = "/reply", method = RequestMethod.POST)
+		public String reply(ReboardDto reboardDto, @RequestParam Map<String, String> parameter, Model model, HttpSession session) {
+			
+			String path = "";
+			
+			// 로그인 여부 확인
+			MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+			if(memberDto != null) {
+				
+				// 등록할 게시글의 글번호(seq) 받아옴
+				int seq = commonService.getNextSeq(); //여러 게시판에서 공통으로 필요한 작업이므로 common에 기능추가
+				
+				// data setting
+				reboardDto.setSeq(seq);
+				reboardDto.setId(memberDto.getId());
+				reboardDto.setName(memberDto.getName());
+				reboardDto.setEmail(memberDto.getEmail());
+				
+				seq = reboardService.replyArticle(reboardDto);
+				
+				// insert 실패한 경우 service가 글번호 0을 반환함
+				if(seq != 0) {
+					model.addAttribute("seq", seq);
+					path = "reboard/writeok";
+				} else {
+					path = "reboard/writefail";
+				}
+			} else {
+				path = "";
+			}
+			model.addAttribute("parameter", parameter);
+			return path;
+		}
 }
 
 

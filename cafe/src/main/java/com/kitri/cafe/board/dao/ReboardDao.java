@@ -12,4 +12,8 @@ public interface ReboardDao {
 	ReboardDto viewArticle(int seq); // 글 보기
 	int modifyArticle(ReboardDto reboardDto); // 글 수정
 	void deleteArticle(int seq); // 글 삭제
+	
+	void updateStep(ReboardDto reboardDto);
+	int replyArticle(ReboardDto reboardDto);
+	void updateReply(int pseq);
 }

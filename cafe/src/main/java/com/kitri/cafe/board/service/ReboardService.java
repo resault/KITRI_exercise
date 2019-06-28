@@ -13,4 +13,8 @@ public interface ReboardService {
 	ReboardDto viewArticle(int seq); // 글 보기
 	int modifyArticle(ReboardDto reboardDto); // 글 수정
 	void deleteArticle(int seq); // 글 삭제
+	ReboardDto getArticle(int seq); // 글 보기
+	
+	
+	int replyArticle(ReboardDto reboardDto);
 }
