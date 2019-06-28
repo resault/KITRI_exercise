@@ -22,8 +22,18 @@
 		</style>
 		<script>
 			$(function(){
-				$('#checkAll').click(function(){
-					$('.resume').attr('checked', 'checked');
+				// 마우스 커서 변경
+				$('.resumeBtn').css('cursor', 'pointer');
+				$('.editBtn').css('cursor', 'pointer');
+				
+				// 자소서 내용보기
+				$('.resumeBtn').click(function(){
+					location.href="/template/viewresume.jsp";
+					return false;
+				});
+				// 첨삭 내용보기
+				$('.editBtn').click(function(){
+					location.href="/template/viewedit.jsp";
 					return false;
 				});
 			});
@@ -88,28 +98,28 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
+												<tr class="resumeBtn">
 													<td>첨삭대기</td>
 													<td>ㅇㅇ대학교</td>
 													<td style="text-align: left;">ㅇㅇ대학교 지원 자소서</td>
 													<td>userID</td>
 													<td>2019.06.01</td>
 												</tr>
-												<tr>
+												<tr class="resumeBtn">
 													<td>첨삭대기</td>
 													<td>ㅇㅇ대학교</td>
 													<td style="text-align: left;">ㅇㅇ대학교 지원 자소서</td>
 													<td>userID</td>
 													<td>2019.05.24</td>
 												</tr>
-												<tr>
+												<tr class="resumeBtn">
 													<td>✔</td>
 													<td>ㅇㅇ고등학교</td>
 													<td style="text-align: left;">ㅇㅇ고등학교 지원 자소서</td>
 													<td>userID</td>
 													<td>2019.06.12</td>
 												</tr>
-												<tr>
+												<tr class="editBtn">
 													<td>↳</td>
 													<td>ㅇㅇ고등학교</td>
 													<td style="text-align: left;">Re: ㅇㅇ고등학교 지원 자소서</td>

@@ -22,8 +22,9 @@
 		</style>
 		<script>
 			$(function(){
-				$('#checkAll').click(function(){
-					$('.resume').attr('checked', 'checked');
+				// 첨삭 내용보기
+				$('#edit').click(function(){
+					location.href="/template/edit.jsp";
 					return false;
 				});
 			});
@@ -55,6 +56,11 @@
 									<%-- 버튼 --%>
 									<div>
 										<label style="font-size: 1.7em;"><i class="far fa-file-alt"></i>&nbsp;자소서 제목</label>
+										<div style="float: left; margin-top: 1em;">
+											<ul class="actions" id="edit">
+												<li><input type="submit" value="첨    삭" class="primary small" /></li>
+											</ul>
+										</div>
 										<div style="float: right; margin-top: 1em;">
 											<ul class="actions">
 												<li><input type="submit" value="목    록" class="primary small" /></li>

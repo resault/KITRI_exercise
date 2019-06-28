@@ -26,6 +26,14 @@
 					$('.msg').attr('checked', 'checked');
 					return false;
 				});
+				// 마우스 커서 변경
+				$('.msgBtn').css('cursor', 'pointer');
+				
+				// 쪽지 내용보기
+				$('.msgBtn').click(function(){
+					location.href="/template/viewmsg.jsp";
+					return false;
+				});
 			});
 		</script>
 	</head>
@@ -107,7 +115,7 @@
 									<div>
 										<table class="table-wrapper" style="text-align: center;">
 											<tbody>
-												<tr>
+												<tr class="msgBtn">
 													<td>
 														<input type="checkbox" class="msg" id="msg1" name="msg1">
 														<label for="msg1" style="padding-left: 0.1em;"></label>
@@ -117,7 +125,7 @@
 													<td style="text-align: left;">쪽지를 보냈습니다. 답장주세요.</td>
 													<td>2019.05.24 11:23:12</td>
 												</tr>
-												<tr>
+												<tr class="msgBtn">
 													<td>
 														<input type="checkbox" class="msg"  id="msg2" name="msg2">
 														<label for="msg2" style="padding-left: 0.1em;"></label>
@@ -127,7 +135,7 @@
 													<td style="text-align: left;">쪽지를 보냈습니다. 답장주세요.</td>
 													<td>2019.05.24 11:23:12</td>
 												</tr>
-												<tr>
+												<tr class="msgBtn">
 													<td>
 														<input type="checkbox" class="msg" id="msg3" name="msg3">
 														<label for="msg3" style="padding-left: 0.1em;"></label>
@@ -137,7 +145,7 @@
 													<td style="text-align: left;">쪽지를 보냈습니다. 답장주세요.</td>
 													<td>2019.05.24 11:23:12</td>
 												</tr>
-												<tr>
+												<tr class="msgBtn">
 													<td>
 														<input type="checkbox" class="msg" id="msg4" name="msg4">
 														<label for="msg4" style="padding-left: 0.1em;"></label>
