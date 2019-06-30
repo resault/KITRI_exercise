@@ -66,7 +66,7 @@ public class ReboardController {
 				path = "reboard/writefail";
 			}
 		} else {
-			path = "";
+			path = "redirect:/index.jsp";
 		}
 		model.addAttribute("parameter", parameter);
 		return path;
@@ -161,7 +161,70 @@ public class ReboardController {
 					path = "reboard/writefail";
 				}
 			} else {
-				path = "";
+				path = "redirect:/index.jsp";
+			}
+			model.addAttribute("parameter", parameter);
+			return path;
+		}
+		
+		@RequestMapping(value = "/modify", method = RequestMethod.GET)
+		public String modify(@RequestParam("seq") int seq, @RequestParam Map<String, String> parameter, Model model, HttpSession session) {
+			String path = "";
+			
+			// 로그인 여부 확인
+			MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+			if(memberDto != null) {
+				ReboardDto reboardDto = reboardService.getArticle(seq);
+				
+				model.addAttribute("article", reboardDto);
+				model.addAttribute("parameter", parameter);
+				
+				path = "reboard/modify";
+			} else {
+				path = "redirect:/index.jsp";
+			}
+			return path;
+		}
+		
+		@RequestMapping(value = "/modify", method = RequestMethod.POST)
+		public String modify(ReboardDto reboardDto, @RequestParam Map<String, String> parameter, Model model, HttpSession session) {
+			String path = "";
+			
+			// 로그인 여부 확인
+			MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+			if(memberDto != null) {
+				int result = reboardService.modifyArticle(reboardDto);
+				
+				if(result != 0) {
+					path = "reboard/modifyok";
+					
+				} else {
+					model.addAttribute("seq", reboardDto.getSeq());
+					path = "reboard/modifyfail";
+				}
+			} else {
+				path = "redirect:/index.jsp";
+			}
+			model.addAttribute("parameter", parameter);
+			return path;
+		}
+		
+		@RequestMapping(value = "/delete", method = RequestMethod.GET)
+		public String delete(@RequestParam("seq") int seq, @RequestParam Map<String, String> parameter, Model model, HttpSession session) {
+			String path = "";
+			
+			// 로그인 여부 확인
+			MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+			if(memberDto != null) {
+				int result = reboardService.deleteArticle(seq);
+				
+				if(result != 0) {
+					path = "reboard/deleteok";
+				} else {
+					path = "reboard/deletefail";
+				}
+			} else {
+				path = "redirect:/index.jsp";
 			}
 			model.addAttribute("parameter", parameter);
 			return path;

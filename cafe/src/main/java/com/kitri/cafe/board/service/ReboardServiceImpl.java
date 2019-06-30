@@ -49,14 +49,19 @@ public class ReboardServiceImpl implements ReboardService {
 
 	@Override
 	public int modifyArticle(ReboardDto reboardDto) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.getMapper(ReboardDao.class).modifyArticle(reboardDto);
 	}
 
 	@Override
-	public void deleteArticle(int seq) {
-		// TODO Auto-generated method stub
-
+	@Transactional
+	public int deleteArticle(int seq) {
+		int result = 0;
+		ReboardDao reboardDao = sqlSession.getMapper(ReboardDao.class);
+		result = reboardDao.deleteArticleF(seq);
+		if(result != 0) {
+			result = reboardDao.deleteArticle(seq);
+		}
+		return result;
 	}
 
 	@Override
@@ -73,5 +78,7 @@ public class ReboardServiceImpl implements ReboardService {
 		reboardDao.updateReply(reboardDto.getPseq());
 		return reboardDto.getSeq();
 	}
+
+	
 
 }
