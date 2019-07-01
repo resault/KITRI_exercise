@@ -22,7 +22,7 @@ import com.kitri.cafe.util.PageNavigation;
 @Controller
 @RequestMapping("/reboard")
 public class ReboardController {
-	
+	 
 	@Autowired
 	private CommonService commonService;
 
