@@ -138,7 +138,7 @@ $(function(){
 		$('#key').val('');
 		$('#word').val('');
 		$('#seq').val('${article.seq}');
-		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/delete").submit();
+		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/modify").submit();
 	});
 	
 	$('.moveDeleteBtn').click(function(){
