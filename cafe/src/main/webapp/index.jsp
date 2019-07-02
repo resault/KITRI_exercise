@@ -10,4 +10,4 @@ memberDto.setEmail("resault@gmail.com");
 
 session.setAttribute("userInfo", memberDto);
 
-%>
+%>]

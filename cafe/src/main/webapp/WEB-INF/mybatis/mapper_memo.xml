@@ -21,4 +21,10 @@
 	delete memo
 	where mseq = #{mseq}
 	</delete>
+	
+	<update id="modifyMemo" parameterType="memoDto">
+	update memo
+	set mcontent = #{mcontent}
+	where mseq = #{mseq}
+	</update>
 </mapper>

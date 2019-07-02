@@ -51,7 +51,7 @@ public class MemoController {
 	
 	
 //	class를 @RestController로 설정한 경우
-	@RequestMapping(method = RequestMethod.POST, headers = {"Content-Type=application/json"})
+	@RequestMapping(method = RequestMethod.PUT, headers = {"Content-Type=application/json"})
 	public String write(@RequestBody MemoDto memoDto, HttpSession session) { //JSON으로 넘어오는 것 받을 때 : @RequestBody, JOSN으로 넘길때 : @ResponseBody
 		MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
 		if(memberDto != null) {
@@ -80,5 +80,18 @@ public class MemoController {
 		return json;
 	}
 	
-	
+	@RequestMapping(method = RequestMethod.POST, headers = {"Content-Type=application/json"})
+	public String modify(@RequestBody MemoDto memoDto, HttpSession session) { //JSON으로 넘어오는 것 받을 때 : @RequestBody, JOSN으로 넘길때 : @ResponseBody
+		MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+		if(memberDto != null) {
+			memoDto.setId(memberDto.getId());
+			memoDto.setName(memberDto.getName());
+			
+			memoService.modifyMemo(memoDto);
+			
+			String json = memoService.listMemo(memoDto.getSeq());
+			return json;
+		}
+		return "";
+	}
 }

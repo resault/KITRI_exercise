@@ -5,6 +5,11 @@
 <%@ include file="/WEB-INF/views/commons/board_common.jsp" %>
 <script>
 $(function(){
+	
+	// #### view.jsp로딩시 댓글 뿌리기 ####
+	getMemoList();
+	
+	// #### 새글쓰기 ####
 	$('.moveWriteBtn').click(function(){
 		$('#bcode').val('${bcode}');
 		$('#pg').val('1');
@@ -13,6 +18,7 @@ $(function(){
 		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/write").submit();
 	});
 	
+	// #### 답글쓰기 ####
 	$('.moveReplyBtn').click(function(){
 		$('#bcode').val('${bcode}');
 		$('#pg').val('${pg}');
@@ -22,6 +28,7 @@ $(function(){
 		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/reply").submit();
 	});
 	
+	// #### 최신목록 ####
 	$('.firstListBtn').click(function(){
 		$('#bcode').val('${bcode}');
 		$('#pg').val('1');
@@ -30,6 +37,7 @@ $(function(){
 		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/list").submit();
 	});
 	
+	// #### 목록 ####
 	$('.listBtn').click(function(){
 		$('#bcode').val('${bcode}');
 		$('#pg').val('${pg}');
@@ -38,8 +46,27 @@ $(function(){
 		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/list").submit();
 	});
 	
-	getMemoList();
+	// #### 글 수정 ####
+	$('.moveModifyBtn').click(function(){
+		$('#bcode').val('${bcode}');
+		$('#pg').val('1');
+		$('#key').val('');
+		$('#word').val('');
+		$('#seq').val('${article.seq}');
+		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/modify").submit();
+	});
 	
+	// #### 글 삭제 ####
+	$('.moveDeleteBtn').click(function(){
+		$('#bcode').val('${bcode}');
+		$('#pg').val('${pg}');
+		$('#key').val('${key}');
+		$('#word').val('${word}');
+		$('#seq').val('${article.seq}');
+		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/delete").submit();
+	});
+	
+	// #### 댓글 작성 ####
 	$('#memoBtn').click(function(){
 		if('${userInfo == null}' == 'true'){
 			alert("로그인");
@@ -47,6 +74,51 @@ $(function(){
 			var seq = '${article.seq}';
 			var mcontent = $('#mcontent').val();
 			var param = JSON.stringify({'seq' : seq, 'mcontent' : mcontent});
+			if(mcontent.trim().length != 0) {
+				$.ajax({
+					url : '${root}/memo',
+					type : 'PUT',
+					contentType : 'application/json; charset=UTF-8',
+					dataType : 'json',
+					data : param,
+					success : function(response) {
+						makeMemoList(response);
+						$('#mcontent').val('');
+					}
+				});
+			}
+		}
+	});
+	
+	// #### 댓글 삭제 ####
+	$(document).on("click", ".mdeleteBtn", function(){
+		$.ajax({
+			url : '${root}/memo/' + $(this).parent('td').attr('data-seq') + '/' + $(this).parent('td').attr('data-mseq') ,
+			type : 'DELETE',
+			contentType : 'application/json; charset=UTF-8',
+			dataType : 'json',
+			success : function(response) {
+				makeMemoList(response);
+				$('#mcontent').val('');
+			}
+		});
+	});
+	
+	// #### 댓글 수정 버튼1(편집) ####
+	$(document).on("click", ".mmodifyBtn", function(){
+		$(this).parent().parent('tr').css('display', 'none');
+		$(this).parent().parent('tr').next('tr').css('display', '');
+	});
+	
+	// #### 댓글 수정 버튼2(update) ####
+	$(document).on("click", ".memoModifyBtn", function(){
+		if('${userInfo == null}' == 'true'){
+			alert("로그인");
+		} else {
+			var seq = '${article.seq}';
+			var mseq = $(this).parent('td').attr('data-mseq');
+			var mcontent = $(this).parent('td').prev('td').children('textarea').val();
+			var param = JSON.stringify({'seq' : seq, 'mseq' : mseq, 'mcontent' : mcontent});
 			if(mcontent.trim().length != 0) {
 				$.ajax({
 					url : '${root}/memo',
@@ -61,63 +133,17 @@ $(function(){
 				});
 			}
 		}
+		return false;
 	});
 	
-	$(document).on("click", ".mdeleteBtn", function(){
-		$.ajax({
-			url : '${root}/memo/' + $(this).parent('td').attr('data-seq') + '/' + $(this).parent('td').attr('data-mseq') ,
-			type : 'DELETE',
-			contentType : 'application/json; charset=UTF-8',
-			dataType : 'json',
-			success : function(response) {
-				makeMemoList(response);
-				$('#mcontent').val('');
-			}
-		});
+	// #### 댓글 수정 취소 ####
+	$(document).on("click", ".memoModifyCancleBtn", function(){
+		$(this).parent().parent('tr').css('display', 'none');
+		$(this).parent().parent('tr').prev('tr').css('display', '');
 	});
 	
-	function makeMemoList(memos) {
-		var memocnt = memos.memolist.length;
-		var memostr = '';
-		for(var i=0;i<memocnt;i++) {
-			var memo = memos.memolist[i];
-			memostr += '<tr>';
-			memostr += '	<td>'+ memo.name +'</td>';
-			memostr += '		<td style="padding: 10px">';
-			memostr += memo.mcontent;
-			memostr += '	</td>';
-			memostr += '	<td width="70" style="padding: 10px">';
-			memostr += memo.mtime;
-			memostr += '	</td>';
-			
-			if('${userInfo.id}' == memo.id) {
-			memostr += '	<td width="100" style="padding: 10px"  data-seq="'+ memo.seq +'" data-mseq="'+ memo.mseq +'">';
-			memostr += '		<input type="button" class="mmodifyBtn" value="수정">';
-			memostr += '		<input type="button" class="mdeleteBtn" value="삭제">';
-			memostr += '	</td>';
-			}
-			
-			memostr += '</tr>';
-			
-			memostr += '<tr style="display:none">';
-			memostr += '	<td colsapn="3" style="padding: 10px">';
-			memostr += '		<textarea class="mcontent" cols="160" rows="5">' + memo.mcontent + '</textarea>';
-			memostr += '	</td>';
-			memostr += '	<td width="100" style="padding: 10px">';
-			memostr += '		<input type="button" class="memoModifyBtn" value="글수정">';
-			memostr += '		<input type="button" class="memoModifyCancleBtn" value="취소">';
-			memostr += '	</td>';
-			memostr += '</tr>';
-			
-			memostr += '<tr>';
-			memostr += '	<td class="bg_board_title_02" colspan="4" height="1"';
-			memostr += '		style="overflow: hidden; padding: 0px"></td>';
-			memostr += '</tr>';
-		}
-		$('#mlist').empty();
-		$('#mlist').append(memostr);
-	}
 	
+	// 서버에서 댓글 list 얻어와서 화면에 뿌리기
 	function getMemoList(){
 		$.ajax({
 			url : '${root}/memo',
@@ -132,25 +158,52 @@ $(function(){
 		});
 	}
 	
-	$('.moveModifyBtn').click(function(){
-		$('#bcode').val('${bcode}');
-		$('#pg').val('1');
-		$('#key').val('');
-		$('#word').val('');
-		$('#seq').val('${article.seq}');
-		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/modify").submit();
-	});
-	
-	$('.moveDeleteBtn').click(function(){
-		$('#bcode').val('${bcode}');
-		$('#pg').val('${pg}');
-		$('#key').val('${key}');
-		$('#word').val('${word}');
-		$('#seq').val('${article.seq}');
-		$('#commonForm').attr("method", "GET").attr("action", "${root}/reboard/delete").submit();
-	});
-	
-	
+	// 서버에서 얻어온 댓글 list 뿌리기 function
+	function makeMemoList(memos) {
+		var memocnt = memos.memolist.length;
+		var memostr = '';
+		$('#mlist').empty();
+		for(var i=0;i<memocnt;i++) {
+			var memo = memos.memolist[i];
+			memostr += '<tr>';
+			memostr += '	<td>'+ memo.name +'</td>';
+			memostr += '	<td style="padding: 10px">';
+			memostr += memo.mcontent;
+			memostr += '	</td>';
+			memostr += '	<td width="70" style="padding: 10px">';
+			memostr += memo.mtime;
+			memostr += '	</td>';
+			
+			if('${userInfo.id}' == memo.id) {
+				memostr += '	<td width="100" style="padding: 10px"  data-seq="'+ memo.seq +'" data-mseq="'+ memo.mseq +'">';
+				memostr += '		<input type="button" class="mmodifyBtn" value="수정">';
+				memostr += '		<input type="button" class="mdeleteBtn" value="삭제">';
+				memostr += '	</td>';
+				memostr += '</tr>';
+				memostr += '<tr style="display:none">';
+				memostr += '	<td colsapn="3" style="padding: 10px" >';
+				memostr += '		<textarea class="mcontent" cols="160" rows="5">' + memo.mcontent + '</textarea>';
+				memostr += '	</td>';
+				memostr += '	<td width="100" style="padding: 10px" data-mseq="'+ memo.mseq +'">';
+				memostr += '		<input type="button" class="memoModifyBtn" value="글수정">';
+				memostr += '		<input type="button" class="memoModifyCancleBtn" value="취소">';
+				memostr += '	</td>';
+				memostr += '</tr>';
+			} else {
+				memostr += '</tr>';
+				
+			}
+			
+			
+			
+			memostr += '<tr>';
+			memostr += '	<td class="bg_board_title_02" colspan="4" height="1"';
+			memostr += '		style="overflow: hidden; padding: 0px"></td>';
+			memostr += '</tr>';
+		}
+		$('#mlist').empty();
+		$('#mlist').append(memostr);
+	}
 });
 </script>
 <!-- title -->

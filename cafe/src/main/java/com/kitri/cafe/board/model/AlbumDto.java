@@ -6,7 +6,7 @@ public class AlbumDto extends BoardDto {
 	private String originPicture;
 	private String savePicture;
 	private String saveFolder;
-	private int type;
+	private int type;	// 가로 or 세로 이미지
 
 	public int getAseq() {
 		return aseq;
@@ -32,11 +32,11 @@ public class AlbumDto extends BoardDto {
 		this.savePicture = savePicture;
 	}
 
-	public String getSavefolder() {
+	public String getSaveFolder() {
 		return saveFolder;
 	}
 
-	public void setSavefolder(String savefolder) {
+	public void setSaveFolder(String savefolder) {
 		this.saveFolder = savefolder;
 	}
 

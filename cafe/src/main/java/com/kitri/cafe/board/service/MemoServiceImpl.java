@@ -31,7 +31,7 @@ public class MemoServiceImpl implements MemoService {
 
 	@Override
 	public void modifyMemo(MemoDto memoDto) {
-		// TODO Auto-generated method stub
+		sqlSession.getMapper(MemoDao.class).modifyMemo(memoDto);
 
 	}
 
