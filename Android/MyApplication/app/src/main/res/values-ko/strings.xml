@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="welcome">WELCOME</string>
+    <string name="click">CLICK</string>
+    <string name="test">여긴 텍스트뷰입니다.</string>
+    <string name="resultStr">계산 결과 : </string>
+</resources>

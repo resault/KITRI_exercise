@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:padding="10dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:gravity="center">
+
+        <TableRow>
+            <Button
+                android:id="@+id/btEx4_24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="실습4_24"
+                android:textSize="15sp"
+                android:onClick="btClick"/>
+            <Button
+                android:id="@+id/btEx5_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="실습5_1"
+                android:textSize="15sp"
+                android:onClick="btClick"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btEx42"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="실습42"
+                android:textSize="15sp"
+                android:onClick="btClick"/>
+            <Button
+                android:id="@+id/btEx43"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="실습43"
+                android:textSize="15sp"
+                android:onClick="btClick"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btExinflation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="실습inflation"
+                android:textSize="15sp"
+                android:onClick="btClick" />
+
+            <Button
+                android:id="@+id/btNewActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="새화면 띄우기(닫기)"
+                android:textSize="15sp"
+                android:onClick="btClick" />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btEx10_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="별점주기"
+                android:textSize="15sp"
+                android:onClick="btClick" />
+
+            <Button
+                android:id="@+id/btEx10_21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="묵시적 인텐트"
+                android:textSize="15sp"
+                android:onClick="btClick" />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btEx10_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="액티비티 라이프사이클"
+                android:textSize="15sp"
+                android:onClick="btClick" />
+
+            <Button
+                android:id="@+id/btLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="로그인"
+                android:textSize="20sp"
+                android:onClick="btClick" />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/bActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="다른 앱의 화면 띄우기"
+                android:textSize="15sp"
+                android:onClick="btClick" />
+
+            <Button
+                android:id="@+id/btEx11_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="리스트뷰"
+                android:textSize="15sp"
+                android:onClick="btClick" />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btCustom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CustomListView"
+                android:textSize="15sp"
+                android:onClick="btClick" />
+
+            <Button
+                android:id="@+id/sbTest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SeekBar"
+                android:textSize="15sp"
+                android:onClick="btClick" />
+
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btExchange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="환율"
+                android:textSize="15sp"
+                android:onClick="btClick" />
+            <Button
+                android:id="@+id/btCart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="장바구니"
+                android:textSize="15sp"
+                android:onClick="btClick" />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/btEx13_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="음악재생"
+                android:textSize="15sp"
+                android:onClick="btClick" />
+
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>
