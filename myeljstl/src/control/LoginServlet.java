@@ -31,6 +31,7 @@ public class LoginServlet extends HttpServlet {
 		request.setAttribute("result", result);
 		String path = "/loginresult.jsp";
 		
+		
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);
 		

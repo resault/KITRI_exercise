@@ -21,11 +21,11 @@ public class ViewCartServlet extends HttpServlet {
 		Map<Product, Integer> cart = (Map) session.getAttribute("cart");
 		Map<Product, Integer> rc = new HashMap<Product, Integer>();
 		
-		
 		if(cart != null) {
 			Set<Product> keys = cart.keySet();
 			for(Product product : keys) {
 				String no = product.getProdNo();
+				System.out.println("상품번호 :" + no);
 				try {
 					Product p = ProductService.getProductService().findByNo(no);
 					int quantity = cart.get(product);
@@ -37,6 +37,14 @@ public class ViewCartServlet extends HttpServlet {
 		}
 		request.setAttribute("rcart", rc);
 		String path = "/viewcartresult.jsp";
+		
+		
+		String userAgent = request.getHeader("User-Agent");
+		System.out.println(userAgent);
+		if(userAgent.contains("Dalvik")) {
+			path = "/viewcartresultjson.jsp";
+		}
+		
 		
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);

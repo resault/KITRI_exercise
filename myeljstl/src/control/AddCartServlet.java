@@ -34,18 +34,18 @@ public class AddCartServlet extends HttpServlet {
 			quantity += inte.intValue();
 		}
 		cart.put(p, quantity);//장바구니에 상품, 수량 추가
-		
+		System.out.println("장바구니 내용");
+		Set<Product> keys = cart.keySet();
+		for(Product key : keys) {
+			int q = cart.get(key);
+			System.out.println("상품번호 : " + key.getProdNo() + ", 수량 : " + q);
+		}
 		String path = "/addcartresult.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);
 		
 		
-//		System.out.println("장바구니 내용");
-//		Set<Product> keys = cart.keySet();
-//		for(Product key : keys) {
-//			int q = cart.get(key);
-//			System.out.println("상품번호 : " + key.getProdNo() + ", 수량 : " + q);
-//		}
+
 	}
 
 }
