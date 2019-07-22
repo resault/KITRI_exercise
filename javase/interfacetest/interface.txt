@@ -1,0 +1,50 @@
+** Interface : 껍데기, 명세서, 약속.
+1. 추상메소드만 가진 클래스의 일종.(상수는 가능)
+   변수, 구현메소드 X
+형식)
+접근제어자 interface InterfaceName {
+   
+   상수;
+
+   접근제어자 returnType methodName([args]);
+
+}
+2. interface는 클래스에 구현 후 사용.
+   implements keyword 사용.
+   다중 implements가 가능.
+
+형식)
+접근제어자 class ClassName [extends ClassName] implements IN1, IN2, IN3, ... {
+
+}
+
+3. 상위		Class		Interface	Class		Interface
+
+		extends		implements	X		extends
+
+   하위		Class		Class		Interface	Interface
+
+4. interface는 객체 생성 불가능.
+   클래스에 implements한 후 클래스를 참조하여 객체 생성.
+   implements한 클래스는 반드시 interface의 추상 메소드를 모두 overriding해야 한다.
+
+* 상수 : 변경 불가능 값.
+형식)
+public static final DT CONST_NAME = 값;
+예)
+public final static int YEAR = 2019;
+public static final String CHARSET = "UTF-8";
+
+-- 명세서 --
+CPU : i7xxx
+RAM : 8GB
+GC : Gf..
+M B : xxx
+Case : xxx
+kb : xx
+
+-------------
+xxx원
+
+
+

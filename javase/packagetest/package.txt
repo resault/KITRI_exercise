@@ -1,0 +1,54 @@
+* package : window의 folder
+1. 비슷한 기능을 가진 class의 묶음
+2. class에 첫줄에 package를 지정.
+   packagename : site 주소 거꾸로.특정이름;
+형식)
+package packagename;
+예)
+package com.kitri.member;
+package com.kitri.board;
+package com.kitri.product;
+
+package com.kitri.test;
+
+public class Car {}
+
+- com
+ - kitri
+  - test
+   - Car.class
+
+
+3. package로 지정된 클래스 사용.
+   import keyword 이용.
+   단, java.lang package는 import없이 사용가능.
+형식)
+import packagename.ClassName;
+import packagename.*;
+예)
+import com.kitri.test.Car;
+//import java.util.Calendar;
+//import java.util.GregorianCalendar;
+import java.util.*;
+
+public class CarUser {
+	Car car;
+	Calendar cal = new GregorianCalendar();
+	String s;
+}
+
+-- java의 package
+java.lang : 기본 package
+java.awt : abstract window toolkit (window창..)
+java.io : 입/출력
+java.util : utility
+java.net : network
+java.sql : JDBC(Java DataBase Connectivity)
+.
+.
+.
+
+
+
+
+

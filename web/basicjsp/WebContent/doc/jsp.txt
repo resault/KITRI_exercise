@@ -1,0 +1,78 @@
+** JSP (Java Server Page)
+ - servlet(*.java) : html in java
+ - jsp(*.jsp) : java in html
+ 
+ * compile 기반 : servlet, jsp(run)
+   script 기반 : jsp(code), asp, php
+ 
+ -- Script Element : <% java code %>
+  1. 선언부 : jsp에서 사용될 변수, 메소드를 선언하는 영역
+  	형식) <%! java code %>
+  	예)
+  	<%!
+  	String name;
+  	int age;
+  	
+  	public void setZ() {
+  	
+  	}
+  	%>
+  	
+  2. 처리부 : jsp가 호출 될때마다 매번 실행 되는 영역. >> service method
+            request, repsonse 관련..
+  	형식) <% java code %>
+  	예)
+  	<%
+  	name = request.getParameter("name");
+  	
+  	out.println(name);
+  	%>
+  	
+  3. 출력부 : client 출력.
+  	형식) <%= 문자열 %>
+  	예)
+  	<%= name %> == <% out.println(name); %>
+  
+  public class ClassName [servlet] {
+  
+  	선언부 ( 변수, 메소드(){} )
+  
+  	public void service(request, response) {
+  		
+  		처리부
+  		
+  		out.println("");//출력부(표현식)
+  		
+  	}
+  
+  }
+  
+-- directive(지시문) : <%@ 종류 속성1="값1" 속성2="값2" .... 속성N="값N" %>
+1. page
+
+
+2. include
+
+
+3. taglib
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

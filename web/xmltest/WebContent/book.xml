@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE booklist SYSTEM "book.dtd">
+
+<booklist>
+	<book kind="IT" isbn="b1">
+		<title>java</title>
+		<author>
+			<name sex="남">홍길동</name>
+			<tel>010-1234-6598</tel>
+			<address>경기도</address>
+		</author>
+		<publisher>키트리출판사</publisher>
+		<price>123400</price>
+		<description>이 책 조아요!!!</description>
+	</book>
+	<book kind="소설" isbn="b2">
+		<title>oracle</title>
+		<author>
+			<writer sex="여">이순신</writer>
+			<tel>010-1234-6598</tel>
+			<address>서울</address>
+		</author>
+		<publisher>kitri book</publisher>
+		<price>100000</price>
+	</book>
+	<book kind="잡지" isbn="b3">
+		<title>spring</title>
+		<author>
+			<name sex="남">임꺽정</name>
+			<tel>010-1234-6598</tel>
+			<address>제주도</address>
+		</author>
+		<publisher>구디출판사</publisher>
+		<price>250000</price>
+	</book>
+</booklist>
