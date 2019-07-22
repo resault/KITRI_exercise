@@ -1,0 +1,81 @@
+** JSP (Jave Server Page)
+
+- Servlet(*.java) : html in java
+- jsp(*.jsp) : java in html
+
+
+* 언어의 종류 
+- compile 기반 : 기계어(byte code)로 바뀌어 실행되기 때문에 속도가 빠름	(ex. servlet, jsp(run))
+- script 기반 : 코드가 간편함, 컴파일 기반언어에 비해 속도가 느림	(ex. jsp(code), asp, php)
+
+
+
+
+
+-- Script Element : <% java code %>
+
+1. 선언부 : jsp에서 사용될 변수, 메소드를 선언하는 영역
+	형식) <%! java code %>
+	ex) 
+	<%!
+	String name;
+	int age
+	
+	public void setZ() {
+	
+	}
+	%>
+
+
+2. 처리부 : jsp가 호출 될 때마다 매번 실행되는 영역 >> service method
+			request, reponse 관련 코딩
+	형식) <% java code %>
+	ex) 
+	<%
+	name = request.getParameter("name");
+	
+	out.print("name");
+	%>
+
+
+3. 출력부 : client 출력
+	형식) <%= 문자열 %>		(세미콜른 쓰지 않음)
+	ex)
+	<%= name %>		==		<% out.print("name"); %>
+
+
+	public class ClassName [servlet] {
+	
+		선언부 (변수, 메소드(){} )
+	
+		public void service(request, response) {
+		
+			처리부
+			
+			out.println("");//출력부(표현식)
+		}
+	
+	}
+	
+	
+	
+-- directive(지시문) : <%@ 종류 속성1="값1" 속성2="값2" ... 속성N="값N" %>
+1. page
+
+
+2. include
+
+
+3. taglib
+
+
+
+
+
+
+
+
+
+
+
+

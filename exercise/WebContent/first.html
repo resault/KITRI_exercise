@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>first.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+
+	//var all = document.querySelectorAll("p");
+	var $all = $("body>p");
+	$all.click(function(){
+		$(this).hide();
+	});
+});
+
+
+
+
+
+
+
+
+/*function f1(){
+	this.style.display='none';
+}
+
+
+window.addEventListener("load", function() {
+	var all = document.querySelectorAll("p");
+	for(var i=0;i<all.length; i++) {
+		var obj = all[i];
+		obj.addEventListener("click", f1);
+	}
+}); */
+</script>
+
+</head>
+<body>
+
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+
+/* //javascript
+window.addEventListener("load", function(){
+	//dom트리에서 input태그 중 type속성값이 submit인 객체찾기
+	var submitObj = document.querySelector("input[type=submit]");
+	
+	//submitObj에서 클릭이벤트핸들러 작성하기
+	//할일: 클릭되었습니다 경고창 띄우기
+	submitObj.addEventListener("click", function(){
+		alert("클릭되었습니다");
+		
+	});
+	
+	//dom트리에서 form 객체찾기
+	var formObj = document.querySelector("form");
+	
+	//formObj에서 submit이벤트핸들러 작성하기
+	//할일: 전송되었습니다 경고창 띄우기
+	formObj.addEventListener("submit", function(event){
+
+		//유효성 검사
+		//input 객체중 name속성이 t인 객체 찾기
+		var tObj = document.querySelector("input[name=t]");
+		var tObjValue = tObj.value.trim();
+		if(tObjValue.length == 0) {
+			alert("반드시 입력하세요");
+			tObj.focus();
+			event.preventDefault();
+		} else {
+			alert("전송되었습니다.");
+		}
+	});
+}); */
+
+
+//jQuery
+$(function(){	//$(document).reqdy(function(){});
+	var $formObj = $("form");
+	$formObj.submit(function(){
+		//유효성 검사
+		//input 객체중 name속성이 t인 객체 찾기
+		var $tObj = $("input[name=t]");
+		var $tObjValue = $tObj.val().trim();
+		if($tObjValue.length==0){
+			alert("반드시 입력하세요");
+			$tObj.focus();
+			return false;
+		} else {
+			alert("전송되었습니다.");
+			$formObj.attr("method", "post");
+			$formObj.attr("action", "http://www.naver.com");
+		}
+	});
+	
+});
+
+</script>
+
+</head>
+<body>
+	<form action="http://www.google.com">	<!-- action의 value를 지정하지 않으면 현재 사용중인 Url을 다시 요청하게 됨 & method의 default value는 get임 -->
+		<input name="t"><br>
+		<input type="password" name="p"><br>
+		<input type="checkbox" name="c" value="1">ONE&nbsp;&nbsp;
+		<input type="checkbox" name="c" value="2">TWO&nbsp;&nbsp;
+		<input type="checkbox" name="c" value="3">THREE<br>
+		<select name="s">
+			<option value="1">ONE</option>	<!-- value 지정 안하면 ONE이 default value로 잡힘 -->
+			<option value="1">TWO</option>
+			<option value="1">THREE</option>
+		</select>
+		<input type="submit" value="전송1">	<!-- form의 action 속성에 지정된 url로 데이터를 전송함 -->
+		<input type="button" value="버튼1">	<!-- JavaScript를 덧입히지 않으면 암것도 안함 -->
+		<button>전송2</button>	<!-- form 태그 안의 버튼 태그는 input type="submit"과 동일한 기능 -->
+	
+	</form>
+		<button>버튼2</button>	<!-- form 태그 안의 버튼 태그는 input type="button"과 동일한 기능 -->
+</body>
+</html>

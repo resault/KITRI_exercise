@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+/* //javascript
+window.addEventListener("load", function(){
+//dom트리에서 div>a객체 찾기
+var aObj = document.querySelector("div>a");
+
+//aObj객체에서 클릭이벤트가 발생했을때 처리할 핸들러 작성하기
+//할일 : "클릭되었습니다"메시지를 경고창에 띄우기
+aObj.addEventListener("click", function(event){
+      alert("클릭되었습니다.");
+      this.style.backgroundColor="yellow";
+      event.preventDefault(); //기본 이벤트를 default처리
+      event.stopPropagation();      //이벤트 버블링을 막음
+      
+      //if(){    //위에서 기본이벤트를 막아서 페이지 이동이 안되므로 여기서 페이지 넘겨주는 거임
+      //      location.href="http://www.google.com";
+      //};
+});
+
+
+//DOM트리에서 div 객체찾기
+var divObj = document.querySelector("div");
+
+//divObj객체에서 클릭이벤트가 발생했을때
+//할일 : 배경색을 gray로 변경
+divObj.addEventListener("click", function(){    //자식요소의  이벤트가 발생되면 부모요소의 이벤트까지 전달됨     >> 이벤트 버블링
+      this.style.backgroundColor="gray";  //a태그를 클릭하면 div의  배경색도 바뀜
+});
+
+
+});  */
+
+
+
+//jquery
+$(document).ready(function(){
+	
+	//DOM트리에서 div>a 객체 찾기
+	var $aObj = $("div>a");
+	//console.log($aObj);	//dom트리객체를 찾아서 jquery 형태로 반환됨
+
+	//aObj객체에서 클릭이벤트가 발생했을때 처리할 핸들러 작성하기
+	//할일 : "클릭되었습니다"메시지를 경고창에 띄우기
+	$aObj.click(function(){
+		alert("클릭되었습니다.");
+		$(this).css("background-color", "yellow");	//자바 문법이 아닌 문자열이기때문에 하이픈 사용가능(style 태그에서 사용하던 속성이름 그대로 쓰면됨 cf.js)
+		return false;	//기본이벤트 및 이벤트 전파를 막아줌
+	});
+	
+	var $div = $("div");
+	
+	$div.click(function(){
+		$(this).css("background-color", "gray");
+	});
+});
+
+
+
+
+
+
+
+
+</script>
+
+</head>
+<body>
+<div>
+	<h3>DIV1</h3>
+	<a href="http://www.google.com">구글</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>score.html</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(function () {
+	$("form").submit(function(){
+		data = $("form").serialize();
+		$.ajax({
+			url : '/myjquery/score',
+			data : data,
+			success : function(result){
+				$("#result").html(result.trim());
+			}
+		});
+		return false;
+	});
+});
+</script>
+
+</head>
+<body>
+	<img src="http://img.movist.com/?img=/x00/05/12/35_p1.jpg" style="width: 200px;">
+	<div>
+		<form action="">
+			<input type="radio" name="star" value="1">★☆☆☆☆<br>
+			<input type="radio" name="star" value="2">★★☆☆☆<br>
+			<input type="radio" name="star" value="3" checked>★★★☆☆<br>
+			<input type="radio" name="star" value="4">★★★★☆<br>
+			<input type="radio" name="star" value="5">★★★★★<br>
+			<button>별점주기</button>  <!-- form 태그 내부의 btn이므로 submit됨 -->
+		</form>
+	</div>
+	<div id="result"></div>
+</body>
+</html>
