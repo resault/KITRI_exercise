@@ -1,0 +1,111 @@
+1.
+-- 'sales' 부서에서 근무하며, 이름(first_name)이 'a ~ e'로 끝나는 사원의
+-- 사번, 이름, 부서이름, 직무이름, 근속 연수, 비고를 출력하라
+-- 단, 근속 연수는 시스템 날짜를 기준으로 월/일을 고려하지 않고 산정하며, '30년 근무하였습니다."의 형태로 출력한다.
+-- 근속연수가 25년 이상이면 비고에 '장기근속자'를, 그 이외의 경우에는 공란으로 출력하라.
+select e.employee_id 사번, e.first_name 이름, d.department_name 부서이름, j.job_title 직무이름,
+        concat((to_char(sysdate, 'yyyy') - to_char(hire_date, 'yyyy')), '년 근무하였습니다.') "근속 연수",
+        case
+            when (to_char(sysdate, 'yyyy') - to_char(hire_date, 'yyyy')) >= 25
+            then '장기근속자'
+            else ' '
+        end "비고"
+from employees e, departments d, jobs j
+where e.department_id = d.department_id
+            and e.job_id = j.job_id
+        and ascii(substr( e.first_name, length(e.first_name), 1)) between 97 and 101;
+
+
+
+
+2.
+-- 직무 변동이 없었던 사원의 사번, 이름, 부서이름, 직무이름, 입사 연도, 커미션을 포함한 급여를
+-- 사번 순서로 정렬하여 출력하라 
+select *
+from employees e, job_history h
+where e.employee_id = h.employee_id(+)
+        and h.employee_id is null
+order by e.employee_id; 
+
+3.
+--trenna rajs 한사람이 모든 부서에서 일을 했을 때의 일련코드(사번+부서이름+고용일+매니저이름)를 만들고자 한다.
+--단 매니저가 없을 땐 매니저번호를 x 이라고 한뒤 출력
+	select e.first_name, e.employee_id,d.department_id, e.hire_date , ee.first_name, to_char(e.employee_id)||to_char(d.department_id)||to_char(e.hire_date,'yymmdd')||to_char(nvl(ee.first_name,'x')) 일련번호
+	from employees e, departments d, employees ee
+	where ee.employee_id(+) = d.manager_id
+and lower(e.first_name) = 'trenna'
+order by d.department_id;
+
+
+4.
+--모든 국가의 사원의 사번, 이름, 부서번호,도시,국가이름을 쓰시오 (oracle join으로)
+select e.employee_id,e.first_name,d.department_id,l.city,c.country_name
+from countries c, employees e, departments d, locations l
+where e.department_id(+)=d.department_id
+and d.location_id(+)=l.location_id
+and l.country_id(+)=c.country_id;
+
+5.
+--모든 사원의 사번, 이름, 커미션이 포함된 급여(커미션 없으면 그냥 급여), 매니저이름, 급여수준을 구하시오
+--매니저가 없는 사람은 '사장'이라고 쓰시오
+--급여수준은 5000미만 이면 하, 10000미만이면 중, 10000이상이면 상 이다. (ANSI join으로 쓰시오)
+select e.employee_id, e.first_name,
+e.salary+e.salary*nvl(e.commission_pct,0) 커미션포함급여,nvl(em.first_name,'사장'),
+        case
+            when e.salary<5000
+            then '하'
+            when e.salary<10000
+            then '중'
+            else '상'
+        end 급여수준
+from employees e left outer join employees em
+on e.manager_id=em.employee_id;
+
+6. 급여가 4000 미만인 사원은 3년차
+            10000 미만         5년차
+            10000 이상         10년차
+
+'Seattle'에 사는 사원의 사번, 이름, 급여, 부서이름, 도시,경력을 구하여라
+(case문과 조인을 이용하여 풀어라, null값도 모두 표시) 
+경력을 내림차순으로 정렬
+
+
+
+
+--정답
+select e.employee_id, nvl(e.first_name, '사원없음'), e.salary,d.department_name, l.city,
+    (case 
+            when e.salary < 4000
+            then '3년차' 
+            when e.salary < 10000
+            then '5년차'
+            else '10년차'
+        end) 경력
+from employees e, departments d, locations l
+where e.department_id(+) = d.department_id
+      and d.location_id = l.location_id
+      and l.city = 'Seattle'
+order by 경력 desc;
+
+
+
+
+7. 'programmer'의 사번, 이름, 직책, 직업을 출력하라(ansi조인으로)
+
+
+--정답
+select e.employee_id, e.first_name, j.job_id, j.job_title
+from employees e join jobs j
+on e.job_id = j.job_id
+
+8. 
+-- 성이나 이름에 's'가 들어가는 사람들을 기준으로
+-- 풀네임, 사번, 직책, 부서이름을 출력할 것
+-- hint : 총 9명 나옴!
+
+정답 >
+select e.first_name || ' ' || e.last_name, e.employee_id, d.department_name
+from employees e, departments d
+where lower(first_name) || lower(last_name) LIKE '%s%'
+    and e.department_id = d.department_id;
+
