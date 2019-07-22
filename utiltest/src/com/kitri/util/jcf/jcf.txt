@@ -1,0 +1,13 @@
+** JCF (Java Collection Framework) : 크기가 유동적.
+
+	Collection						Map
+		
+List			Set
+순서유지			순서유지 X
+중복data			중복data X
+
+---------------------------------------------------------
+
+ArrayList		HashSet			HashMap		Hashtable
+
+Vector										Properties
