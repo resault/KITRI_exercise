@@ -9,32 +9,32 @@ public class StringTest1 {
 		String s4 = new String("java");
 		
 		if(s1 == s2)
-			System.out.println("s1 s2´Â ÁÖ¼Ò°ªÀÌ °°´Ù.");//O
+			System.out.println("s1 s2ëŠ” ì£¼ì†Œê°’ì´ ê°™ë‹¤.");//O
 		if(s1 == s3)
-			System.out.println("s1 s3´Â ÁÖ¼Ò°ªÀÌ °°´Ù.");//X
+			System.out.println("s1 s3ëŠ” ì£¼ì†Œê°’ì´ ê°™ë‹¤.");//X
 		if(s1 == s4)
-			System.out.println("s1 s4´Â ÁÖ¼Ò°ªÀÌ °°´Ù.");//x
+			System.out.println("s1 s4ëŠ” ì£¼ì†Œê°’ì´ ê°™ë‹¤.");//x
 		if(s2 == s3)
-			System.out.println("s2 s3´Â ÁÖ¼Ò°ªÀÌ °°´Ù.");//x
+			System.out.println("s2 s3ëŠ” ì£¼ì†Œê°’ì´ ê°™ë‹¤.");//x
 		if(s2 == s4)
-			System.out.println("s2 s4´Â ÁÖ¼Ò°ªÀÌ °°´Ù.");//x
+			System.out.println("s2 s4ëŠ” ì£¼ì†Œê°’ì´ ê°™ë‹¤.");//x
 		if(s3 == s4)
-			System.out.println("s3 s4´Â ÁÖ¼Ò°ªÀÌ °°´Ù.");//X
+			System.out.println("s3 s4ëŠ” ì£¼ì†Œê°’ì´ ê°™ë‹¤.");//X
 		
 		System.out.println("---------------------------------");
 		
 		if(s1.equals(s2))
-			System.out.println("s1 s2´Â ¹®ÀÚ¿­°ªÀÌ °°´Ù.");//O
+			System.out.println("s1 s2ëŠ” ë¬¸ìì—´ê°’ì´ ê°™ë‹¤.");//O
 		if(s1.equals(s3))
-			System.out.println("s1 s3´Â ¹®ÀÚ¿­°ªÀÌ °°´Ù.");//O
+			System.out.println("s1 s3ëŠ” ë¬¸ìì—´ê°’ì´ ê°™ë‹¤.");//O
 		if(s1.equals(s4))
-			System.out.println("s1 s4´Â ¹®ÀÚ¿­°ªÀÌ °°´Ù.");//O
+			System.out.println("s1 s4ëŠ” ë¬¸ìì—´ê°’ì´ ê°™ë‹¤.");//O
 		if(s2.equals(s3))
-			System.out.println("s2 s3´Â ¹®ÀÚ¿­°ªÀÌ °°´Ù.");//O
+			System.out.println("s2 s3ëŠ” ë¬¸ìì—´ê°’ì´ ê°™ë‹¤.");//O
 		if(s2.equals(s4))
-			System.out.println("s2 s4´Â ¹®ÀÚ¿­°ªÀÌ °°´Ù.");//O
+			System.out.println("s2 s4ëŠ” ë¬¸ìì—´ê°’ì´ ê°™ë‹¤.");//O
 		if(s3.equals(s4))
-			System.out.println("s3 s4´Â ¹®ÀÚ¿­°ªÀÌ °°´Ù.");//O
+			System.out.println("s3 s4ëŠ” ë¬¸ìì—´ê°’ì´ ê°™ë‹¤.");//O
 	
 	}
 	

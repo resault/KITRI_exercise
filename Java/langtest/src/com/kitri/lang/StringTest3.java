@@ -8,26 +8,26 @@ public class StringTest3 {
 
 		// 2. String Class method
 
-		// 1) charAt(int index) : index ¹øÂ° char
+		// 1) charAt(int index) : index ë²ˆì§¸ char
 		char c = str.charAt(4);
 		System.out.println("c == " + c);
 
 		str = "123";
 		System.out.println(str.charAt(0));
-//		int x = str.charAt(0); //str.charAt(0)´Â char ¹İÈ¯ >> °­Á¦Çüº¯È¯ >> 49
+//		int x = str.charAt(0); //str.charAt(0)ëŠ” char ë°˜í™˜ >> ê°•ì œí˜•ë³€í™˜ >> 49
 		int x = str.charAt(0) - 48; // 49-48 >> 1
 		System.out.println("x == " + x);
 
-			// ex. ¹®ÀÚ¿­ÀÌ ¼ıÀÚÀÎÁö ¾Æ´ÑÁö ÆÇº°
-//		¼ö¾÷¶§ Ç®¾ú´ø ÄÚµå (±»ÀÌ.. strÀ» int ¹è¿­¿¡ ´ã°í, »õ·Î for¹® µ¹·Á¼­ ¹®ÀÚ/¼ıÀÚ È®ÀÎÇÔ..)
+			// ex. ë¬¸ìì—´ì´ ìˆ«ìì¸ì§€ ì•„ë‹Œì§€ íŒë³„
+//		ìˆ˜ì—…ë•Œ í’€ì—ˆë˜ ì½”ë“œ (êµ³ì´.. strì„ int ë°°ì—´ì— ë‹´ê³ , ìƒˆë¡œ forë¬¸ ëŒë ¤ì„œ ë¬¸ì/ìˆ«ì í™•ì¸í•¨..)
 //		str = "1a2";
 //		int len = str.length();
 //		int[] checkStr = new int[len];
 //		for (int i = 0; i < len; i++) {
 //		      checkStr[i] = str.charAt(i) - 48;
-//		      System.out.println("for¹® " + checkStr[i]);
+//		      System.out.println("forë¬¸ " + checkStr[i]);
 //		}
-//		            // ¹®ÀÚ¸é false ¹İÈ¯
+//		            // ë¬¸ìë©´ false ë°˜í™˜
 //		boolean result = false;
 //		for (int i = 0; i < len; i++) {
 //		      if (checkStr[i] >= 0 && checkStr[i] < 10) {
@@ -38,24 +38,24 @@ public class StringTest3 {
 //		      }
 //		}
 //		if (result)
-//		      System.out.println(str + "Àº ¼ıÀÚÀÔ´Ï´Ù.");
+//		      System.out.println(str + "ì€ ìˆ«ìì…ë‹ˆë‹¤.");
 //		else
-//		      System.out.println(str + "Àº ¼ıÀÚ°¡ ¾Æ´Õ´Ï´Ù.");
+//		      System.out.println(str + "ì€ ìˆ«ìê°€ ì•„ë‹™ë‹ˆë‹¤.");
 		
 		
 		str = "1a2";
 		int len = str.length();
 		System.out.println("length == " + len);
 		
-		String result = "¼ıÀÚÀÔ´Ï´Ù.";
+		String result = "ìˆ«ìì…ë‹ˆë‹¤.";
 		for (int i = 0; i < len; i++) {
 			int num = str.charAt(i) - 48;
 			if(num < 0 || num > 9) {
-				result = "¼ıÀÚ°¡ ¾Æ´Õ´Ï´Ù.";
+				result = "ìˆ«ìê°€ ì•„ë‹™ë‹ˆë‹¤.";
 				break;
 			}
 		}
-		System.out.println(str + "Àº " + result);
+		System.out.println(str + "ì€ " + result);
 		
 
 		
@@ -65,21 +65,21 @@ public class StringTest3 {
 		// 2)  concat(String str)
 		String str1 = "hello ";
 		String str2 = "java";
-		System.out.println(str1 + str2);//¿øº»Àº ¹Ù²îÁö ¾ÊÀ½
-		System.out.println(str1.concat(str2));//¿øº»Àº ¹Ù²îÁö ¾ÊÀ½
+		System.out.println(str1 + str2);//ì›ë³¸ì€ ë°”ë€Œì§€ ì•ŠìŒ
+		System.out.println(str1.concat(str2));//ì›ë³¸ì€ ë°”ë€Œì§€ ì•ŠìŒ
 		
 		
-		// 3) endsWith(String suffix) |	startsWith(String prefix) : suffix Á¢¹Ì¾î, prefix Á¢µÎ¾î
+		// 3) endsWith(String suffix) |	startsWith(String prefix) : suffix ì ‘ë¯¸ì–´, prefix ì ‘ë‘ì–´
 		str = "Hell java !!!";
 		if(str.startsWith("h"))
-			System.out.println(str + "Àº h·Î ½ÃÀÛÇÑ´Ù.");
+			System.out.println(str + "ì€ hë¡œ ì‹œì‘í•œë‹¤.");
 		if(str.startsWith("H"))
-			System.out.println(str + "Àº H·Î ½ÃÀÛÇÑ´Ù.");
+			System.out.println(str + "ì€ Hë¡œ ì‹œì‘í•œë‹¤.");
 		if(str.startsWith("He"))
-			System.out.println(str + "Àº He·Î ½ÃÀÛÇÑ´Ù.");
+			System.out.println(str + "ì€ Heë¡œ ì‹œì‘í•œë‹¤.");
 		
 		if(str.endsWith("!!"))
-			System.out.println(str + "Àº !!·Î ³¡³­´Ù.");
+			System.out.println(str + "ì€ !!ë¡œ ëë‚œë‹¤.");
 	
 		
 		// 4)  	equals(Object anObject)
@@ -89,20 +89,20 @@ public class StringTest3 {
 		System.out.println("s2.toLowerCase() == " + s2.toLowerCase());
 		
 		if(s1.equals(s2))
-			System.out.println(s1 + "°ú " + s2 + "´Â °°Àº ¹®ÀÚ¿­ÀÌ´Ù.");
+			System.out.println(s1 + "ê³¼ " + s2 + "ëŠ” ê°™ì€ ë¬¸ìì—´ì´ë‹¤.");
 		else
-			System.out.println(s1 + "°ú " + s2 + "´Â ´Ù¸¥ ¹®ÀÚ¿­ÀÌ´Ù.");
+			System.out.println(s1 + "ê³¼ " + s2 + "ëŠ” ë‹¤ë¥¸ ë¬¸ìì—´ì´ë‹¤.");
 			
-		if((s1.toUpperCase()).equals(s2.toUpperCase())) // ?? .equals ¾ÕÀÌ intÇü º¯¼öÀÌ¸é ¿¡·¯³¯±î?
-			System.out.println(s1 + "°ú " + s2 + "´Â ´ë¼Ò¹®ÀÚ ±¸ºĞ¾øÀÌ °°Àº ¹®ÀÚ¿­ÀÌ´Ù.");
+		if((s1.toUpperCase()).equals(s2.toUpperCase())) // ?? .equals ì•ì´ intí˜• ë³€ìˆ˜ì´ë©´ ì—ëŸ¬ë‚ ê¹Œ?
+			System.out.println(s1 + "ê³¼ " + s2 + "ëŠ” ëŒ€ì†Œë¬¸ì êµ¬ë¶„ì—†ì´ ê°™ì€ ë¬¸ìì—´ì´ë‹¤.");
 		else
-			System.out.println(s1 + "°ú " + s2 + "´Â ´ë¼Ò¹®ÀÚ ±¸ºĞ¾øÀÌ ´Ù¸¥ ¹®ÀÚ¿­ÀÌ´Ù.");
+			System.out.println(s1 + "ê³¼ " + s2 + "ëŠ” ëŒ€ì†Œë¬¸ì êµ¬ë¶„ì—†ì´ ë‹¤ë¥¸ ë¬¸ìì—´ì´ë‹¤.");
 		
 		// 5) 	equalsIgnoreCase(String anotherString)
 		if(s1.equalsIgnoreCase(s2))
-			System.out.println(s1 + "°ú " + s2 + "´Â ´ë¼Ò¹®ÀÚ ±¸ºĞ¾øÀÌ °°Àº ¹®ÀÚ¿­ÀÌ´Ù.");
+			System.out.println(s1 + "ê³¼ " + s2 + "ëŠ” ëŒ€ì†Œë¬¸ì êµ¬ë¶„ì—†ì´ ê°™ì€ ë¬¸ìì—´ì´ë‹¤.");
 		else
-			System.out.println(s1 + "°ú " + s2 + "´Â ´ë¼Ò¹®ÀÚ ±¸ºĞ¾øÀÌ ´Ù¸¥ ¹®ÀÚ¿­ÀÌ´Ù.");
+			System.out.println(s1 + "ê³¼ " + s2 + "ëŠ” ëŒ€ì†Œë¬¸ì êµ¬ë¶„ì—†ì´ ë‹¤ë¥¸ ë¬¸ìì—´ì´ë‹¤.");
 		
 		
 		

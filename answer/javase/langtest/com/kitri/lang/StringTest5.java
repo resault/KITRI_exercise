@@ -5,25 +5,25 @@ public class StringTest5 {
 	public static void main(String[] args) {
 		String str = "hello java !!!";
 		int x = str.indexOf('a');
-		System.out.println(str + "¿¡¼­ a´Â " + (x + 1) + "¹øÂ° ÀÖ´Ù.");
+		System.out.println(str + "ì—ì„œ aëŠ” " + (x + 1) + "ë²ˆì§¸ ìˆë‹¤.");
 		x = str.indexOf('a', 8);
-		System.out.println(str + "¿¡¼­ 8¹øÂ°ºÎÅÍ a´Â " + (x + 1) + "¹øÂ° ÀÖ´Ù.");
+		System.out.println(str + "ì—ì„œ 8ë²ˆì§¸ë¶€í„° aëŠ” " + (x + 1) + "ë²ˆì§¸ ìˆë‹¤.");
 		x = str.indexOf("java");
-		System.out.println(str + "¿¡¼­ java´Â " + (x + 1) + "¹øÂ° ÀÖ´Ù.");
+		System.out.println(str + "ì—ì„œ javaëŠ” " + (x + 1) + "ë²ˆì§¸ ìˆë‹¤.");
 		
 		x = str.lastIndexOf('a');
-		System.out.println(str + "¿¡¼­ ³¡¿¡¼­ ºÎÅÍ a´Â " + (x + 1) + "¹øÂ° ÀÖ´Ù.");
+		System.out.println(str + "ì—ì„œ ëì—ì„œ ë¶€í„° aëŠ” " + (x + 1) + "ë²ˆì§¸ ìˆë‹¤.");
 		
 		String str2 = "";
-		System.out.println(str2 + "ÀÇ ±æÀÌ : " + str2.length());
+		System.out.println(str2 + "ì˜ ê¸¸ì´ : " + str2.length());
 		if(str2.isEmpty())
-			System.out.println("ºó¹®ÀÚ¿­ÀÌ´Ù.");
+			System.out.println("ë¹ˆë¬¸ìì—´ì´ë‹¤.");
 		else
 			System.out.println("str == " + str2);
 		
 		String str3 = "  hello     .";
-		System.out.println(str3 + "ÀÇ ±æÀÌ : " + str3.length());
-		System.out.println(str3.trim() + "ÀÇ °ø¹é Á¦°Å ÈÄ ±æÀÌ : " + str3.trim().length());
+		System.out.println(str3 + "ì˜ ê¸¸ì´ : " + str3.length());
+		System.out.println(str3.trim() + "ì˜ ê³µë°± ì œê±° í›„ ê¸¸ì´ : " + str3.trim().length());
 		
 		
 		String str4 = "jaba";
@@ -42,7 +42,7 @@ public class StringTest5 {
 		System.out.println(str5.substring(6, 9));
 		
 		
-//		¼ıÀÚ >> ¹®ÀÚ¿­
+//		ìˆ«ì >> ë¬¸ìì—´
 		int num = 100;
 		String sn1 = num + "";
 		System.out.println(sn1 + 100);
@@ -51,7 +51,7 @@ public class StringTest5 {
 		String sn3 = Integer.toString(num);
 		System.out.println(sn3 + 100);
 		
-//		¹®ÀÚ¿­ >> ¼ıÀÚ
+//		ë¬¸ìì—´ >> ìˆ«ì
 		String ns = "100";
 		num = Integer.parseInt(ns);
 		System.out.println(num + 100);

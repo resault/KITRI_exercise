@@ -7,15 +7,15 @@ public class StringTokenizerTest {
 
 	public static void main(String[] args) {
 		
-		String str = "hello java !!!";
+String str = "hello java !!!";
 		
-		//1) StringTokenizer(String str) »ı¼ºÀÚ (delimÀÇ default´Â °ø¹é±âÁØÀÓ)
+		//1) StringTokenizer(String str) ìƒì„±ì (delimì˜ defaultëŠ” ê³µë°±ê¸°ì¤€ì„)
 		StringTokenizer st = new StringTokenizer(str);
 		
 		
 		//2) countTokens()
 		int cnt = st.countTokens();
-		System.out.println("ÅäÅ«¼ö : " + cnt);
+		System.out.println("í† í°ìˆ˜ : " + cnt);
 		
 		//3) hasMoreElements() | hasMoreTokens()
 		//4) nextElement() | nextToken()
@@ -24,14 +24,14 @@ public class StringTokenizerTest {
 		}
 		
 		
-		str = "TO|¾ÈÈ¿ÀÎ|¾È³çÇÏ¼¼¿ä";
+		str = "TO|ì•ˆíš¨ì¸|ì•ˆë…•í•˜ì„¸ìš”";
 		StringTokenizer st2 = new StringTokenizer(str, "|");
 		String protocol = st2.nextToken();
 		String to = st2.nextToken();
 		String msg = st2.nextToken();
-		System.out.println("±â´É : "+ protocol);
-		System.out.println("´©±¸¿¡°Ô : "+ to);
-		System.out.println("º¸³»´Â ¸Ş¼¼Áö : " + msg);
+		System.out.println("ê¸°ëŠ¥ : "+ protocol);
+		System.out.println("ëˆ„êµ¬ì—ê²Œ : "+ to);
+		System.out.println("ë³´ë‚´ëŠ” ë©”ì„¸ì§€ : " + msg);
 		
 		
 		System.out.println(UUID.randomUUID());

@@ -2,33 +2,33 @@ package com.kitri.lang;
 
 public class StringBufferTest1 {
 	
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		
-		// 1. »ı¼ºÀÚ
-		// StringBuffer() : default »ı¼ºÀÚ
-		StringBuffer sb1 = new StringBuffer();//16°³ÀÇ ¹®ÀÚ°¡ µé¾î°¥ ¼ö ÀÖ´Â ºó ÀÓ½ÃÀúÀå °ø°£ »ı¼º
+		// 1. ìƒì„±ì
+		// StringBuffer() : default ìƒì„±ì
+		StringBuffer sb1 = new StringBuffer();//16ê°œì˜ ë¬¸ìê°€ ë“¤ì–´ê°ˆ ìˆ˜ ìˆëŠ” ë¹ˆ ì„ì‹œì €ì¥ ê³µê°„ ìƒì„±
 		
-			// capacity() : ÃÊ±â Å©±â
+			// capacity() : ì´ˆê¸° í¬ê¸°
 		int cap = sb1.capacity();
 		System.out.println(cap); //16
 		
-			// length() : ÀúÀåµÈ ¹®ÀÚÀÇ Å©±â
-		System.out.println("¹®ÀÚ¿­ ¼ö : " + sb1.length()); //0
+			// length() : ì €ì¥ëœ ë¬¸ìì˜ í¬ê¸°
+		System.out.println("ë¬¸ìì—´ ìˆ˜ : " + sb1.length()); //0
 		
 		
-		// StringBuffer(int capacity) : ÀÎÀÚ°ª¸¸Å­ÀÇ ÀÓ½ÃÀúÀå °ø°£ »ı¼º(Åë»ó 8ÀÇ ¹è¼ö·Î »ç¿ëÇÔ)
-		//±Ùµ¥ ¹®ÀÚ·Î ÁöÁ¤ÇØµµ ±ÛÀÚ¼öº¸´Ù Å« °ø°£ÀÌ ÀâÈ÷±â¶§¹®¿¡ º° ÀÇ¹Ì ¾øÀ½
+		// StringBuffer(int capacity) : ì¸ìê°’ë§Œí¼ì˜ ì„ì‹œì €ì¥ ê³µê°„ ìƒì„±(í†µìƒ 8ì˜ ë°°ìˆ˜ë¡œ ì‚¬ìš©í•¨)
+		//ê·¼ë° ë¬¸ìë¡œ ì§€ì •í•´ë„ ê¸€ììˆ˜ë³´ë‹¤ í° ê³µê°„ì´ ì¡íˆê¸°ë•Œë¬¸ì— ë³„ ì˜ë¯¸ ì—†ìŒ
 		
-		// StringBuffer(CharSequence seq) | StringBuffer(String str) : ¹®ÀÚ¿­À» °¡Áö°í ÀÓ½ÃÀúÀå °ø°£ »ı¼º
-		// CharSequence´Â interface 
+		// StringBuffer(CharSequence seq) | StringBuffer(String str) : ë¬¸ìì—´ì„ ê°€ì§€ê³  ì„ì‹œì €ì¥ ê³µê°„ ìƒì„±
+		// CharSequenceëŠ” interface 
 		sb1 = new StringBuffer("hello");
 		cap = sb1.capacity();
 		System.out.println("1. sb1 == " + sb1);
-		System.out.println("Å©±â" + sb1.capacity() + "¹®ÀÚ¿­ ¼ö : " + sb1.length());
+		System.out.println("í¬ê¸°" + sb1.capacity() + "ë¬¸ìì—´ ìˆ˜ : " + sb1.length());
 		
 
 		
-		//append() : StringÀÇ concat°ú ´Ş¸® ¹®ÀÚ¿­ ÀÚÃ¼°¡ ¹Ù²ñ
+		//append() : Stringì˜ concatê³¼ ë‹¬ë¦¬ ë¬¸ìì—´ ìì²´ê°€ ë°”ë€œ
 		sb1.append(" java");
 		System.out.println("2. sb1 == " + sb1);//hello java
 		
@@ -40,12 +40,12 @@ public class StringBufferTest1 {
 		sb1.append(" !!!!!");
 		System.out.println("3. sb1 == " + sb1);//hello java !!!!!
 		cap = sb1.capacity();
-		System.out.println("Å©±â : " +cap + "\t¹®ÀÚ¿­ ¼ö : " + sb1.length());
+		System.out.println("í¬ê¸° : " +cap + "\të¬¸ìì—´ ìˆ˜ : " + sb1.length());
 		
 		sb1.append(" !!!!!!");
 		System.out.println("4. sb1 == " + sb1);//hello java !!!!! !!!!!!
 		cap = sb1.capacity();
-		System.out.println("Å©±â : " +cap + "\t¹®ÀÚ¿­ ¼ö : " + sb1.length()); //°ø°£À» ³Ñ¾î¼­¸é ÀÚµ¿À¸·Î ´Ã¾î³²
+		System.out.println("í¬ê¸° : " +cap + "\të¬¸ìì—´ ìˆ˜ : " + sb1.length()); //ê³µê°„ì„ ë„˜ì–´ì„œë©´ ìë™ìœ¼ë¡œ ëŠ˜ì–´ë‚¨
 
 		
 		// 2. method
@@ -53,17 +53,17 @@ public class StringBufferTest1 {
 		// 1) charAt(int index)
 		
 		
-		// 2) insert(int offset, ÀÔ·ÂÇÒ data) : ½ÃÀÛ À§Ä¡¿¡ ÀÎÀÚ°ª ÀÔ·Â
+		// 2) insert(int offset, ì…ë ¥í•  data) : ì‹œì‘ ìœ„ì¹˜ì— ì¸ìê°’ ì…ë ¥
 		sb1.insert(10, "@@@");
 		System.out.println("5. sb1 == " + sb1);
 
 		
-		// 3) delete(int start, int end) : startºÎÅÍ end À§Ä¡ Àü±îÁö »èÁ¦
+		// 3) delete(int start, int end) : startë¶€í„° end ìœ„ì¹˜ ì „ê¹Œì§€ ì‚­ì œ
 		sb1.delete(10, 12);
 		System.out.println("6. sb1 == " + sb1);
 		
 		
-		// 4) deleteCharAt(int index) : index À§Ä¡ÀÇ °ª »èÁ¦
+		// 4) deleteCharAt(int index) : index ìœ„ì¹˜ì˜ ê°’ ì‚­ì œ
 		sb1.deleteCharAt(10);
 		System.out.println("7. sb1 == " + sb1);
 		
@@ -71,8 +71,8 @@ public class StringBufferTest1 {
 		// 5) indexOf(String str)
 		
 		
-		// 6) replace(int start, int end, String str) : startºÎÅÍ endÀü±îÁö str·Î ´ëÃ¼ (cf. StringÀÇ replace)
-		sb1.replace(6, 10, "ÀÚ¹Ù");
+		// 6) replace(int start, int end, String str) : startë¶€í„° endì „ê¹Œì§€ strë¡œ ëŒ€ì²´ (cf. Stringì˜ replace)
+		sb1.replace(6, 10, "ìë°”");
 		System.out.println("8. sb1 == " + sb1);
 		
 		
@@ -82,7 +82,7 @@ public class StringBufferTest1 {
 		sb1.reverse();
 		
 		
-		// 8) setCharAt(int index, char ch) : indexÀÇ °ªÀ» char·Î ÁöÁ¤
+		// 8) setCharAt(int index, char ch) : indexì˜ ê°’ì„ charë¡œ ì§€ì •
 		sb1.setCharAt(9, '@');
 		System.out.println("10. sb1 == " + sb1);
 		
@@ -90,21 +90,21 @@ public class StringBufferTest1 {
 		// 9) substring(int start)
 		
 		
-		// ÃÖÁ¾ÀûÀ¸·Î sb1¿¡´Â StringBuffer°¡ µé¾îÀÖÀ¸¹Ç·Î StringÀ¸·Î ¹Ù²ãÁà¾ß ÇÔ (2°¡Áö ¹æ¹ı)
-		// String »ı¼ºÀÚ ÀÌ¿ë
+		// ìµœì¢…ì ìœ¼ë¡œ sb1ì—ëŠ” StringBufferê°€ ë“¤ì–´ìˆìœ¼ë¯€ë¡œ Stringìœ¼ë¡œ ë°”ê¿”ì¤˜ì•¼ í•¨ (2ê°€ì§€ ë°©ë²•)
+		// String ìƒì„±ì ì´ìš©
 		String s1 = new String(sb1);
-		// StringBufferÀÇ toString()ÀÌ¿ë
+		// StringBufferì˜ toString()ì´ìš©
 		String s2 = sb1.toString();
 
 		
-		// ¿¹Á¦
-		String str = "hello ÀÚ¹Ù !!!";
-		String findstr = "ÀÚ¹Ù";
-//		String findstr = "¿À¶óÅ¬";
+		// ì˜ˆì œ
+		String str = "hello ìë°” !!!";
+		String findstr = "ìë°”";
+//		String findstr = "ì˜¤ë¼í´";
 		String restr = "java";
 		
 		//hello java !!!
-		//¿À¶óÅ¬Àº ¾ø½À´Ï´Ù.
+		//ì˜¤ë¼í´ì€ ì—†ìŠµë‹ˆë‹¤.
 		int start = str.indexOf(findstr);
 		
 		if(start != 0) {
@@ -114,11 +114,11 @@ public class StringBufferTest1 {
 			sb.replace(start, end, restr);
 			System.out.println(sb.toString());
 		} else {
-			System.out.println(findstr + "Àº ¾ø½À´Ï´Ù.");
+			System.out.println(findstr + "ì€ ì—†ìŠµë‹ˆë‹¤.");
 		}
 		
 		
-		// ¿¹Á¦ ´Ù½Ã!!
+		// ì˜ˆì œ ë‹¤ì‹œ!!
 		
 		
 

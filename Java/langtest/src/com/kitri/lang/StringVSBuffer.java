@@ -3,7 +3,7 @@ package com.kitri.lang;
 public class StringVSBuffer {
 
 	public static void main(String[] args) {
-		//¿¹Á¦
+		//ì˜ˆì œ
 		
 		long st = System.nanoTime();
 		String str = "hello ";
@@ -21,7 +21,7 @@ public class StringVSBuffer {
 		System.out.println(System.nanoTime() - st);
 		
 		
-		// °á·Ğ : ¹®ÀÚ¿­À» ´õÇÒ¶§´Â StringBuffer·Î!
+		// ê²°ë¡  : ë¬¸ìì—´ì„ ë”í• ë•ŒëŠ” StringBufferë¡œ!
 	
 	}
 }

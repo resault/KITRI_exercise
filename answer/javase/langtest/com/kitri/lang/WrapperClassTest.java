@@ -1,7 +1,7 @@
 package com.kitri.lang;
 
-//Wrapper Class : ±âº»DTÀ» Å¬·¡½ºÈ­
-//±âº»DT			WrapperClass
+//Wrapper Class : ê¸°ë³¸DTì„ í´ë˜ìŠ¤í™”
+//ê¸°ë³¸DT			WrapperClass
 //boolean		Boolean
 //char			Character
 //byte			Byte
@@ -20,9 +20,9 @@ public class WrapperClassTest {
 		boolean b3 = Boolean.parseBoolean("true");
 		
 		if(b2)
-			System.out.println("b2´Â true´Ù.");
+			System.out.println("b2ëŠ” trueë‹¤.");
 		if(b3)
-			System.out.println("b3´Â true´Ù.");
+			System.out.println("b3ëŠ” trueë‹¤.");
 		
 		
 		String s = "123";

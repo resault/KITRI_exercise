@@ -7,39 +7,39 @@ public class StringTest5 {
 		// 10) 	indexOf(int ch)
 		String str = "hello java !!!";
 		int x = str.indexOf('a');
-		System.out.println(str + "¿¡¼­ a´Â " + (x+1) + "¹øÂ° ÀÖ´Ù.");
+		System.out.println(str + "ì—ì„œ aëŠ” " + (x+1) + "ë²ˆì§¸ ìˆë‹¤.");
 		
 		x = str.indexOf("java");
-		System.out.println(str + "¿¡¼­ java´Â " + (x+1) + "¹øÂ° ÀÖ´Ù."); // ½ÃÀÛÀ§Ä¡¸¦ ¹İÈ¯ÇÔ
+		System.out.println(str + "ì—ì„œ javaëŠ” " + (x+1) + "ë²ˆì§¸ ìˆë‹¤."); // ì‹œì‘ìœ„ì¹˜ë¥¼ ë°˜í™˜í•¨
 		
 		
-		// 11) 	indexOf(int ch, int fromIndex)		(fromindext´Â Àß ¾È¾¸)
+		// 11) 	indexOf(int ch, int fromIndex)		(fromindextëŠ” ì˜ ì•ˆì”€)
 		x = str.indexOf('a', 8);
-		System.out.println(str + "¿¡¼­ 8¹øÂ°ºÎÅÍ a´Â " + (x+1) + "¹øÂ° ÀÖ´Ù.");
+		System.out.println(str + "ì—ì„œ 8ë²ˆì§¸ë¶€í„° aëŠ” " + (x+1) + "ë²ˆì§¸ ìˆë‹¤.");
 		
 		
-		// 12)	lastIndexOf(int ch) : ¹®ÀÚ¿­ÀÇ ³¡¿¡¼­ ºÎÅÍ Ã£À½
+		// 12)	lastIndexOf(int ch) : ë¬¸ìì—´ì˜ ëì—ì„œ ë¶€í„° ì°¾ìŒ
 		x = str.lastIndexOf('a');
-		System.out.println(str + "¿¡¼­ ³¡¿¡¼­ ºÎÅÍ Ã£¾ÒÀ» ¶§, Ã³À½À¸·Î ³ª¿À´Â a´Â " + (x+1) + "¹øÂ° ÀÖ´Ù."); //¹İÈ¯µÇ´Â index´Â ¾Õ¿¡¼­ºÎÅÍ °ªÀ» ¸Å±ä°ÅÀÓ
+		System.out.println(str + "ì—ì„œ ëì—ì„œ ë¶€í„° ì°¾ì•˜ì„ ë•Œ, ì²˜ìŒìœ¼ë¡œ ë‚˜ì˜¤ëŠ” aëŠ” " + (x+1) + "ë²ˆì§¸ ìˆë‹¤."); //ë°˜í™˜ë˜ëŠ” indexëŠ” ì•ì—ì„œë¶€í„° ê°’ì„ ë§¤ê¸´ê±°ì„
 		
 		
-		// 13) isEmpty() : ¹®ÀÚ¿­ ±æÀÌ°¡ 0ÀÌ¸é true ¹İÈ¯
+		// 13) isEmpty() : ë¬¸ìì—´ ê¸¸ì´ê°€ 0ì´ë©´ true ë°˜í™˜
 		String str2 = "";
-		System.out.println(str2 + "ÀÇ ±æÀÌ : " + str2.length());
+		System.out.println(str2 + "ì˜ ê¸¸ì´ : " + str2.length());
 		if(str2.isEmpty())
-			System.out.println("ºó¹®ÀÚ¿­ÀÌ´Ù.");
+			System.out.println("ë¹ˆë¬¸ìì—´ì´ë‹¤.");
 		else
 			System.out.println("str2 == " + str2);
 		
 		
-		// 14) trim() : ¾ÕµÚ °ø¹é Á¦°Å	(¹®ÀÚ¿­ »çÀÌÀÇ °ø¹éÀº Á¦°ÅµÇÁö ¾ÊÀ½)
+		// 14) trim() : ì•ë’¤ ê³µë°± ì œê±°	(ë¬¸ìì—´ ì‚¬ì´ì˜ ê³µë°±ì€ ì œê±°ë˜ì§€ ì•ŠìŒ)
 		String str3 = "  hello     ";
-		System.out.println(str3 + "ÀÇ ±æÀÌ : " + str3.length());
-		System.out.println(str3 + "ÀÇ °ø¹éÀ» Á¦°ÅÇÑ ÈÄ ±æÀÌ : " + str3.trim().length());
+		System.out.println(str3 + "ì˜ ê¸¸ì´ : " + str3.length());
+		System.out.println(str3 + "ì˜ ê³µë°±ì„ ì œê±°í•œ í›„ ê¸¸ì´ : " + str3.trim().length());
 		
 		str3 = "  hello     .";
 		System.out.println("str3.trim() == " + str3.trim());
-		System.out.println(str3 + "ÀÇ °ø¹éÀ» Á¦°ÅÇÑ ÈÄ ±æÀÌ : " + str3.trim().length());
+		System.out.println(str3 + "ì˜ ê³µë°±ì„ ì œê±°í•œ í›„ ê¸¸ì´ : " + str3.trim().length());
 		
 		
 		// 15) 	replace(char oldChar, char newChar)
@@ -47,7 +47,7 @@ public class StringTest5 {
 		System.out.println(str4 + " >>> " +str4.replace('b', 'v'));
 		
 		
-		// 16) 	replace(CharSequence target, CharSequence replacement) : CharSequence´Â interface >>> °¡º¸¸é String Å¬·¡½º·Î ±¸ÇöµÇ¾î ÀÖÀ½
+		// 16) 	replace(CharSequence target, CharSequence replacement) : CharSequenceëŠ” interface >>> ê°€ë³´ë©´ String í´ë˜ìŠ¤ë¡œ êµ¬í˜„ë˜ì–´ ìˆìŒ
 		System.out.println(str4 + " >>> " +str4.replace("jaba", "java"));
 		
 		
@@ -55,7 +55,7 @@ public class StringTest5 {
 		System.out.println(str4 + " >>> " +str4.replaceAll("jaba", "java"));
 		
 		
-		// Áß¿ä! 18) split(String regex) : regex - Á¤±ÔÇ¥Çö½Ä
+		// ì¤‘ìš”! 18) split(String regex) : regex - ì •ê·œí‘œí˜„ì‹
 		String str5 = "hello java !!!";
 		String[] s = str5.split(" ");
 		int len = s.length;
@@ -64,16 +64,16 @@ public class StringTest5 {
 		}
 		
 		
-		// 19) 	substring(int beginIndex) : ¿À¶óÅ¬°ú ±â´É ÀÚÃ¼´Â µ¿ÀÏ. ´Ù¸¸ 0ºÎÅÍ ½ÃÀÛ. 
+		// 19) 	substring(int beginIndex) : ì˜¤ë¼í´ê³¼ ê¸°ëŠ¥ ìì²´ëŠ” ë™ì¼. ë‹¤ë§Œ 0ë¶€í„° ì‹œì‘. 
 		System.out.println(str5.substring(6));
 		
 		
-		// 20) 	substring(int beginIndex, int endIndex) : endIndex Àü±îÁö!!
+		// 20) 	substring(int beginIndex, int endIndex) : endIndex ì „ê¹Œì§€!!
 		System.out.println(str5.substring(6, 9));
 		
 		
-		//¹®ÀÚ¿­·Î º¯È¯!	(3°¡Áö ¹æ¹ı!!)
-		// 21) 	valueOf()	: ¸Å°³º¯¼ö¸¦ StringÀ¸·Î º¯È¯. staticÀÌ¹Ç·Î °´Ã¼ »ı¼º¾øÀÌ Å¬·¡½º ÀÌ¸§À¸·Î »ç¿ë°¡´É
+		//ë¬¸ìì—´ë¡œ ë³€í™˜!	(3ê°€ì§€ ë°©ë²•!!)
+		// 21) 	valueOf()	: ë§¤ê°œë³€ìˆ˜ë¥¼ Stringìœ¼ë¡œ ë³€í™˜. staticì´ë¯€ë¡œ ê°ì²´ ìƒì„±ì—†ì´ í´ë˜ìŠ¤ ì´ë¦„ìœ¼ë¡œ ì‚¬ìš©ê°€ëŠ¥
 		int num = 100;
 		String sn1 = num + "";
 		System.out.println(sn1 + sn1);
@@ -85,7 +85,7 @@ public class StringTest5 {
 		System.out.println(sn3 + 100);
 		
 		
-		//¹®ÀÚ¿­À» ¼ıÀÚ·Î º¯È¯!		(1°¡Áö ¹æ¹ı¹Û¿¡ ¾øÀ½)
+		//ë¬¸ìì—´ì„ ìˆ«ìë¡œ ë³€í™˜!		(1ê°€ì§€ ë°©ë²•ë°–ì— ì—†ìŒ)
 		String ns = "100";
 		num = Integer.parseInt(ns);
 		System.out.println(num + 100);

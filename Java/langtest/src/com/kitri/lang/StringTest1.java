@@ -2,39 +2,39 @@ package com.kitri.lang;
 
 public class StringTest1 {
 	public static void main(String[] args) {
-		//StringÀÇ °´Ã¼ »ı¼º ¹æ¹ı 2°¡Áö : "", new
-		String s1 = "java";//¸®ÅÍ·² ¹æ½Ä
+		//Stringì˜ ê°ì²´ ìƒì„± ë°©ë²• 2ê°€ì§€ : "", new
+		String s1 = "java";//ë¦¬í„°ëŸ´ ë°©ì‹
 		String s2 = "java";
 		String s3 = new String("java");
 		String s4 = new String("java");
 		
 		if(s1 == s2 )
-			System.out.println("s1 s2´Â ÁÖ¼Ò°ªÀÌ °°´Ù");//o
+			System.out.println("s1 s2ëŠ” ì£¼ì†Œê°’ì´ ê°™ë‹¤");//o
 		if(s1 == s3 )
-			System.out.println("s1 s3´Â ÁÖ¼Ò°ªÀÌ °°´Ù");//x
+			System.out.println("s1 s3ëŠ” ì£¼ì†Œê°’ì´ ê°™ë‹¤");//x
 		if(s1 == s4 )
-			System.out.println("s1 s4´Â ÁÖ¼Ò°ªÀÌ °°´Ù");//x
+			System.out.println("s1 s4ëŠ” ì£¼ì†Œê°’ì´ ê°™ë‹¤");//x
 		if(s2 == s3 )
-			System.out.println("s2 s3´Â ÁÖ¼Ò°ªÀÌ °°´Ù");//x
+			System.out.println("s2 s3ëŠ” ì£¼ì†Œê°’ì´ ê°™ë‹¤");//x
 		if(s2 == s4 )
-			System.out.println("s2 s4´Â ÁÖ¼Ò°ªÀÌ °°´Ù");//x
+			System.out.println("s2 s4ëŠ” ì£¼ì†Œê°’ì´ ê°™ë‹¤");//x
 		if(s3 == s4 )
-			System.out.println("s3 s4´Â ÁÖ¼Ò°ªÀÌ °°´Ù");//x
+			System.out.println("s3 s4ëŠ” ì£¼ì†Œê°’ì´ ê°™ë‹¤");//x
 
 		
 		if(s1.equals(s2))
-			System.out.println("s1 s2´Â ¹®ÀÚ¿­ÀÇ °ªÀÌ °°´Ù");//o
+			System.out.println("s1 s2ëŠ” ë¬¸ìì—´ì˜ ê°’ì´ ê°™ë‹¤");//o
 		if(s1.equals(s3))
-			System.out.println("s1 s3´Â ¹®ÀÚ¿­ÀÇ °ªÀÌ °°´Ù");//o
+			System.out.println("s1 s3ëŠ” ë¬¸ìì—´ì˜ ê°’ì´ ê°™ë‹¤");//o
 		if(s1.equals(s4))
-			System.out.println("s1 s4´Â ¹®ÀÚ¿­ÀÇ °ªÀÌ °°´Ù");//o
+			System.out.println("s1 s4ëŠ” ë¬¸ìì—´ì˜ ê°’ì´ ê°™ë‹¤");//o
 		if(s2.equals(s3))
-			System.out.println("s2 s3´Â ¹®ÀÚ¿­ÀÇ °ªÀÌ °°´Ù");//o
+			System.out.println("s2 s3ëŠ” ë¬¸ìì—´ì˜ ê°’ì´ ê°™ë‹¤");//o
 		if(s2.equals(s4))
-			System.out.println("s2 s4´Â ¹®ÀÚ¿­ÀÇ °ªÀÌ °°´Ù");//o
+			System.out.println("s2 s4ëŠ” ë¬¸ìì—´ì˜ ê°’ì´ ê°™ë‹¤");//o
 		if(s3.equals(s4))
-			System.out.println("s3 s4´Â ¹®ÀÚ¿­ÀÇ °ªÀÌ °°´Ù");//o
-		//´ë¼Ò¹®ÀÚ ±¸º°ÇØ¼­ ºñ±³µÊ!
+			System.out.println("s3 s4ëŠ” ë¬¸ìì—´ì˜ ê°’ì´ ê°™ë‹¤");//o
+		//ëŒ€ì†Œë¬¸ì êµ¬ë³„í•´ì„œ ë¹„êµë¨!
 		
 	}
 }

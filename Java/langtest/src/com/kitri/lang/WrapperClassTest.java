@@ -1,8 +1,8 @@
 package com.kitri.lang;
 
 /*
-Wrapper Class : ±âº»DTÀ» Å¬·¡½ºÈ­
-±âº»DT		WrapperClass
+Wrapper Class : ê¸°ë³¸DTì„ í´ë˜ìŠ¤í™”
+ê¸°ë³¸DT		WrapperClass
 boolean		Boolean
 char		Character
 byte		Byte
@@ -17,24 +17,24 @@ public class WrapperClassTest {
 
 	public static void main(String[] args) {
 		
-		//boooleanValue¿Í parseBoolean
-		Boolean b1 = new Boolean(true);//"true"·Î ¹Ù²ãµµ °°À½
-		//b1 = new Boolean("¤·¤¤¤±¤©¤·¤¤");//BooleanÀº ¹®ÀÚ¿­µµ ¹ŞÀ» ¼ö ÀÖ±â ¶§¹®¿¡ ¿¡·¯ ¾È³²
+		//boooleanValueì™€ parseBoolean
+		Boolean b1 = new Boolean(true);//"true"ë¡œ ë°”ê¿”ë„ ê°™ìŒ
+		//b1 = new Boolean("ã…‡ã„´ã…ã„¹ã…‡ã„´");//Booleanì€ ë¬¸ìì—´ë„ ë°›ì„ ìˆ˜ ìˆê¸° ë•Œë¬¸ì— ì—ëŸ¬ ì•ˆë‚¨
 		boolean b2 = b1.booleanValue();
 
 		boolean b3 = Boolean.getBoolean("true");
 		b3 = Boolean.parseBoolean("true");
 		
 		if(b2)
-			System.out.println("b2´Â true´Ù.");
+			System.out.println("b2ëŠ” trueë‹¤.");
 		if(b3)
-			System.out.println("b3´Â true´Ù.");
+			System.out.println("b3ëŠ” trueë‹¤.");
 		
 		
 		//parseInt
 		String s = "123";
 		System.out.println(s + 4);//1234
-//		s = "1 2 3 4 ";//ÄÄÆÄÀÏ ¿¡·¯x, ·±Å¸ÀÓ ¿¡·¯o
+//		s = "1 2 3 4 ";//ì»´íŒŒì¼ ì—ëŸ¬x, ëŸ°íƒ€ì„ ì—ëŸ¬o
 //		Integer i = new Integer(s);
 //		int x = i.intValue();
 		int x = Integer.parseInt(s);

@@ -15,15 +15,15 @@ public class StringTest3 {
 		str = "1a3";
 		int len = str.length();
 		System.out.println("length == " + len);
-		String result = "¼ıÀÚÀÔ´Ï´Ù.";
+		String result = "ìˆ«ìì…ë‹ˆë‹¤.";
 		for (int i = 0; i < len; i++) {
 			int num = str.charAt(i) - 48;
 			if(num < 0 || num > 9) {
-				result = "¼ıÀÚ°¡ ¾Æ´Õ´Ï´Ù.";
+				result = "ìˆ«ìê°€ ì•„ë‹™ë‹ˆë‹¤.";
 				break;
 			}
 		}		
-		System.out.println(str + "Àº " + result);
+		System.out.println(str + "ì€ " + result);
 		
 		String str1 = "hello ";
 		String str2 = "java";
@@ -32,28 +32,28 @@ public class StringTest3 {
 		
 		str = "hello java !!!";
 		if(str.startsWith("he"))
-			System.out.println(str + "Àº he·Î ½ÃÀÛÇÑ´Ù.");
+			System.out.println(str + "ì€ heë¡œ ì‹œì‘í•œë‹¤.");
 		if(str.endsWith("!!"))
-			System.out.println(str + "Àº !!·Î ³¡³­´Ù.");
+			System.out.println(str + "ì€ !!ë¡œ ëë‚œë‹¤.");
 		
 		String s1 = "jAva";
 		String s2 = "JavA";
 		System.out.println("s1.toUpperCase() == " + s1.toUpperCase());
 		System.out.println("s2.toLowerCase() == " + s2.toLowerCase());
 		if(s1.equals(s2))
-			System.out.println(s1 + "°ú " + s2 + "´Â °°Àº¹®ÀÚ¿­ÀÌ´Ù.");
+			System.out.println(s1 + "ê³¼ " + s2 + "ëŠ” ê°™ì€ë¬¸ìì—´ì´ë‹¤.");
 		else
-			System.out.println(s1 + "°ú " + s2 + "´Â ´Ù¸¥¹®ÀÚ¿­ÀÌ´Ù.");
+			System.out.println(s1 + "ê³¼ " + s2 + "ëŠ” ë‹¤ë¥¸ë¬¸ìì—´ì´ë‹¤.");
 		
 		if(s1.toUpperCase().equals(s2.toUpperCase()))
-			System.out.println(s1 + "°ú " + s2 + "´Â ´ë¼Ò¹®ÀÚ ±¸ºĞ¾øÀÌ °°Àº¹®ÀÚ¿­ÀÌ´Ù.");
+			System.out.println(s1 + "ê³¼ " + s2 + "ëŠ” ëŒ€ì†Œë¬¸ì êµ¬ë¶„ì—†ì´ ê°™ì€ë¬¸ìì—´ì´ë‹¤.");
 		else
-			System.out.println(s1 + "°ú " + s2 + "´Â ´ë¼Ò¹®ÀÚ ±¸ºĞ¾øÀÌ ´Ù¸¥¹®ÀÚ¿­ÀÌ´Ù.");
+			System.out.println(s1 + "ê³¼ " + s2 + "ëŠ” ëŒ€ì†Œë¬¸ì êµ¬ë¶„ì—†ì´ ë‹¤ë¥¸ë¬¸ìì—´ì´ë‹¤.");
 		
 		if(s1.equalsIgnoreCase(s2))
-			System.out.println(s1 + "°ú " + s2 + "´Â ´ë¼Ò¹®ÀÚ ±¸ºĞ¾øÀÌ °°Àº¹®ÀÚ¿­ÀÌ´Ù.");
+			System.out.println(s1 + "ê³¼ " + s2 + "ëŠ” ëŒ€ì†Œë¬¸ì êµ¬ë¶„ì—†ì´ ê°™ì€ë¬¸ìì—´ì´ë‹¤.");
 		else
-			System.out.println(s1 + "°ú " + s2 + "´Â ´ë¼Ò¹®ÀÚ ±¸ºĞ¾øÀÌ ´Ù¸¥¹®ÀÚ¿­ÀÌ´Ù.");
+			System.out.println(s1 + "ê³¼ " + s2 + "ëŠ” ëŒ€ì†Œë¬¸ì êµ¬ë¶„ì—†ì´ ë‹¤ë¥¸ë¬¸ìì—´ì´ë‹¤.");
 	}
 	
 }

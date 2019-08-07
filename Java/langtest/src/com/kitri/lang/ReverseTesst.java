@@ -5,7 +5,7 @@ public class ReverseTesst {
 	public static void main(String[] args) {
 		String str = "!!! avaJ olleH";
 		
-//		Hello Java !!! (ÃÖ¼Ò 3°¡Áö ¹æ¹ıÀÌ»ó)
+//		Hello Java !!! (ìµœì†Œ 3ê°€ì§€ ë°©ë²•ì´ìƒ)
 		
 //		1. charAt()
 		int len = str.length();
@@ -53,10 +53,10 @@ public class ReverseTesst {
 		System.out.println("str4 == " + str4);
 		
 		
-//		e´Â 2¹øÂ°¿¡ ÀÖ½À´Ï´Ù.
+//		eëŠ” 2ë²ˆì§¸ì— ìˆìŠµë‹ˆë‹¤.
 		
 //		1. indexOf()
-		System.out.println("e´Â " + (str1.indexOf('e')+1) + "¹øÂ°¿¡ ÀÖ½À´Ï´Ù.");
+		System.out.println("eëŠ” " + (str1.indexOf('e')+1) + "ë²ˆì§¸ì— ìˆìŠµë‹ˆë‹¤.");
 
 		
 //		2. substring()
@@ -68,10 +68,10 @@ public class ReverseTesst {
 				break;
 			}
 		}
-		System.out.println("e´Â " + num + "¹øÂ°¿¡ ÀÖ½À´Ï´Ù.");
+		System.out.println("eëŠ” " + num + "ë²ˆì§¸ì— ìˆìŠµë‹ˆë‹¤.");
 
 		
-		System.out.println("e´Â " + (str3.indexOf('e')+1) + "¹øÂ°¿¡ ÀÖ½À´Ï´Ù.");
+		System.out.println("eëŠ” " + (str3.indexOf('e')+1) + "ë²ˆì§¸ì— ìˆìŠµë‹ˆë‹¤.");
 		
 		
 		char a1 = '1';

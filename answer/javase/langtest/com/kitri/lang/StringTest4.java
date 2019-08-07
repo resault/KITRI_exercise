@@ -12,7 +12,7 @@ public class StringTest4 {
 			System.out.println("b[" + i + "] == " + b[i]);
 		}
 		
-		String str2 = "¾È³çÇÏ¼¼¿ä.";
+		String str2 = "ì•ˆë…•í•˜ì„¸ìš”.";
 //		byte b2[] = str2.getBytes();
 		byte b2[] = str2.getBytes("utf-8");
 		int len2 = b2.length;

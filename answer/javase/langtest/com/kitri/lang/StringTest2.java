@@ -7,7 +7,7 @@ public class StringTest2 {
 	public static void main(String[] args) throws UnsupportedEncodingException {
 //		String str1 = null;
 		String str1 = new String();//""
-		System.out.println("¹®ÀÚ¿­ ±æÀÌ : " + str1.length());
+		System.out.println("ë¬¸ìì—´ ê¸¸ì´ : " + str1.length());
 		
 //		byte b[] = {97, 98, 99, 100};
 		byte b[] = {-66, -56, -77, -25, -57, -49, -68, -68, -65, -28, 46};
@@ -26,7 +26,7 @@ public class StringTest2 {
 		
 		
 //		char c[] = {'a', 'b', 'c', 'd', 'e', 'f'};
-		char c[] = {'¾È', '³ç', 'ÇÏ', '¼¼', '¿ä', '.'};
+		char c[] = {'ì•ˆ', 'ë…•', 'í•˜', 'ì„¸', 'ìš”','.'};
 		String str5 = new String(c);
 		System.out.println("str5 == " + str5);
 		

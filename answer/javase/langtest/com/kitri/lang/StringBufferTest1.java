@@ -6,17 +6,17 @@ public class StringBufferTest1 {
 		StringBuffer sb1 = new StringBuffer("hello ");
 		System.out.println("1. sb1 == " + sb1);
 		int cap = sb1.capacity();
-		System.out.println("ÃÊ±â Å©±â : " + cap + "\t¹®ÀÚ¿­ ¼ö : " + sb1.length());
+		System.out.println("ì´ˆê¸° í¬ê¸° : " + cap + "\të¬¸ìì—´ ìˆ˜ : " + sb1.length());
 		sb1.append("java");
 		System.out.println("2. sb1 == " + sb1);
 		sb1.append(" !!!!!");
 		System.out.println("3. sb1 == " + sb1);
 		cap = sb1.capacity();
-		System.out.println("Å©±â : " + cap + "\t¹®ÀÚ¿­ ¼ö : " + sb1.length());
+		System.out.println("í¬ê¸° : " + cap + "\të¬¸ìì—´ ìˆ˜ : " + sb1.length());
 		sb1.append(" !!!!!!");
 		System.out.println("4. sb1 == " + sb1);
 		cap = sb1.capacity();
-		System.out.println("Å©±â : " + cap + "\t¹®ÀÚ¿­ ¼ö : " + sb1.length());
+		System.out.println("í¬ê¸° : " + cap + "\të¬¸ìì—´ ìˆ˜ : " + sb1.length());
 
 		sb1.insert(10, "@@@");
 		System.out.println("5. sb1 == " + sb1);
@@ -27,7 +27,7 @@ public class StringBufferTest1 {
 		sb1.deleteCharAt(10);
 		System.out.println("7. sb1 == " + sb1);
 		
-		sb1.replace(6, 10, "ÀÚ¹Ù");
+		sb1.replace(6, 10, "ìë°”");
 		System.out.println("8. sb1 == " + sb1);
 		
 		sb1.reverse();
@@ -40,9 +40,9 @@ public class StringBufferTest1 {
 		String s1 = new String(sb1);
 		String s2 = sb1.toString();
 		
-		String str = "hello ÀÚ¹Ù !!!";
-		String findStr = "ÀÚ¹Ù";
-//		String findStr = "¿À¶óÅ¬";
+		String str = "hello ìë°” !!!";
+		String findStr = "ìë°”";
+//		String findStr = "ì˜¤ë¼í´";
 		String replaceStr = "java";
 		
 		int start = str.indexOf(findStr);
@@ -53,7 +53,7 @@ public class StringBufferTest1 {
 			sb.replace(start, end, replaceStr);
 			System.out.println(sb.toString());
 		} else {
-			System.out.println(findStr + "Àº ¾ø½À´Ï´Ù.");
+			System.out.println(findStr + "ì€ ì—†ìŠµë‹ˆë‹¤.");
 		}
 //		hello java !!!
 		

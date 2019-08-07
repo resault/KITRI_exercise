@@ -7,30 +7,30 @@ public class StringTest4 {
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		String str = "abcdef";
 		
-		// 6) 	getBytes() : ¹®ÀÚ¸¦ byte ¹è¿­·Î º¯È¯
+		// 6) 	getBytes() : ë¬¸ìë¥¼ byte ë°°ì—´ë¡œ ë³€í™˜
 		byte[] b = str.getBytes();
 		int len = b.length;
 		for (int i = 0; i < len; i++) {
 			System.out.println("b["+i+"] == " + b[i]);
 		}
 		
-//		String str2 = "¾È³çÇÏ¼¼¿ä.";
-//		byte[] b2 = str2.getBytes(); // default´Â ¿î¿µÃ¼Á¦ÀÇ charset
+//		String str2 = "ì•ˆë…•í•˜ì„¸ìš”.";
+//		byte[] b2 = str2.getBytes(); // defaultëŠ” ìš´ì˜ì²´ì œì˜ charset
 //		int len2 = b2.length;
 //		for (int i = 0; i < len2; i++) {
-//			System.out.println("b2["+i+"] == " + b2[i]);	//2byte·Î ÂÉ°³Áü
+//			System.out.println("b2["+i+"] == " + b2[i]);	//2byteë¡œ ìª¼ê°œì§
 //		}
 		
-		// 7) getBytes(String charsetName) : ex. win949¸¦ utf-8·Î		(* win949´Â euc-kr°ú °°À½) 
-		String str2 = "¾È³çÇÏ¼¼¿ä.";
+		// 7) getBytes(String charsetName) : ex. win949ë¥¼ utf-8ë¡œ		(* win949ëŠ” euc-krê³¼ ê°™ìŒ) 
+		String str2 = "ì•ˆë…•í•˜ì„¸ìš”.";
 		byte[] b2 = str2.getBytes("utf-8");
-		int len2 = b2.length; //¹è¿­ÀÇ length´Â Å°¿öµå
+		int len2 = b2.length; //ë°°ì—´ì˜ lengthëŠ” í‚¤ì›Œë“œ
 		for (int i = 0; i < len2; i++) {
-			System.out.println("b2["+i+"] == " + b2[i]); // 3byte·Î ÂÉ°³Áü
+			System.out.println("b2["+i+"] == " + b2[i]); // 3byteë¡œ ìª¼ê°œì§
 		}
 
 		// 8) 	toCharArray()
-		len2 = str2.length(); //StringÀÇ length´Â method
+		len2 = str2.length(); //Stringì˜ lengthëŠ” method
 		char[] c = str2.toCharArray();
 		for (int i = 0; i < len2; i++) {
 			System.out.println("c["+ i +"] == " + c[i]); 

@@ -5,39 +5,39 @@ import java.io.UnsupportedEncodingException;
 public class StringTest2 {
 	
 	public static void main(String[] args) throws UnsupportedEncodingException {
-//		String str = null; //heap¿¡ ¿Ã¶ó°¡Áö ¾ÊÀº »óÅÂ
+//		String str = null; //heapì— ì˜¬ë¼ê°€ì§€ ì•Šì€ ìƒíƒœ
 
 		//1. String Class constructor
 		
 		
-		//1) ÀÎÀÚ°ª¾øÀÌ >> String() »ı¼ºÀÚ : ºñ¾îÀÖ´Â ¹®ÀÚ¿­
-//		String str = null;// heap¿¡ ¿Ã¶ó°¡Áö ¾ÊÀº »óÅÂ
-//		System.out.println("¹®ÀÚ¿­ ±æÀÌ : " + str.length());//NullPoint Exception ¹ß»ı
-		String str = new String(); //heap¿¡ ¿Ã¶ó°¬Áö¸¸, °ªÀÌ ""
-		System.out.println("¹®ÀÚ¿­ ±æÀÌ : " + str.length());//0
+		//1) ì¸ìê°’ì—†ì´ >> String() ìƒì„±ì : ë¹„ì–´ìˆëŠ” ë¬¸ìì—´
+//		String str = null;// heapì— ì˜¬ë¼ê°€ì§€ ì•Šì€ ìƒíƒœ
+//		System.out.println("ë¬¸ìì—´ ê¸¸ì´ : " + str.length());//NullPoint Exception ë°œìƒ
+		String str = new String(); //heapì— ì˜¬ë¼ê°”ì§€ë§Œ, ê°’ì´ ""
+		System.out.println("ë¬¸ìì—´ ê¸¸ì´ : " + str.length());//0
 
-		//2) byteÀÇ ¹è¿­À» ÀÎÀÚ°ªÀ¸·Î >> String(byte[] bytes) : ¾Æ½ºÅ° ÄÚµå°ª
+		//2) byteì˜ ë°°ì—´ì„ ì¸ìê°’ìœ¼ë¡œ >> String(byte[] bytes) : ì•„ìŠ¤í‚¤ ì½”ë“œê°’
 //		byte[] b = {97, 98, 99, 100};
 //		String str2 = new String(b);
 //		System.out.println("str2 == " + str2); //abcd
 		
 		
-		//3) charsetName >> String(byte[] bytes, String charsetName) // String(byte[] bytes, Charset charset)ÀÌ°Å¶û ºñ±³ È®ÀÎ!!
+		//3) charsetName >> String(byte[] bytes, String charsetName) // String(byte[] bytes, Charset charset)ì´ê±°ë‘ ë¹„êµ í™•ì¸!!
 		
-			//(1) ¿Ï¼ºÇü ÇÑ±Û : 2byte
-		byte[] b = {-66, -56, -77, -25, -57, -49, -68, -68, -65, -28, 46};//2byte·Î ÂÉ°·
-//		byte[] b = {46, 48, 65, 97}; // . 0 A a ¾Ï±âÇÒ°Í!!
+			//(1) ì™„ì„±í˜• í•œê¸€ : 2byte
+		byte[] b = {-66, -56, -77, -25, -57, -49, -68, -68, -65, -28, 46};//2byteë¡œ ìª¼ê°¬
+//		byte[] b = {46, 48, 65, 97}; // . 0 A a ì•”ê¸°í• ê²ƒ!!
 //		String str2 = new String(b, "euc-kr");
-		String str2 = new String(b);//default´Â "euc-kr
-		System.out.println("str2 == " + str2); //¾È³çÇÏ¼¼¿ä.
+		String str2 = new String(b);//defaultëŠ” "euc-kr
+		System.out.println("str2 == " + str2); //ì•ˆë…•í•˜ì„¸ìš”.
 		
-			//(2) ÇÑ±ÛÀÌ ±úÁú¶§?! >> utf-8
-		byte[] b2 = {-20, -107, -120, -21, -123, -107, -19, -107, -104, -20, -124, -72, -20, -102, -108, 46};//(utf-8) 3byte·Î ÂÉ°·
-		String str3 = new String(b2, "utf-8");//utf-8: Àü¼¼°è ¸ğµç ±ÛÀÚ¸¦ 3byte·Î Ã³¸®ÇÔ(±ÛÀÚ¸¦ ±×·Á³¿)
-		System.out.println("str3 == " + str3);//¾È³çÇÏ¼¼¿ä.
+			//(2) í•œê¸€ì´ ê¹¨ì§ˆë•Œ?! >> utf-8
+		byte[] b2 = {-20, -107, -120, -21, -123, -107, -19, -107, -104, -20, -124, -72, -20, -102, -108, 46};//(utf-8) 3byteë¡œ ìª¼ê°¬
+		String str3 = new String(b2, "utf-8");//utf-8: ì „ì„¸ê³„ ëª¨ë“  ê¸€ìë¥¼ 3byteë¡œ ì²˜ë¦¬í•¨(ê¸€ìë¥¼ ê·¸ë ¤ëƒ„)
+		System.out.println("str3 == " + str3);//ì•ˆë…•í•˜ì„¸ìš”.
 	
 		
-		//4) ¹®ÀÚ¿­ ÂÉ°³±â >> String(byte[] bytes, int offset, int length) offset ºÎÅÍ length°³
+		//4) ë¬¸ìì—´ ìª¼ê°œê¸° >> String(byte[] bytes, int offset, int length) offset ë¶€í„° lengthê°œ
 		byte[] b3 = {97, 98, 99, 100, 101, 102, 103, 104};
 		String str4 = new String(b3, 2, 4);
 		System.out.println("str4 == " + str4);//cdef
@@ -47,19 +47,19 @@ public class StringTest2 {
 		//6) String(byte[] bytes, int offset, int length, String charsetName)
 		
 		
-		//ÇÑ±Û µîÀº ±úÁú ¼ö ÀÖÀ¸¹Ç·Î byte º¸´Ù´Â char!
+		//í•œê¸€ ë“±ì€ ê¹¨ì§ˆ ìˆ˜ ìˆìœ¼ë¯€ë¡œ byte ë³´ë‹¤ëŠ” char!
 		
-		//7) String(char[] value, int offset, int count) // length°¡ ¾Æ´Ï¶ó count!
+		//7) String(char[] value, int offset, int count) // lengthê°€ ì•„ë‹ˆë¼ count!
 //		char[] c = {'a', 'b', 'c', 'd', 'e','f'};
 //		String str5 = new String(c);
 //		System.out.println("str5 == " + str5);
 		
-		char[] c = {'¾È', '³ç', 'ÇÏ', '¼¼', '¿ä','.'};
-		String str6 = new String(c, 2, 4); //ÇÑ±ÛÀº 2¹ÙÀÌÆ® ¾¿ÀÌ¹Ç·Î, length¸é ÀÏÀÏÈ÷ °è»êÇØ¾ß ÇÔ. ±Ùµ¥ count´Ï±î °Á ±ÛÀÚ¼ö ¤¡¤¡
+		char[] c = {'ì•ˆ', 'ë…•', 'í•˜', 'ì„¸', 'ìš”','.'};
+		String str6 = new String(c, 2, 4); //í•œê¸€ì€ 2ë°”ì´íŠ¸ ì”©ì´ë¯€ë¡œ, lengthë©´ ì¼ì¼íˆ ê³„ì‚°í•´ì•¼ í•¨. ê·¼ë° countë‹ˆê¹Œ ê± ê¸€ììˆ˜ ã„±ã„±
 		System.out.println("str6 == " + str6);
 		
-		//8) String(String original) : ¸®ÅÍ·² ¹æ½ÄÀÇ ¹®ÀÚ¿­
-		String x = "¾È³çÇÏ¼¼¿ä.";
+		//8) String(String original) : ë¦¬í„°ëŸ´ ë°©ì‹ì˜ ë¬¸ìì—´
+		String x = "ì•ˆë…•í•˜ì„¸ìš”.";
 		System.out.println("x == " + x);
 		
 		

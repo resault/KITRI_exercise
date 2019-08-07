@@ -4,7 +4,7 @@ public class ReverseTest {
 
 	public static void main(String[] args) {
 //		String str = "!!! avaJ olleH";
-		String str = "!!! ¹ÙÀÚ ³ç¾È";
+		String str = "!!! ë°”ì ë…•ì•ˆ";
 //		Hello Java !!!
 		String result = "";
 		int len = str.length();
@@ -13,8 +13,8 @@ public class ReverseTest {
 			result += str.charAt(i);
 		}
 		
-//		e´Â 2¹øÂ°ÀÖ½À´Ï´Ù.
-		System.out.println("\ne´Â " + (result.indexOf('e') + 1) + "¹øÂ°ÀÖ½À´Ï´Ù.");
+//		eëŠ” 2ë²ˆì§¸ìˆìŠµë‹ˆë‹¤.
+		System.out.println("\neëŠ” " + (result.indexOf('e') + 1) + "ë²ˆì§¸ìˆìŠµë‹ˆë‹¤.");
 		
 		
 		byte b1[] = str.getBytes();
@@ -26,7 +26,7 @@ public class ReverseTest {
 		}
 		result = new String(b2);
 		System.out.println(result);
-		System.out.println("e´Â " + (result.indexOf('e') + 1) + "¹øÂ°ÀÖ½À´Ï´Ù.");
+		System.out.println("eëŠ” " + (result.indexOf('e') + 1) + "ë²ˆì§¸ìˆìŠµë‹ˆë‹¤.");
 		
 		char c1[] = str.toCharArray();
 		len = c1.length;
@@ -37,7 +37,7 @@ public class ReverseTest {
 		}
 		result = new String(c2);
 		System.out.println(result);
-		System.out.println("e´Â " + (result.indexOf('e') + 1) + "¹øÂ°ÀÖ½À´Ï´Ù.");
+		System.out.println("eëŠ” " + (result.indexOf('e') + 1) + "ë²ˆì§¸ìˆìŠµë‹ˆë‹¤.");
 		
 		
 		StringBuffer sb = new StringBuffer(str);
